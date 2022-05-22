@@ -13,3 +13,8 @@ Added Stove Assets
 Added Background Assets from Itch.io
 Made first scene with grass BG and Stove foreground.
 - Kevin (2 hours)
+
+Added Food sprites from Itch.io
+Created Wisp and FryingPan sprites
+Figured out sorting layers
+-Kevin (2 hours)
