@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Stove
+    uniqueID: 119021113
+    locked: 0
+  - name: Background
+    uniqueID: 3193115017
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
