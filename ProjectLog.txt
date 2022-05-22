@@ -1,0 +1,11 @@
+17/5: 
+
+Established the GitHub repo for Cavern Chef (30 min)
+
+20/5:
+
+Searched for assets to use on Itch.io (1h)
+
+22/5:
+
+Finally figured out how to push Unity Project to GitHub.
