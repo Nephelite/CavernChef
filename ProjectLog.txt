@@ -11,5 +11,5 @@ Searched for assets to use on Itch.io (1h)
 Finally figured out how to push Unity Project to GitHub.
 Added Stove Assets
 Added Background Assets from Itch.io
-Made first scene
+Made first scene with grass BG and Stove foreground.
 - Kevin (2 hours)
