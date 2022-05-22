@@ -9,3 +9,7 @@ Searched for assets to use on Itch.io (1h)
 22/5:
 
 Finally figured out how to push Unity Project to GitHub.
+Added Stove Assets
+Added Background Assets from Itch.io
+Made first scene
+- Kevin (2 hours)
