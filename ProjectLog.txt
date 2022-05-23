@@ -17,4 +17,14 @@ Made first scene with grass BG and Stove foreground.
 Added Food sprites from Itch.io
 Created Wisp and FryingPan sprites
 Figured out sorting layers
--Kevin (2 hours)
+-Kevin (2-3 hours)
+
+23/5:
+
+Added a lot of prefabs
+Adjusted the tilemaps to ensure grid generation is correctly alligned
+Created a basic grid generator
+Searched online for enemy pathing tutorials 
+(Found mostly waypoint-based, useful for the tech demo but might not be
+for the final product)
+- Kevin (4 hours)
