@@ -28,3 +28,9 @@ Searched online for enemy pathing tutorials
 (Found mostly waypoint-based, useful for the tech demo but might not be
 for the final product)
 - Kevin (4 hours)
+
+24/5:
+
+Made path generation scripts, accounting for future features like
+path randomisations. Currently predetermined for the sake of the demo.
+- Kevin (3 hours)
