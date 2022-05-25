@@ -34,3 +34,15 @@ for the final product)
 Made path generation scripts, accounting for future features like
 path randomisations. Currently predetermined for the sake of the demo.
 - Kevin (3 hours)
+
+25/5:
+
+Implemented a basic UI with the following features:
+-Text to display the amount of Repel Points (RP) left for use.
+(RP is the economy for this game)
+-Vertical scroll box with 1 temporary econ tower that can be selected.
+- Kevin (4 hours)
+
+Also:
+Implemented tower placement after selecting it from the vertical scroll box.
+- Kevin (3 hours)
