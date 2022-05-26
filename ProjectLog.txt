@@ -46,3 +46,11 @@ Implemented a basic UI with the following features:
 Also:
 Implemented tower placement after selecting it from the vertical scroll box.
 - Kevin (3 hours)
+
+
+26/5:
+Tried to implement the wisps.
+Added some scripts and set up the waypoints and make the wisps follow them.
+Currently the wisp does not move and there is an unknown render texture error that
+keeps appearing now. Will try to fix tomorrow
+- Bryce (2 hrs)

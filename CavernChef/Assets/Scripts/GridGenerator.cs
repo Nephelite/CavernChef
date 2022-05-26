@@ -8,6 +8,8 @@ public class GridGenerator : MonoBehaviour
 
     public GameObject enemyTile;
 
+    // public GameObject WayPointTemplate;
+
     public List<GameObject> enemySpawn; //Demo version only has 1 point
 
     public List<GameObject> foodPoint; //Demo version only has 1 point

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8176188707680438538}
   - component: {fileID: 8176188707680438539}
   - component: {fileID: 6876705477569552222}
+  - component: {fileID: 4678885298562856891}
   m_Layer: 0
   m_Name: WispV1
   m_TagString: Untagged
@@ -101,3 +102,18 @@ CircleCollider2D:
   m_Offset: {x: 0.013429865, y: -0.057038534}
   serializedVersion: 2
   m_Radius: 0.09336866
+--- !u!114 &4678885298562856891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176188707680438536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776b47fb88439416490c3eef7c5b2ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 10
+  waypoints: []
+  speed: 7
