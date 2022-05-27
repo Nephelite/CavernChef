@@ -11,7 +11,8 @@ public class WayPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(testEnemyPrefab).GetComponent<Wispy>().waypoints = waypoints;
+        Vector2 start = new Vector2(0,0);
+        Instantiate(testEnemyPrefab, start, Quaternion.identity).GetComponent<Wispy>().waypoints = waypoints;
     }
 
     // Update is called once per frame
