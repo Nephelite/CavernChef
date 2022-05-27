@@ -29,6 +29,7 @@ public class RPScript : MonoBehaviour
         rpText.text = "RP: " + GlobalVariables.repelPoints;
 
         //Temporary for testing points
+        /*
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             increaseRP(100);
@@ -38,5 +39,6 @@ public class RPScript : MonoBehaviour
         {
             decreaseRP(100);
         }
+        */
     }
 }

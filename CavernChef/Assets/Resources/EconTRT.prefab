@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2685045957944672610}
   - component: {fileID: 5531093350851139265}
+  - component: {fileID: -5093693166780284680}
   m_Layer: 9
   m_Name: EconTRT
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &-5093693166780284680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422623277152842013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436a14b030f1af84f942e7e100b1ec3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 100
+  cost: 100
+  cycleDuration: 10

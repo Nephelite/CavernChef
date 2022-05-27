@@ -54,3 +54,8 @@ Added some scripts and set up the waypoints and make the wisps follow them.
 Currently the wisp does not move and there is an unknown render texture error that
 keeps appearing now. Will try to fix tomorrow
 - Bryce (2 hrs)
+
+
+27/5:
+Added working Econ TRTs.
+- Kevin (1 hour)
