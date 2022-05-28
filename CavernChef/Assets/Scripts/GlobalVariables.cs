@@ -10,6 +10,8 @@ public class GlobalVariables : MonoBehaviour
     public static List<GameObject> Grid = new List<GameObject>();
     public static List<GameObject> enemyList = new List<GameObject>();
 
+
+
     void Update() 
     {
         if (enemyList.Count > 0 && enemyList[0] == null)

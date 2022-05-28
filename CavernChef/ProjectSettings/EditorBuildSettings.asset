@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e6872b71df5f3a0479652190b3023cf8
   - enabled: 1
+    path: Assets/Scenes/FoodSelect.unity
+    guid: aa6cd72295a5c604e9125ecdb79e272d
+  - enabled: 1
     path: Assets/Scenes/TDGrassLands.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

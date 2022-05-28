@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3626264442001632425}
   - component: {fileID: 3626264442001632424}
   - component: {fileID: 7037613979638239456}
-  m_Layer: 0
-  m_Name: Bacon
-  m_TagString: Untagged
+  m_Layer: 7
+  m_Name: Waffles
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b9e159b363a1ff4f8982693963e393d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75e326bdba62c254f8d83aa93d2f2964, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

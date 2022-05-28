@@ -62,7 +62,7 @@ Added working Econ TRTs.
 
 Implementedd enemy spawning.
 Implemented enemy waves. Needs bugfixing.
-- Bryce (? hours)
+- Bryce (4.5 hours)
 
 28/5:
 Fixed enemy waves.
@@ -71,4 +71,8 @@ Fixed enemy waves.
 Implemented Basic Offense TRTs, and implemented a targetting system using a global enemy list.
 Note: replace w Priority Queue eventually, priority based on distance to objectives.
 Currrently no range system implemented. Future feature.
-- Kevin (4 hours)
+- Kevin (4 hours, started from 27/5)
+
+Implemented a basic Main Menu and a Food Selection scene before the Tower Defense mode.
+Textures to be replaced eventually, further down the line.
+- Kevin (5 hours, most of the time spent on fiddling with screen sizes before eventually giving up)
