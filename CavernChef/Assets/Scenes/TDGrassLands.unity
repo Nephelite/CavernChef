@@ -980,7 +980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -424.88235}
+  m_AnchoredPosition: {x: 0, y: -425.23593}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068454458
@@ -18221,6 +18221,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: nWaves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: waypoints
+      value: 
+      objectReference: {fileID: 510334355}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: waves.Array.size
       value: 1

@@ -59,3 +59,11 @@ keeps appearing now. Will try to fix tomorrow
 27/5:
 Added working Econ TRTs.
 - Kevin (1 hour)
+
+Implementedd enemy spawning.
+Implemented enemy waves. Needs bugfixing.
+- Bryce (? hours)
+
+28/5:
+Fixed enemy waves.
+- Kevin (30 mins)

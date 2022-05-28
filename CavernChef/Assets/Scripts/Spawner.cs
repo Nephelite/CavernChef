@@ -62,14 +62,16 @@ public class Spawner : MonoBehaviour
     // private WaveManager waveManager;   // Holds relevant wave related info
 
     // Array of the enemies
-    public GameObject[] enemyList;   // SET THIS IN UNITY
+    public List<GameObject> enemyList;   // SET THIS IN UNITY
+
+    public WayPoints waypoints; //FIX NUMBER 1
 
     // Time between waves
     public int tBetWaves = 5;
     // Last spawn time
     private float tLastSpawn;
     // Number of waves done so far
-    public int nWaves = 0;
+    public int nWaves; //FIX NUMBER 4, changed in the inspector to 1
 
     // Information on what waves will be spawned
     public Wave[] waves = new Wave[1];   // MANUALLY SET THIS HERE (or in start() ig)
@@ -108,6 +110,7 @@ public class Spawner : MonoBehaviour
                 tLastSpawn = Time.time;
                 // Make a new instance of the specified enemy type for the wave
                 GameObject newEnemy = (GameObject) Instantiate(enemyList[currWave.enemyInd]);
+                newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2
                 // Toss the enemy into `aEnemies` for access
                 currWave.aEnemies[currWave.enemySpawned] = newEnemy;
                 // ???
@@ -134,3 +137,4 @@ public class Spawner : MonoBehaviour
         }
     }
 }
+//FIX NUMBER 3: Assigned Fix 1 to the WayPoints GameObject in the hierarchy
