@@ -60,9 +60,10 @@ keeps appearing now. Will try to fix tomorrow
 Added working Econ TRTs.
 - Kevin (1 hour)
 
-Implementedd enemy spawning.
+Quickly fixed the issue from yesterday with Kevin's help (Prefabs were missing in the Inspector for one of the scripts). 
+Implemented enemy spawning. 
 Implemented enemy waves. Needs bugfixing.
-- Bryce (? hours)
+- Bryce (4.5 hours)
 
 28/5:
 Fixed enemy waves.
