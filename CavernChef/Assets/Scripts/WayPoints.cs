@@ -12,7 +12,8 @@ public class WayPoints : MonoBehaviour
     void Start()
     {
         Vector2 start = new Vector2(0,0);
-        Instantiate(testEnemyPrefab, start, Quaternion.identity).GetComponent<Wispy>().waypoints = waypoints;
+        //Use the line below to test enemy spawn and movement (Towers will not target this enemy)
+        //Instantiate(testEnemyPrefab, start, Quaternion.identity).GetComponent<Wispy>().waypoints = waypoints;
     }
 
     // Update is called once per frame

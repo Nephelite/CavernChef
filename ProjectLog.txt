@@ -67,3 +67,8 @@ Implemented enemy waves. Needs bugfixing.
 28/5:
 Fixed enemy waves.
 - Kevin (30 mins)
+
+Implemented Basic Offense TRTs, and implemented a targetting system using a global enemy list.
+Note: replace w Priority Queue eventually, priority based on distance to objectives.
+Currrently no range system implemented. Future feature.
+- Kevin (4 hours)

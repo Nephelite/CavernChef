@@ -62,7 +62,7 @@ public class Spawner : MonoBehaviour
     // private WaveManager waveManager;   // Holds relevant wave related info
 
     // Array of the enemies
-    public List<GameObject> enemyList;   // SET THIS IN UNITY
+    public List<GameObject> enemyList = new List<GameObject>();   // SET THIS IN UNITY
 
     public WayPoints waypoints; //FIX NUMBER 1
 
@@ -116,6 +116,7 @@ public class Spawner : MonoBehaviour
                 // ???
                 // newEnemy.GetComponent<Wispy>().waypoints = waypoints;
                 // Update the number of enemies spawned
+                GlobalVariables.enemyList.Add(newEnemy);
                 currWave.enemySpawned++;
             }
 
@@ -130,6 +131,7 @@ public class Spawner : MonoBehaviour
                 // enemiesSpawned = 0;          // Reset enemy spawn count
                 tLastSpawn = Time.time;   // Reset last spawn time
             }
+
         }
         else   // Done with all waves
         {

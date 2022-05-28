@@ -8,7 +8,15 @@ public class GlobalVariables : MonoBehaviour
     public static int repelPoints;
     public static GameObject selectedTrt;
     public static List<GameObject> Grid = new List<GameObject>();
+    public static List<GameObject> enemyList = new List<GameObject>();
 
+    void Update() 
+    {
+        if (enemyList.Count > 0 && enemyList[0] == null)
+        {
+            enemyList.RemoveAt(0);
+        }
+    }
     /*
     void Update()
     {
