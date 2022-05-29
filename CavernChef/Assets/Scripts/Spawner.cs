@@ -77,6 +77,10 @@ public class Spawner : MonoBehaviour
     public Wave[] waves = new Wave[1];   // MANUALLY SET THIS HERE (or in start() ig)
     // Wait I can't set this in here due to how classes work, SET THIS IN start()
 
+    // List of all possible spawning points
+    // NOTE: This is 0-indexed
+    public List<int[]> spawnPoints = new List<int[]>(1);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +88,10 @@ public class Spawner : MonoBehaviour
         waves[0] = new Wave(0, 2.0f, 20);
         tLastSpawn = Time.time;
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
+
+        //Set up all possible starting points
+        spawnPoints[0] = new int[] {0,11};
+        // Maybe this shud just be a field stored within Waves idk
     }
 
     // Update is called once per frame
@@ -109,8 +117,11 @@ public class Spawner : MonoBehaviour
                 // Update last spawn time
                 tLastSpawn = Time.time;
                 // Make a new instance of the specified enemy type for the wave
-                GameObject newEnemy = (GameObject) Instantiate(enemyList[currWave.enemyInd]);
+                GameObject newEnemy = (GameObject) Instantiate(enemyList[currWave.enemyInd], 
+                    gameObject.transform.position, Quaternion.identity);
                 newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2
+                // Set the parent of the enemy in the hierarchy to be the Spawner
+                newEnemy.transform.SetParent(this.transform);
                 // Toss the enemy into `aEnemies` for access
                 currWave.aEnemies[currWave.enemySpawned] = newEnemy;
                 // ???

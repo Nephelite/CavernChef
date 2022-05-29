@@ -77,3 +77,11 @@ Currrently no range system implemented. Future feature.
 Implemented a basic Main Menu and a Food Selection scene before the Tower Defense mode.
 Textures to be replaced eventually, further down the line.
 - Kevin (5 hours, most of the time spent on fiddling with screen sizes before eventually giving up)
+
+
+
+29/5:
+Made a bullet sprite for the basic turret.
+Implemented basic turret firing bullets.
+Implemented tracking, dmg, and killing effect of basic bullets.
+- Bryce (6.5 hrs, 1 hr from yesterday)
