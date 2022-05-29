@@ -7,7 +7,7 @@ public class SelectBasicOffense : MonoBehaviour
     public int cost;
     public void select()
     {
-        if (GlobalVariables.repelPoints > cost) 
+        if (GlobalVariables.repelPoints >= cost) 
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("TRTBasicOffense");
         }

@@ -85,3 +85,8 @@ Made a bullet sprite for the basic turret.
 Implemented basic turret firing bullets.
 Implemented tracking, dmg, and killing effect of basic bullets.
 - Bryce (6.5 hrs, 1 hr from yesterday)
+
+Added the exit game functionalities.
+Also added the exit game functionalities to the Tower Defense mode, as a means of ending the demo version being submitted for Milestone 1.
+Fixed some bugs with the bullet travel, and other miscellaneous bugs.
+-Kevin (1 hour)

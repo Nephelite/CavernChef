@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 100
   atkVal: 2
-  BasicBullet: {fileID: 528545379504691185, guid: ac524ff1256e14f5db31128c71731699, type: 3}
-  tBetAtks: 2
+  BasicBullet: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  tBetAtks: 5
   countdown: 0
 --- !u!114 &-2688862492152122194
 MonoBehaviour:

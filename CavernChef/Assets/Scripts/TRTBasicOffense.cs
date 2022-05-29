@@ -70,7 +70,7 @@ public class TRTBasicOffense : TRT
             else   // Ready to fire
             {
                 // Fire a bullet and reset countdown
-                Instantiate(BasicBullet, (Vector2) gameObject.transform.position, Quaternion.identity);
+                GameObject bullet = Instantiate(BasicBullet, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
                 countdown = tBetAtks;
             }
         }

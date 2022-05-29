@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EconSelect : MonoBehaviour
 {
+    public int cost;
     public void select()
     {
-        GlobalVariables.selectedTrt = (GameObject)Resources.Load("EconTRT");
+        if (GlobalVariables.repelPoints >= cost)
+        {
+            GlobalVariables.selectedTrt = (GameObject)Resources.Load("EconTRT");
+        }
+        // else text shows not enough RP to be implemented
     }
 }

@@ -90,7 +90,7 @@ public class Spawner : MonoBehaviour
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
 
         //Set up all possible starting points
-        spawnPoints[0] = new int[] {0,11};
+        //spawnPoints[0] = new int[] {0,11};
         // Maybe this shud just be a field stored within Waves idk
     }
 
