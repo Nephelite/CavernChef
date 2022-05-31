@@ -31,7 +31,7 @@ public class GridGenerator : MonoBehaviour
                 validEnemyTiles.Add(block);
             }
         }
-        Path pathGeneration = new Path(enemySpawn, foodPoint, gridSizeX, gridSizeY);
+        Path pathGeneration = new Path(enemySpawn, foodPoint, gridSizeX, gridSizeY, 10);
         pathGeneration.GeneratePath();
 
         List<GameObject> actualGrid = new List<GameObject>();
