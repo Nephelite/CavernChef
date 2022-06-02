@@ -91,7 +91,16 @@ Also added the exit game functionalities to the Tower Defense mode, as a means o
 Fixed some bugs with the bullet travel, and other miscellaneous bugs.
 -Kevin (1 hour)
 
-31/5
+31/5:
 Created an algorithm that can easily generate an SSSP algorithm from our current needs.
 Plannedd to be evolved into a psuedd-random path generator.
 -Kevin (3 hours)
+
+1/6 - 2/6:
+Created the randomised path generation algorithm.
+Bugs created: 
+1. Creates dead ends
+2. Intersecting paths are possible, esp with longer path generations
+Possibly problematic if there are more than 1 spawn point, but not a concern for now
+- Kevin (6 hours collectively across 1st and 2nd June)
+
