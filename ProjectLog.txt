@@ -104,3 +104,7 @@ Bugs created:
 Possibly problematic if there are more than 1 spawn point, but not a concern for now
 - Kevin (6 hours collectively across 1st and 2nd June)
 
+2/6 - 4/6:
+Created `EnemyList` class as a custom priority queue for tracking enemies in each wave to eventually replace the current array.
+Created abstract class `Enemy` to eventually superclass Wispy.
+- Bryce (5.5 hrs total, June 2 0.5 hrs + June 3 1.5 hrs + June 4 3.5 hrs)
