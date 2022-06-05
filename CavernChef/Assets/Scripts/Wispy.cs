@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wispy : MonoBehaviour
 {
     /* Wispy Properties */
-    public static float wispSpeed = 5.0f;   // Wispy fast
+    public static float speed = 5.0f;   // Wispy fast
     // Currently a float in case fractional dmg is a thing ig
     public float hp = 10.0f;   // Wispy fragile
 
@@ -14,7 +14,7 @@ public class Wispy : MonoBehaviour
     public List<GameObject> waypoints;
     private int currentWaypoint = 0;
     private float lastWaypointSwitchTime;
-    public float speed = wispSpeed;
+    //public float speed = wispSpeed;
 
 
     // Start is called before the first frame update
