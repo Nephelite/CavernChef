@@ -11,7 +11,7 @@ public class Wispy : MonoBehaviour
 
     /* Wispy Movement */
     // [HideInInspector]
-    public GameObject[] waypoints;
+    public List<GameObject> waypoints;
     private int currentWaypoint = 0;
     private float lastWaypointSwitchTime;
     public float speed = wispSpeed;
@@ -47,7 +47,7 @@ public class Wispy : MonoBehaviour
         // 3 
         if (gameObject.transform.position.Equals(endPosition))   // Reached next waypt
         {
-            if (currentWaypoint < waypoints.Length - 2)  //Not yet at the end
+            if (currentWaypoint < waypoints.Count - 2)  //Not yet at the end
             {
                 // 3.a 
                 currentWaypoint++;                    // Next segment

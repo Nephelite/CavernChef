@@ -528,6 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510334356}
   - component: {fileID: 510334355}
+  - component: {fileID: 510334357}
   m_Layer: 0
   m_Name: WayPoints
   m_TagString: Untagged
@@ -572,6 +573,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &510334357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510334354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c80b9716e85c7499dcdf28d9b67c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointPrefab: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -424.697}
+  m_AnchoredPosition: {x: 0, y: -424.79657}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068454458
@@ -17675,6 +17689,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb86728fce2aab46b5090e6e70e96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawns:
+  - {fileID: 1079997122}
+  foodPoints:
+  - {fileID: 1782290411}
 --- !u!4 &1906202479
 Transform:
   m_ObjectHideFlags: 0
@@ -20489,12 +20507,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: foodPoint
+      value: 
+      objectReference: {fileID: 1782290411}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: waypoints
       value: 
       objectReference: {fileID: 510334355}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: waypointPrefab
+      value: 
+      objectReference: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: offsetFromGridX
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: offsetFromGridY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: waves.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: foodOffsetFromGridX
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: foodOffsetFromGridY
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: enemyList.Array.size

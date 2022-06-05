@@ -15,7 +15,9 @@ public class GlobalVariables : MonoBehaviour
     */
     public static List<GameObject> enemyList = new List<GameObject>();
 
-    
+    //For pathfinding purposes in the future
+    public List<GameObject> enemySpawns = new List<GameObject>();
+    public List<GameObject> foodPoints = new List<GameObject>();
 
 
 

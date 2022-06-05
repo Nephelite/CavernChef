@@ -50,5 +50,6 @@ public class GridGenerator : MonoBehaviour
                 actualGrid.Add(validEnemyTiles[i]);
             }
         }
+        validEnemyTiles = actualGrid;
     }
 }

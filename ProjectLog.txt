@@ -104,3 +104,7 @@ Bugs created:
 Possibly problematic if there are more than 1 spawn point, but not a concern for now
 - Kevin (6 hours collectively across 1st and 2nd June)
 
+4/6 - 5/6:
+Created a fully functional enemy pathfinding script using A*.
+Note: The code is a commented code block meant to be copied into objects using the algorithm.
+- Kevin (12 hours collectively across 4th and 5th June)
