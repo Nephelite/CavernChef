@@ -49,23 +49,45 @@ abstract class AtkTower extends MonoBehaviour
 
 public abstract class Enemy : MonoBehaviour
 {
-    // Speed for each enemy type is consistent
-    public static float speed;
-    // Hp is per instance
+    public float speed;
     public float hp;
-    // All enemies probably have the same waypoints
-    public static GameObject[] waypoints;
-    // Basically how close it is to the food; lower val -> higher prio for turrets
+    public float dmg;   // Dmg dealt to food when in contact
+    // Basically how far it is from the start; higher val -> higher prio for turrets
     public float priority;
+    // Change of plans, this is how far it is from the food and a higher value means 
+    // it should be targetted first
+    // Measured by raw speed * number of frames
+
+    // Unit distance between tiles cause I'm confused with how speed works
+    public float unitDist;
+    // Number of tiles traversed per frame
+    public float tilesPerFrame;
+    public float tileUnitsTraversed;
+
+    // All enemies probably have the same waypoints
+    public List<GameObject> waypoints; // = Spawner.waypointList;
+    // 
 
     // SET IN UNITY; used so that a reference to the waypoint prefab exists
 
+    // "public virtual void" so that it can be called in child classes through
+    //     base.Start()
+    public virtual void Start()
+    {
+        // Initialize the 4 latter fields; to be called in each individual enemy's code too
+        waypoints = Spawner.waypointList;
+        Vector2 pos0 = waypoints[0].transform.position;
+        Vector2 pos1 = waypoints[1].transform.position;
+        unitDist = Vector2.Distance(pos0, pos1);
+        tilesPerFrame = speed/unitDist;
+        tileUnitsTraversed = 0;
+    }
 
-
+    /*
     // Start is called before the first frame update
     void Start()
     {
-        
+        // waypoints = 
     }
 
     // Update is called once per frame
@@ -73,4 +95,5 @@ public abstract class Enemy : MonoBehaviour
     {
         
     }
+    */
 }

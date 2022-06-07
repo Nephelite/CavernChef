@@ -82,7 +82,7 @@ public class Spawner : MonoBehaviour
     // NOTE: This is 0-indexed
     public List<int[]> spawnPoints = new List<int[]>(1);
 
-    public List<GameObject> waypointList;
+    public static List<GameObject> waypointList = new List<GameObject>();  // MADE STATIC NOW
     public GameObject foodPoint, waypointPrefab;
     public float offsetFromGridX, offsetFromGridY, foodOffsetFromGridX, foodOffsetFromGridY;
 
@@ -138,7 +138,7 @@ public class Spawner : MonoBehaviour
                 GameObject newEnemy = (GameObject) Instantiate(enemyList[currWave.enemyInd], 
                     gameObject.transform.position, Quaternion.identity);
                 //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
-                newEnemy.GetComponent<Wispy>().waypoints = new List<GameObject>(waypointList);
+                newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
                 // Set the parent of the enemy in the hierarchy to be the Spawner
                 newEnemy.transform.SetParent(this.transform);
                 // Toss the enemy into `aEnemies` for access
@@ -146,7 +146,7 @@ public class Spawner : MonoBehaviour
                 // ???
                 // newEnemy.GetComponent<Wispy>().waypoints = waypoints;
                 // Update the number of enemies spawned
-                GlobalVariables.enemyList.Add(newEnemy);
+                GlobalVariables.enemyList.add(newEnemy.GetComponent<Enemy>());
                 currWave.enemySpawned++;
             }
 

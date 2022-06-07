@@ -10,6 +10,14 @@ public class TRTBasicBullet : MonoBehaviour
     // Dmg of the projectile
     public float dmg = 6.0f; // (Wispy hp is 10 rn)
 
+    public Enemy target;
+
+    /*
+    public TRTBasicBullet(Enemy target) {
+        this.target = target;
+    }
+    */
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,17 +97,17 @@ public class TRTBasicBullet : MonoBehaviour
          - Haven't done instantiate yet in `TRTBasicOffense.cs`
         */
 
-        if (GlobalVariables.enemyList.Count == 0)   // if no enemies
+        if (target == null)   // If target is dead
         {
             Destroy(gameObject);   // Destroy the bullet
         }
         else   // If enemies exist
         {
-            GameObject targetButGameObject = GlobalVariables.enemyList[0];
+            // GameObject targetButGameObject = GlobalVariables.enemyList[0];
             /* IMPORTANT TODO
             Get an abstract Enemy class or else hp retrieving will be pain
             */
-            Wispy target = targetButGameObject.GetComponent<Wispy>();
+            // Wispy target = targetButGameObject.GetComponent<Wispy>();
             Vector2 bulletPos = gameObject.transform.position;   // Bullet position
             Vector2 enemyPos = target.transform.position;        // Target position
             Vector2 traj = enemyPos - bulletPos;                 // Trajectory
@@ -108,12 +116,18 @@ public class TRTBasicBullet : MonoBehaviour
             if (dist < speed)   // Hit
             {
                 target.hp -= dmg;
+                // If target dead logic moved to the target itself
+                /*
                 if (target.hp <= 0)   // If target dead
                 {
-                    GlobalVariables.enemyList.RemoveAt(0);   // Remove reference
-                    Destroy(targetButGameObject);            // Destroy the enemy game object
-                    Destroy(gameObject);                     // Destroy the bullet itself
+                    
+                    // Destroy(targetButGameObject);            // Moved to the enemy itself also
+                    // Destroy(target);                         // Destroy the enemy game object
+                    // Destroy in enemy itself
+                    
                 }
+                */
+                Destroy(gameObject);                     // Destroy the bullet itself
             }
             else   // Not yet hit
             {

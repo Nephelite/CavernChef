@@ -12,6 +12,8 @@ public class TRTBasicOffense : TRT
     public GameObject BasicBullet;
     // Time between attacks; can be set here or in Unity
     public float tBetAtks = 2.0f;
+    // Range
+    public float range = 7.5f;
     // Counts down the time till next atk
     public float countdown;
     // Position of the turret
@@ -53,7 +55,11 @@ public class TRTBasicOffense : TRT
          - Bullet script for this turret
         */
 
-        if (GlobalVariables.enemyList.Count == 0)   // If no enemies on screen
+        // Find a target
+        Vector2 towerPos = gameObject.transform.position;
+        Enemy target = GlobalVariables.enemyList.findTarget(towerPos, range);
+
+        if (target == null)   // If no enemy in range
         {
             if (countdown > 0)   // Reloading
             {
@@ -69,30 +75,14 @@ public class TRTBasicOffense : TRT
             }
             else   // Ready to fire
             {
-                // Fire a bullet and reset countdown
+                // Fire a bullet
                 GameObject bullet = Instantiate(BasicBullet, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
+                // Set the bullet's target
+                bullet.GetComponent<TRTBasicBullet>().target = target;
+                // Reset the cooldown
                 countdown = tBetAtks;
             }
         }
-
-
-
-
-
-        /* Wait no there's more stuff to consider
-        // Time for next attack
-        if (countDown < 0) 
-        {
-            // TODO
-        }
-        */
-
-        // Create a TRTBasicBullet that has it's own code to do it's own stuff
-
-
-
-
-
 
 
 
