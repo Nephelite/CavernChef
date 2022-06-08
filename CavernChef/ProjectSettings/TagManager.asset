@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 3193115017
     locked: 0
+  - name: BGDecor
+    uniqueID: 71618449
+    locked: 0
   - name: Stove
     uniqueID: 119021113
     locked: 0

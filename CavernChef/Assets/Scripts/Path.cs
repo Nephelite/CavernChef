@@ -12,6 +12,7 @@ public class Path
     private List<GameObject> foodPoints;
 
     private int xLength, yLength, currentTileIndex, pathMinLen;
+    public float offsetX, offsetY;
     //private bool hasReachedX = false, hasReachedY = false;
     private GameObject startTile, endTile;
 
@@ -19,13 +20,15 @@ public class Path
 
     // Start is called before the first frame update
 
-    public Path(List<GameObject> enemySpawns, List<GameObject> foodPoints, int xLength, int yLength, int pathMinLen)
+    public Path(List<GameObject> enemySpawns, List<GameObject> foodPoints, int xLength, int yLength, int pathMinLen, float offsetX, float offsetY)
     {
         this.enemySpawns = enemySpawns;
         this.foodPoints = foodPoints;
         this.xLength = xLength;
         this.yLength = yLength;
         this.pathMinLen = pathMinLen;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
     }
     
     public void GeneratePath()
@@ -33,8 +36,8 @@ public class Path
         for (int i = 0; i < enemySpawns.Count; i++)
         {
             //Coordinates of start and end points (more specifically, the tiles closest to them  on the 32x12 play grid)
-            int enemyX = (int)(enemySpawns[i].transform.position.x - 0.5); 
-            int enemyY = (int)(enemySpawns[i].transform.position.y - 1.5);
+            int enemyX = (int)(enemySpawns[i].transform.position.x - offsetX); 
+            int enemyY = (int)(enemySpawns[i].transform.position.y - offsetY);
             int foodX = (int)(foodPoints[i].transform.position.x - 0.5);
             int foodY = (int)(foodPoints[i].transform.position.y + 2.5);
 

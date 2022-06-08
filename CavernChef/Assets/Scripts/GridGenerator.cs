@@ -17,6 +17,7 @@ public class GridGenerator : MonoBehaviour
     public static List<GameObject> validEnemyTiles = new List<GameObject>(); //So uh... I will get around to renaming this, but this is actually all tiles in the play grid.
 
     private int gridSizeX = 32, gridSizeY = 11, currentTileIndex;
+    public float offsetX, offsetY;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class GridGenerator : MonoBehaviour
                 validEnemyTiles.Add(block);
             }
         }
-        Path pathGeneration = new Path(enemySpawn, foodPoint, gridSizeX, gridSizeY, 70);
+        Path pathGeneration = new Path(enemySpawn, foodPoint, gridSizeX, gridSizeY, 70, offsetX, offsetY);
         pathGeneration.GeneratePath();
 
         List<GameObject> actualGrid = new List<GameObject>();
