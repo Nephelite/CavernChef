@@ -1428,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -425.25128}
+  m_AnchoredPosition: {x: 0, y: -424.90826}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068454458
@@ -1574,7 +1574,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1101852279
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -17884,7 +17884,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1865270443}
   m_HandleRect: {fileID: 1865270442}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -20575,7 +20575,7 @@ PrefabInstance:
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: enemyList.Array.data[0]
       value: 
-      objectReference: {fileID: 8176188707680438536, guid: f9f852d27ad9962468fafdd35eead0b9, type: 3}
+      objectReference: {fileID: 8176188707680438536, guid: a3d99fe00b25a7e47b77d179a1ee51f4, type: 3}
     - target: {fileID: 6915721599330486998, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: m_RootOrder
       value: 10

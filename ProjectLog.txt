@@ -126,3 +126,8 @@ Somehow(???) cleared bugs from the new implementation, I hope.
 8/6:
 Added the basic versions of the caves, flooded caves, and magma cavern.
 - Kevin (adding time spent editing, a total of 3 hours)
+
+9/6:
+Found/edited/made more enemy and food assets.
+Added some enemy prefabs for each zone.
+- Kevin (3 hrs)
