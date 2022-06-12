@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ead0804a500fa45927ef1b1357b8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 100
+  cost: 200
   atkVal: 2
   BasicBullet: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
   tBetAtks: 5
+  range: 7.5
   countdown: 0
 --- !u!114 &-2688862492152122194
 MonoBehaviour:
