@@ -9,7 +9,7 @@ public class SelectBasicOffense : MonoBehaviour
     {
         if (GlobalVariables.repelPoints >= cost) 
         {
-            GlobalVariables.selectedTrt = (GameObject)Resources.Load("TRTBasicOffense");
+            GlobalVariables.selectedTrt = (GameObject)Resources.Load("FireTRT");
         }
         // else text shows not enough RP to be implemented
     }

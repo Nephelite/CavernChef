@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRTBasicBullet : MonoBehaviour
+public class FireBullet : MonoBehaviour
 {
 
     // Speed of the projectile; set here or in Unity
