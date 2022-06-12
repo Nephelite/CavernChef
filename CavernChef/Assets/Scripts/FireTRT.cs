@@ -2,54 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRTBasicOffense : TRT
+public class FireTRT : TRT
 {
     public float atkVal;
     public int GetValue => cost;
 
-
     // Set in Unity, contains a reference to a basic bullet
-    public GameObject BasicBullet;
+    public GameObject FireBullet;
+    
+    /* The following fiels have been moved to TRT.cs
+
     // Time between attacks; can be set here or in Unity
     public float tBetAtks = 2.0f;
     // Range
     public float range = 7.5f;
     // Counts down the time till next atk
-    public float countdown;
+    public float cooldown;
     // Position of the turret
     private Vector2 pos;
+    */
 
     //public List<GameObjects> enemyList; //Might want to make this a priority queue, priority based on distance to travel to reach target. For now priority is based on time added.
 
     // Start is called before the first frame update
     void Start()
     {
-        GlobalVariables.repelPoints -= cost;
-        countdown = 0.0f;
+        // Set the fields
+        cost = 100;
+        tBetAtks = 2.0f;
+        range = 7.5f;
+        cooldown = 0.0f;
         pos = (Vector2) gameObject.transform.position;
+
+        // Deduct RP
+        GlobalVariables.repelPoints -= cost;
     }
 
     // Update is called once per frame
     void Update()
     {
         /* Plan
-        1.) Have a countdown for time bet attacking
-        2.) countdown <= 0 implies ready for an atk
+        1.) Have a cooldown for time bet attacking
+        2.) cooldown <= 0 implies ready for an atk
         3.) Create a bullet object when doing the attack and deal 
             with that there
 
         Code flow:
         if enemy doesn't exist
-            if countdown > 0
+            if cooldown > 0
                 still in cd from last atk, dec as normal
-            elif countdown <= 0
+            elif cooldown <= 0
                 pass
         elif enemy exists
-            if countdown > 0
+            if cooldown > 0
                 decrement cooldown
-            elif countdown <= 0
+            elif cooldown <= 0
                 Atk time bois instantiate(bullet)
-                reset countdown to t_bet_atk
+                reset cooldown to t_bet_atk
         
         Other related Scripts to do:
          - Bullet script for this turret
@@ -61,26 +70,26 @@ public class TRTBasicOffense : TRT
 
         if (target == null)   // If no enemy in range
         {
-            if (countdown > 0)   // Reloading
+            if (cooldown > 0)   // Reloading
             {
-                countdown -= Time.deltaTime;
+                cooldown -= Time.deltaTime;
             }
             // Else do nothing
         }
         else   // If enemies exist
         {
-            if (countdown > 0)   // Reloading
+            if (cooldown > 0)   // Reloading
             {
-                countdown -= Time.deltaTime;
+                cooldown -= Time.deltaTime;
             }
             else   // Ready to fire
             {
                 // Fire a bullet
-                GameObject bullet = Instantiate(BasicBullet, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
+                GameObject bullet = Instantiate(FireBullet, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
                 // Set the bullet's target
-                bullet.GetComponent<TRTBasicBullet>().target = target;
+                bullet.GetComponent<FireBullet>().target = target;
                 // Reset the cooldown
-                countdown = tBetAtks;
+                cooldown = tBetAtks;
             }
         }
 

@@ -131,3 +131,10 @@ Added the basic versions of the caves, flooded caves, and magma cavern.
 Found/edited/made more enemy and food assets.
 Added some enemy prefabs for each zone.
 - Kevin (3 hrs)
+
+9/6 - 12/6 morning:
+Ideation for possible types of turrets.
+Implementation of EnemyStatus class within Enemy.cs to handle interactions of turret abilities. To be incorporated.
+Moved some fields from BasicOffenseTRT to the general TRT class to better follow OOP principles.
+Renaming basic TRT to Fire Turret and other similar renamings.
+- Bryce (4.5 hrs total, June 9 0.5 hrs + June 10 1 hr + June 11 2.5 hrs + June 12 0.5 hrs)
