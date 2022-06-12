@@ -138,3 +138,8 @@ Implementation of EnemyStatus class within Enemy.cs to handle interactions of tu
 Moved some fields from BasicOffenseTRT to the general TRT class to better follow OOP principles.
 Renaming basic TRT to Fire Turret and other similar renamings.
 - Bryce (4.5 hrs total, June 9 0.5 hrs + June 10 1 hr + June 11 2.5 hrs + June 12 0.5 hrs)
+
+11/6: 
+Created wisp movement and death spritesheets for each individual wisp type. 
+Made a working animation for the slime.
+- Kevin (6 hrs)
