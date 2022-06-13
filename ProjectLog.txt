@@ -145,8 +145,6 @@ Made a working animation for the slime.
 - Kevin (6 hrs)
 
 13/6:
-Wisps in the cave zone now properly animate
-(Movement and death animations)
-Death animations play but also don't impact the priority system for targeting.
-- Kevin (2 hrs)
-(Note: Same will be done for the other 3 zones)
+Wisps now all properly animate for moving and dying
+Death animations also don't impact the priority system for targeting.
+- Kevin (3 hrs)
