@@ -7,6 +7,9 @@ using System;
 
 public class Wispy : Enemy
 {
+    Animator animator;
+    bool isDestroyed = false;
+
     /*
 
     /* Wispy Properties * /
@@ -40,9 +43,9 @@ public class Wispy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
 
-        speed = 0.1f;
+        speed = 0.01f;
         hp = 10.0f;
         dmg = 1.0f;   // TENTATIVE
         priority = 0;
@@ -68,105 +71,118 @@ public class Wispy : Enemy
         */
     }
 
+    void destroyer()
+    {
+        Destroy(gameObject);
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        // If dead
-        if (hp <= 0)
+        if (!isDestroyed)
         {
-            GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());   // Remove reference
-            Destroy(gameObject);
-        }
-
-
-        // Farther from the start by `speed`
-        priority += speed;
-        // Tile units traversed
-        tileUnitsTraversed += tilesPerFrame;
-
-        // Number of waypoints passed
-        int floorTileUnitsTraversed = (int) Math.Floor(tileUnitsTraversed);
-        // Fraction of current segment traversed
-        float decimalTileUnitsTraversed = tileUnitsTraversed - floorTileUnitsTraversed;
-
-
-        // If at last waypoint
-        if (floorTileUnitsTraversed >= waypoints.Count - 2)
-        {
-            // TODO Deal dmg=1.0f dmg to the food TODO then destroy the Wispy
-            GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());
-            Destroy(gameObject);   
-        }
-
-        // Waypoints the enemy should be in between rn
-        GameObject prevWaypoint = waypoints[floorTileUnitsTraversed];
-        GameObject nextWaypoint = waypoints[floorTileUnitsTraversed+1];
-
-        Vector3 startPos = prevWaypoint.transform.position;
-        Vector3 endPos = nextWaypoint.transform.position;
-
-        gameObject.transform.position = Vector2.Lerp(startPos, endPos, decimalTileUnitsTraversed);
-        //
-        
-
-        
-
-
-
-        // TODO
-        /* How I did it last time for Basic Bullet
-            Vector2 traj = enemyPos - bulletPos;                 // Trajectory
-            float dist = traj.magnitude;   
-                Vector2 delta = traj * speed / dist;
-                gameObject.transform.position += (Vector3) delta;//Type cast needed since .trans.pos is 3-dim
-        */
-
-
-
-
-
-        /*
-
-        // FOLLOWING THE PATH (Start)
-        // 1 
-        Vector3 startPosition = waypoints[currentWaypoint].transform.position;     // Prev waypoint's coord
-        Vector3 endPosition = waypoints[currentWaypoint + 1].transform.position;   // Next waypoint's coord
-
-        // 2 
-        float pathLength = Vector3.Distance(startPosition, endPosition);   // dist(prev waypt, next waypt)
-        float totalTimeForPath = pathLength / speed;                       // time from prev to next waypt
-        float currentTimeOnPath = Time.time - lastWaypointSwitchTime;      // time on curr segment so far
-        // Lerp(X,Y,frac) moves the thing to the point `frac` of the way along the vector \vec{XY}
-        gameObject.transform.position = Vector2.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
-
-        // 3 
-        if (gameObject.transform.position.Equals(endPosition))   // Reached next waypt
-        {
-            if (currentWaypoint < waypoints.Count - 2)  //Not yet at the end
+            animator.SetFloat("Hp", hp);
+            // If dead
+            if (hp <= 0)
             {
-                // 3.a 
-                currentWaypoint++;                    // Next segment
-                lastWaypointSwitchTime = Time.time;   // Reset last switch time
-                // TODO: Rotate into move direction (not really req rn, some games 
-                // like The Creeps don't even do this)
+                GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());   // Remove reference
+                speed = 0f;
+                isDestroyed = true;
+                Invoke("destroyer", 0.5f);
             }
-            else   //At the end
+            else //If alive
             {
-                // 3.b 
-                Destroy(gameObject);
 
-            /*
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-            * /
+                // Farther from the start by `speed`
+                priority += speed;
+                // Tile units traversed
+                tileUnitsTraversed += tilesPerFrame;
 
-            // TODO: deduct bsae hp
-            // TODO: 
+                // Number of waypoints passed
+                int floorTileUnitsTraversed = (int)Math.Floor(tileUnitsTraversed);
+                // Fraction of current segment traversed
+                float decimalTileUnitsTraversed = tileUnitsTraversed - floorTileUnitsTraversed;
+
+
+                // If at last waypoint
+                if (floorTileUnitsTraversed >= waypoints.Count - 2)
+                {
+                    // TODO Deal dmg=1.0f dmg to the food TODO then destroy the Wispy
+                    GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());
+                    Destroy(gameObject);
+                }
+
+                // Waypoints the enemy should be in between rn
+                GameObject prevWaypoint = waypoints[floorTileUnitsTraversed];
+                GameObject nextWaypoint = waypoints[floorTileUnitsTraversed + 1];
+
+                Vector3 startPos = prevWaypoint.transform.position;
+                Vector3 endPos = nextWaypoint.transform.position;
+
+                gameObject.transform.position = Vector2.Lerp(startPos, endPos, decimalTileUnitsTraversed);
+                //
+
+
+
+
+
+
+                // TODO
+                /* How I did it last time for Basic Bullet
+                    Vector2 traj = enemyPos - bulletPos;                 // Trajectory
+                    float dist = traj.magnitude;   
+                        Vector2 delta = traj * speed / dist;
+                        gameObject.transform.position += (Vector3) delta;//Type cast needed since .trans.pos is 3-dim
+                */
+
+
+
+
+
+                /*
+
+                // FOLLOWING THE PATH (Start)
+                // 1 
+                Vector3 startPosition = waypoints[currentWaypoint].transform.position;     // Prev waypoint's coord
+                Vector3 endPosition = waypoints[currentWaypoint + 1].transform.position;   // Next waypoint's coord
+
+                // 2 
+                float pathLength = Vector3.Distance(startPosition, endPosition);   // dist(prev waypt, next waypt)
+                float totalTimeForPath = pathLength / speed;                       // time from prev to next waypt
+                float currentTimeOnPath = Time.time - lastWaypointSwitchTime;      // time on curr segment so far
+                // Lerp(X,Y,frac) moves the thing to the point `frac` of the way along the vector \vec{XY}
+                gameObject.transform.position = Vector2.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
+
+                // 3 
+                if (gameObject.transform.position.Equals(endPosition))   // Reached next waypt
+                {
+                    if (currentWaypoint < waypoints.Count - 2)  //Not yet at the end
+                    {
+                        // 3.a 
+                        currentWaypoint++;                    // Next segment
+                        lastWaypointSwitchTime = Time.time;   // Reset last switch time
+                        // TODO: Rotate into move direction (not really req rn, some games 
+                        // like The Creeps don't even do this)
+                    }
+                    else   //At the end
+                    {
+                        // 3.b 
+                        Destroy(gameObject);
+
+                    /*
+                    AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+                    * /
+
+                    // TODO: deduct bsae hp
+                    // TODO: 
+                    }
+                }
+                // FOLLOWING THE PATH (End)
+
+                */
             }
         }
-        // FOLLOWING THE PATH (End)
-
-        */
-
     }
 }
