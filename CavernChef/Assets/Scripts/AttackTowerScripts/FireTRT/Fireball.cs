@@ -2,7 +2,82 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBullet : MonoBehaviour
+public class Fireball : MonoBehaviour
+{
+
+    // Speed of the projectile; set here or in Unity
+    public float speed = 9.0f;
+    // Dmg of the projectile
+    public float dmg = 6.0f;
+
+    public Enemy target;
+
+    
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /* Code flow
+        if enemy DNE:
+            self destruct
+        elif enemy exists:
+            get vector to enemy
+            if near enough:
+                deal dmg
+                if enemy ded:
+                    delete ref
+                    destroy enemy
+                self destruct (do last in case update() terminates upon self desturctiosn)
+            elif not near enough:
+                move closer by speed
+        */
+
+        // Wispy target = targetButGameObject.GetComponent<Wispy>();
+        Vector2 bulletPos = gameObject.transform.position;   // Bullet position
+        Vector2 enemyPos = target.transform.position;        // Target position
+        Vector2 traj = enemyPos - bulletPos;                 // Trajectory
+        float dist = traj.magnitude;                         // Dist to target
+
+        if (dist < speed)   // Hit
+        {
+            // target.hp -= dmg;
+            target.status.fireDmg(dmg);
+
+            // If target dead logic moved to the target itself
+            /*
+            if (target.hp <= 0)   // If target dead
+            {
+                    
+                // Destroy(targetButGameObject);            // Moved to the enemy itself also
+                // Destroy(target);                         // Destroy the enemy game object
+                // Destroy in enemy itself
+                
+            }
+            */
+            Destroy(gameObject);                     // Destroy the bullet itself
+        }
+        else   // Not yet hit
+        {
+            // Move towards the target
+            Vector2 delta = traj * speed / dist;
+            gameObject.transform.position += (Vector3) delta;//Type cast needed since .trans.pos is 3-dim
+        }
+    }
+}
+
+
+
+// Before comment cleaning on 2022-6-14 night/2022-6-15 morning
+
+/*
+public class Fireball : MonoBehaviour
 {
 
     // Speed of the projectile; set here or in Unity
@@ -16,7 +91,7 @@ public class FireBullet : MonoBehaviour
     public TRTBasicBullet(Enemy target) {
         this.target = target;
     }
-    */
+    * /
 
 
     // Start is called before the first frame update
@@ -95,18 +170,18 @@ public class FireBullet : MonoBehaviour
          - Delete the killed enemy from GlobalVariables.enemyList since the ref still exists
            (not sure which script should do this) (use `RemoveAt(ind)`) (done here instead)
          - Haven't done instantiate yet in `TRTBasicOffense.cs`
-        */
+        * /
 
         if (target == null)   // If target is dead
         {
             Destroy(gameObject);   // Destroy the bullet
         }
-        else   // If enemies exist
+        else   // If target is not dead
         {
             // GameObject targetButGameObject = GlobalVariables.enemyList[0];
             /* IMPORTANT TODO
             Get an abstract Enemy class or else hp retrieving will be pain
-            */
+            * /
             // Wispy target = targetButGameObject.GetComponent<Wispy>();
             Vector2 bulletPos = gameObject.transform.position;   // Bullet position
             Vector2 enemyPos = target.transform.position;        // Target position
@@ -115,7 +190,9 @@ public class FireBullet : MonoBehaviour
 
             if (dist < speed)   // Hit
             {
-                target.hp -= dmg;
+                // target.hp -= dmg;
+                target.status.fireDmg(dmg);
+
                 // If target dead logic moved to the target itself
                 /*
                 if (target.hp <= 0)   // If target dead
@@ -126,7 +203,7 @@ public class FireBullet : MonoBehaviour
                     // Destroy in enemy itself
                     
                 }
-                */
+                * /
                 Destroy(gameObject);                     // Destroy the bullet itself
             }
             else   // Not yet hit
@@ -138,3 +215,4 @@ public class FireBullet : MonoBehaviour
         }
     }
 }
+*/

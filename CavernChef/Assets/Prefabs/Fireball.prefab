@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4804494396465281619}
   - component: {fileID: 1038027419777471015}
   m_Layer: 9
-  m_Name: FireBullet
+  m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4804494396465281618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e97fb7df4844d2fbe6af299a9eda95, type: 3}
+  m_Script: {fileID: 11500000, guid: b01d3ec36591f490d9f2769a011c0450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9

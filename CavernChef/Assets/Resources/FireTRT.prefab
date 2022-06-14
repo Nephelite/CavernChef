@@ -95,16 +95,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5134305957202709094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c62f6ec7a76f4740b7fe87c12dcedc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4de28f92b947644dcb15374f3205f74f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 100
   tBetAtks: 2
   range: 7.5
-  pos: {x: 0, y: 0}
+  towerPos: {x: 0, y: 0}
   cooldown: 0
-  atkVal: 0
-  FireBullet: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  Fireball: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
 --- !u!114 &-2688862492152122194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +113,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5134305957202709094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1be0125d6ae967489e34bf848437e59, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b0bcefe27d2147279298ba594b23cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

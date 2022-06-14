@@ -33,7 +33,7 @@ Plasma tower could also work as the "Basic TRT"
 */
 
 
-public abstract class TRT : MonoBehaviour
+public abstract class AtkTower : MonoBehaviour
 {
     // Set in Unity, contains a reference to the projectile of the tower
     // public GameObject Projectile;
@@ -46,7 +46,7 @@ public abstract class TRT : MonoBehaviour
     // Range
     public float range;
     // Position of the turret
-    public Vector2 pos;
+    public Vector2 towerPos;
 
     // CD till next atk
     public float cooldown;

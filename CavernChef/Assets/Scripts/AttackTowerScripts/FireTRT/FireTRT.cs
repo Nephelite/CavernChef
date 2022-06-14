@@ -2,10 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireTRT : TRT
+
+// First Bullet created
+
+public class FireTRT : AtkTower
 {
-    public float atkVal;
-    public int GetValue => cost;
+    // Set in Unity, contains a reference to a basic bullet
+    public GameObject Fireball;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Set the fields
+        cost = 100;
+        tBetAtks = 2.0f;
+        range = 7.5f;
+        cooldown = 0.0f;
+        towerPos = (Vector2) gameObject.transform.position;
+
+        // Deduct RP
+        GlobalVariables.repelPoints -= cost;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /* 2022-6-14 modification to code flow
+        if cd > 0:
+            decrement cd
+        elif enemy exists
+            shoot a projectile
+            reset cd
+        */
+
+        // Find a target
+        Enemy target = GlobalVariables.enemyList.findTarget(towerPos, range);
+
+        if (cooldown > 0)   // If reloading
+        {
+            cooldown -= Time.deltaTime;
+        }
+        else if (target != null)   // If ready to fire and target in range
+        {
+            // Fire a bullet
+            GameObject bullet = Instantiate(Fireball, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
+            // Set the bullet's target
+            bullet.GetComponent<Fireball>().target = target;
+            // Reset the cooldown
+            cooldown = tBetAtks;
+        }
+        // Else, nothing to do
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Copy of the class before comments were cleaned (2022-6-14)
+
+/*
+public class FireTRT : AtkTower
+{
+    // public float atkVal; in FireBullet instead
+    // public int GetValue => cost;
 
     // Set in Unity, contains a reference to a basic bullet
     public GameObject FireBullet;
@@ -20,7 +88,7 @@ public class FireTRT : TRT
     public float cooldown;
     // Position of the turret
     private Vector2 pos;
-    */
+    * /
 
     //public List<GameObjects> enemyList; //Might want to make this a priority queue, priority based on distance to travel to reach target. For now priority is based on time added.
 
@@ -32,7 +100,7 @@ public class FireTRT : TRT
         tBetAtks = 2.0f;
         range = 7.5f;
         cooldown = 0.0f;
-        pos = (Vector2) gameObject.transform.position;
+        towerPos = (Vector2) gameObject.transform.position;
 
         // Deduct RP
         GlobalVariables.repelPoints -= cost;
@@ -64,9 +132,33 @@ public class FireTRT : TRT
          - Bullet script for this turret
         */
 
+        /* 2022-6-14 modification to code flow
+        if cd > 0:
+            decrement cd
+        elif enemy exists
+            shoot a projectile
+            reset cd
+        * /
+
         // Find a target
-        Vector2 towerPos = gameObject.transform.position;
+        // Vector2 towerPos = gameObject.transform.position;
         Enemy target = GlobalVariables.enemyList.findTarget(towerPos, range);
+
+        if (cooldown > 0)   // If reloading
+        {
+            cooldown -= Time.deltaTime;
+        }
+        else if (target != null)   // If ready to fire and target in range
+        {
+            // Fire a bullet
+            GameObject bullet = Instantiate(FireBullet, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
+            // Set the bullet's target
+            bullet.GetComponent<FireBullet>().target = target;
+            // Reset the cooldown
+            cooldown = tBetAtks;
+        }
+
+        /*
 
         if (target == null)   // If no enemy in range
         {
@@ -93,6 +185,8 @@ public class FireTRT : TRT
             }
         }
 
+        * /
+
 
 
         //Attacking script
@@ -106,7 +200,8 @@ public class FireTRT : TRT
                 enemyList.RemoveAt(0);
             }
         }
-         */
+         * /
 
     }
 }
+*/

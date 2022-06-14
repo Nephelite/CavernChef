@@ -5,23 +5,73 @@ using UnityEngine;
 // For Math.Max
 using System;
 
-/* TODO
-Implement class to encapsulate enemy status (name to be decided)
-Include stuff like
-    hp
-    dmg
-    speed
-    status effects
-So that it'll be easier to handle possible status effects
 
-Fix up the 
+
+/* "CS2030S Labs Plan.txt Style" Summary
+class EnemyStatus (moved to the bottom)
+    Fields
+        float base_hp
+        float base_speed
+        float base_dmg
+        float hp
+        etc (probably not needed outside)
+    Methods
+        EnemyStatus(hp, speed, dmg)
+        float currSpeed()
+        float currHp()
+        void updateStatus()
+            Updates frame_count's to decrease by 1 if >0
+
+        bool isDead()
+        bool isSnowed()
+        bool isStunned()
+        bool isWet()
+
+        void snow(int frame_count)
+        void stun(int frame_count)
+        void wet(int frame_count)
+
+        void basicDmg(float bullet_dmg)
+        void earthDmg(float bullet_dmg)
+        void electricDmg(float bullet_dmg)
+        void fireDmg(float bullet_dmg)
+        void snowDmg(float bullet_dmg)
+        void waterDmg(float bullet_dmg)
 */
 
 
 
-/* Enemy Status Class
+public abstract class Enemy : MonoBehaviour
+{
+    public EnemyStatus status;
 
-*/
+    // For setting in unity; will be put into status
+    public float base_speed;
+    public float base_hp;
+    public float base_dmg;   // Dmg dealt to food
+
+    // Distance from the start; higher val -> higher prio for turrets
+    public float priority;
+
+    // Waypoints to path the enemy (from Kevin's A Star pathfinding)
+    public List<GameObject> waypoints;
+
+
+
+    // "public virtual void" so that it can be called in child classes through
+    //     base.Start()
+    public virtual void setup()
+    {
+        // Initialize the waypoints and priority
+        waypoints = Spawner.waypointList;
+        priority = 0;
+    }
+}
+
+
+
+
+// Summary of EnemyStatus at the top
 
 public class EnemyStatus
 {
@@ -44,7 +94,7 @@ public class EnemyStatus
     public const float snow_spd_mult = 0.5f;
     public const float water_spd_mult = 0.9f;
     public const float snow_fire_dmg_mult = 1.5f;
-    public const float water_fire_dmg_mult = 0.8f;
+    public const float water_fire_dmg_mult = 0.9f;
     public const float electric_water_dmg_mult = 2.0f;
 
 
@@ -77,7 +127,7 @@ public class EnemyStatus
 
     // SPEED AND STATUS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Get current speed; call every framr
-    public float speed() {
+    public float currSpeed() {
         float speed = base_speed;
         // Stun => 0 speed
         if (stun_frames > 0) {
@@ -89,6 +139,9 @@ public class EnemyStatus
             speed *= snow_spd_mult;
         }
         return speed;
+    }
+    public float currHp() {
+        return hp;
     }
     // Update counters relating to the enemy; call every frame
     public void updateStatus() {
@@ -154,9 +207,11 @@ public class EnemyStatus
         float dmg = bullet_dmg;
         if (isSnowed()) {
             dmg *= snow_fire_dmg_mult;
+            snow_frames = 0;
         }
         if (isWet()) {
             dmg *= water_fire_dmg_mult;
+            wet_frames = 0;
         }
         hp -= dmg;
     }
@@ -174,67 +229,33 @@ public class EnemyStatus
 }
 
 
-/* TODO
-Main goals:
-1.) Make speed system consistent (aka change the copy pasted code in Wispy)
-2.) Implement priority queue for enemyList
-3.) Implement range for turret
-
-- Copy the idea for bullet movement over for enemies
-- Implement `EnemyList` class
-- Implement abstract `Enemy` class
-- Implement abstract 'AtkTower' class
-
-abstract class Enemy extends MonoBehaviour
-    Fields
-        static float speed
-        float hp
-        static GameObject[] waypoints (Maybe WayPoints[]?)
-        float priority
-            Basically distance to walk to get to the food
-            Lower value => Higher prio for turrets if in range
-    Methods
-        Start()
-        Update()
 
 
 
-(Impl details moved to comment in GlobalVariables.cs)
-class EnemyList   (to be placed in GlobalVariables.cs)
-    Fields
-        Enemy[100] enemies = [null for i in range(100)]
-        int numEnemies     = 0
-        int numDead        = 0
-    Methods
-        add(Enemy nextEnemy)
-        kill(Enemy deadEnemy)
-        rearrange()
-        findTarget(Vector2 towerPos, float range)
-        reset()
-        
+// Enemy class before comment cleaning on 2022-6-14 night/2022-6-15 morning
 
-
-// Wait why was I planning this again what
-abstract class AtkTower extends MonoBehaviour
-*/
-
-
+/*
 public abstract class Enemy : MonoBehaviour
 {
-    public float speed;
-    public float hp;
-    public float dmg;   // Dmg dealt to food when in contact
+    public EnemyStatus status;
+
+    // For setting in unity; will be put into status
+    public float base_speed;
+    public float base_hp;
+    public float base_dmg;   // Dmg dealt to food when in contact
+
     // Basically how far it is from the start; higher val -> higher prio for turrets
+    // Is also equal to the number of tiles traversed
     public float priority;
-    // Change of plans, this is how far it is from the food and a higher value means 
-    // it should be targetted first
     // Measured by raw speed * number of frames
 
+    /*
     // Unit distance between tiles cause I'm confused with how speed works
     public float unitDist;
     // Number of tiles traversed per frame
     public float tilesPerFrame;
     public float tileUnitsTraversed;
+    * /
 
     // All enemies probably have the same waypoints
     public List<GameObject> waypoints; // = Spawner.waypointList;
@@ -244,8 +265,13 @@ public abstract class Enemy : MonoBehaviour
 
     // "public virtual void" so that it can be called in child classes through
     //     base.Start()
-    public virtual void Start()
+    public virtual void setup()
     {
+        // Initialize the waypoints and priority
+        waypoints = Spawner.waypointList;
+        priority = 0;
+
+        /*
         // Initialize the 4 latter fields; to be called in each individual enemy's code too
         waypoints = Spawner.waypointList;
         Vector2 pos0 = waypoints[0].transform.position;
@@ -253,6 +279,7 @@ public abstract class Enemy : MonoBehaviour
         unitDist = Vector2.Distance(pos0, pos1);
         tilesPerFrame = speed/unitDist;
         tileUnitsTraversed = 0;
+        * /
     }
 
     /*
@@ -267,5 +294,6 @@ public abstract class Enemy : MonoBehaviour
     {
         
     }
-    */
+    * /
 }
+*/
