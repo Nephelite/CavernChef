@@ -115,13 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 776b47fb88439416490c3eef7c5b2ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  hp: 10
-  dmg: 0
+  base_speed: 0.05
+  base_hp: 10
+  base_dmg: 2
   priority: 0
-  unitDist: 0
-  tilesPerFrame: 0
-  tileUnitsTraversed: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
