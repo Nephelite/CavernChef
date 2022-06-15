@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8239623786559663926}
   - component: {fileID: 8249962339550546778}
   - component: {fileID: -2688862492152122194}
-  - component: {fileID: -4578988309139337219}
+  - component: {fileID: -8291797603786003593}
   m_Layer: 9
-  m_Name: FireTRT
+  m_Name: EarthTRT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -1466401061
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 395738411, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
+  m_Sprite: {fileID: -1685215197, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bcefe27d2147279298ba594b23cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4578988309139337219
+--- !u!114 &-8291797603786003593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,12 +107,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5134305957202709094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de28f92b947644dcb15374f3205f74f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b80ed6ef3ef649f5affb71cef624ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 100
-  tBetAtks: 2
-  range: 7.5
+  cost: 0
+  tBetAtks: 0
+  range: 0
   towerPos: {x: 0, y: 0}
   cooldown: 0
-  Fireball: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  Boulder: {fileID: 0}

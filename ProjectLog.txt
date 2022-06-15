@@ -149,7 +149,7 @@ Wisps now all properly animate for moving and dying
 Death animations also don't impact the priority system for targeting.
 - Kevin (3 hrs)
 
-15/6:
+14/6:
 Created the assets for the sprites of the various TRT elements based on the Red ones found online
 - Kevin (3 hrs) 
 
@@ -160,3 +160,7 @@ Slightly modified the logic of the code of FireTRT.cs to be shorter and neater.
 Cleaned out some of my messy comments.
 Added the sprites made by Kevin and cut them up with instructions from Kevin.
 - Bryce (4.5 hrs total, June 14 1.5 hrs + June 15 3 hrs)
+
+15/6: 
+Created the prefabs using the assets made
+- Kevin (1 hr)
