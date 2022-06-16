@@ -2,9 +2,115 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO Add AoE (probably small radius) (comment added 2022-6-16)
+
+public class Fireball : Projectile
+{
+    /* Stats as of 2022-6-16
+    centi_speed = 20
+    dmg = 6
+    effect_frames = 0
+    */
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Set speed
+        base.Setup();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector2 projectilePos = gameObject.transform.position;   // Bullet position
+        if (target != null) {                                    // If target is not yet dead,
+            targetPos = target.transform.position;               // Update targetPos
+        }
+        Vector2 traj = targetPos - projectilePos;                // Trajectory to target
+        float dist = traj.magnitude;                             // Dist to target
+
+        if (dist < speed)   // Hit
+        {
+            // If target not yet dead, deal dmg
+            if (target != null) {
+                target.status.fireDmg(dmg);
+            }
+
+            // If the projectile is AoE, do AoE stuff
+
+            // Destroy the bullet itself
+            Destroy(gameObject);
+        }
+        else   // Not yet hit
+        {
+            // Move towards the target
+            Vector2 delta = traj * speed / dist;
+            gameObject.transform.position += (Vector3) delta;   //Type cast needed since .trans.pos is 3-dim
+            // Explanation for need of type cast aboce
+            // https://gamedev.stackexchange.com/questions/98715/in-unity-why-is-adding-a-vector2-and-a-vector3-ambiguous-but-assigning-isnt
+        }
+    }
+}
+
+// Projectile outline (as of 2022-6-16)
+/*
+
+public class projectile_name : Projectile
+{
+    /* Stats as of 2022-6-
+    centi_speed = 
+    dmg = 
+    effect_frames = 
+    * /
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Set speed
+        base.Setup();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector2 projectilePos = gameObject.transform.position;   // Bullet position
+        if (target != null) {                                    // If target is not yet dead,
+            targetPos = target.transform.position;               // Update targetPos
+        }
+        Vector2 traj = targetPos - projectilePos;                // Trajectory to target
+        float dist = traj.magnitude;                             // Dist to target
+
+        if (dist < speed)   // If target is hit
+        {
+            if (target != null) {   // if target is not yet dead
+                // Deal damage (possibly AoE)
+                // Apply status effect (if any; possibly AoE)
+            }
+            Destroy(gameObject);   // Destroy the bullet itself
+        }
+        else   // Elif not yet hit
+        {
+            Vector2 delta = traj * speed / dist;                // Movement
+            gameObject.transform.position += (Vector3) delta;   // Update coordinates
+        }
+    }
+}
+
+*/
+
+
+
+
+
+
+
+// Before 2022-6-15 edit (adding the abstract class Projectile and
+// letting this extend(? I forgot the word) from that)
+
+
+/*
 public class Fireball : MonoBehaviour
 {
-
     // Speed of the projectile; set here or in Unity
     public float speed = 9.0f;
     // Dmg of the projectile
@@ -37,7 +143,7 @@ public class Fireball : MonoBehaviour
                 self destruct (do last in case update() terminates upon self desturctiosn)
             elif not near enough:
                 move closer by speed
-        */
+        * /
 
         // Wispy target = targetButGameObject.GetComponent<Wispy>();
         Vector2 bulletPos = gameObject.transform.position;   // Bullet position
@@ -60,7 +166,7 @@ public class Fireball : MonoBehaviour
                 // Destroy in enemy itself
                 
             }
-            */
+            * /
             Destroy(gameObject);                     // Destroy the bullet itself
         }
         else   // Not yet hit
@@ -71,6 +177,9 @@ public class Fireball : MonoBehaviour
         }
     }
 }
+*/
+
+
 
 
 

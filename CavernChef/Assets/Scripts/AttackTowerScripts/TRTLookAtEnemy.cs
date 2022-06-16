@@ -30,7 +30,9 @@ THIS IS SPECIFICALLY FOR THE BASIC TURRET ONLY AS OF RN
             Vector3 relative = transform.InverseTransformPoint(target.position);
             angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
             transform.Rotate(0, 0, -angle);
-            Debug.Log(transform.rotation.x + " " + transform.rotation.y + " " + transform.rotation.z);
+
+            // Will comment this out for now (Bryce, 2022-6-15)
+            // Debug.Log(transform.rotation.x + " " + transform.rotation.y + " " + transform.rotation.z);
             
 
             /*
