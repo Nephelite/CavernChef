@@ -164,3 +164,8 @@ Added the sprites made by Kevin and cut them up with instructions from Kevin.
 15/6: 
 Created the prefabs using the assets made
 - Kevin (1 hr)
+
+16/6 - 17/6: 
+Implemented most of the core gameplay loop
+Added saving and loading of a run
+- Kevin (12 hrs)

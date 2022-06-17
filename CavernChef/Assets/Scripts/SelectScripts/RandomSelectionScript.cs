@@ -60,6 +60,8 @@ public class RandomSelectionScript : MonoBehaviour
             case 1:
                 lastChosenFood = choiceOne;
                 Debug.Log("Chose " + lastChosenFood.name);
+                foodsRemaining.Add(choiceTwo);
+                foodsRemaining.Add(choiceThree);
                 choiceOne = null;
                 choiceTwo = null;
                 choiceThree = null;
@@ -68,6 +70,8 @@ public class RandomSelectionScript : MonoBehaviour
             case 2:
                 lastChosenFood = choiceTwo;
                 Debug.Log("Chose " + lastChosenFood.name);
+                foodsRemaining.Add(choiceOne);
+                foodsRemaining.Add(choiceThree);
                 choiceOne = null;
                 choiceTwo = null;
                 choiceThree = null;
@@ -76,11 +80,20 @@ public class RandomSelectionScript : MonoBehaviour
             case 3:
                 lastChosenFood = choiceThree;
                 Debug.Log("Chose " + lastChosenFood.name);
+                foodsRemaining.Add(choiceOne);
+                foodsRemaining.Add(choiceTwo);
                 choiceOne = null;
                 choiceTwo = null;
                 choiceThree = null;
                 break;
         }
-        SceneManager.LoadScene(2);
+
+        int nextSceneIndex = GlobalVariables.nextSceneToPlay;
+        if (nextSceneIndex == 0) // Ensures that if the run is fresh, the first stage of the run will be the grasslands scene.
+        {
+            GlobalVariables.nextSceneToPlay = 4;
+            nextSceneIndex = 4;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }

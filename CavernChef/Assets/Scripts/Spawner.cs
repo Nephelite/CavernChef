@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 /*
 [System.Serializable]   // Lets you edit values in the Unity editor
@@ -74,6 +75,8 @@ public class Spawner : MonoBehaviour
     // Number of waves done so far
     public int nWaves; //FIX NUMBER 4, changed in the inspector to 1
 
+    private int waveCount; // Current wave number
+
     // Information on what waves will be spawned
     public Wave[] waves = new Wave[1];   // MANUALLY SET THIS HERE (or in start() ig)
     // Wait I can't set this in here due to how classes work, SET THIS IN start()
@@ -103,7 +106,7 @@ public class Spawner : MonoBehaviour
 
 
         // Set up the waves to be done
-        waves[0] = new Wave(0, 2.0f, 20);
+        waves[0] = new Wave(0, 2.0f, 2);
         tLastSpawn = Time.time;
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
 
@@ -115,10 +118,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // Current wave number
-        int waveCount = 0;
-
         if (waveCount < nWaves)   // Not yet done with all waves
         {
             // Time since last spawned enemy
@@ -155,17 +154,22 @@ public class Spawner : MonoBehaviour
             if (currWave.enemySpawned == currWave.enemyCount &&      // If wave's enemies all spawned
                 GameObject.FindGameObjectWithTag("Enemy") == null)      // All enemies dead
             {
-                nWaves += 1;   // Next wave
+                waveCount += 1;   // Next wave
                 //waveManager.wave++;          // Next wave
                 // Gold?
                 // enemiesSpawned = 0;          // Reset enemy spawn count
                 tLastSpawn = Time.time;   // Reset last spawn time
             }
-
         }
         else   // Done with all waves
         {
             // Do stuff to end the game
+            Debug.Log("Stage Clear");
+            Spawner.waypointList.Clear();
+            GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
+            GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
+            Debug.Log("Cleared: " + GlobalVariables.lastClearedScene + " Next: " + GlobalVariables.nextSceneToPlay);
+            SceneManager.LoadScene(8);
         }
     }
 }

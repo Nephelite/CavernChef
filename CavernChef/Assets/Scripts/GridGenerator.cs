@@ -22,6 +22,7 @@ public class GridGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        validEnemyTiles.Clear();
         for (int i = 0; i < gridSizeY; i++)
         {
             for (int j = 0; j < gridSizeX; j++)
