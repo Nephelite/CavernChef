@@ -35,14 +35,12 @@ public class WaterTRT : AtkTower
         }
         else if (target != null)   // If ready to fire and target in range
         {
-            /* TODO implement Waterball then uncomment this
             // Fire a bullet
             GameObject bullet = Instantiate(Waterball, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
             // Set the bullet's target
-            bullet.GetComponent<Snowballt>().target = target;
+            bullet.GetComponent<Waterball>().target = target;
             // Reset the cooldown
             cooldown = tBetAtks;
-            */
         }
         // Else, nothing to do
     }

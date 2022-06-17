@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
     public EnemyStatus status;
 
     // For setting in unity; will be put into status
-    public float base_speed;
+    public float base_centi_speed;   // units is "centiunits per frame"
     public float base_hp;
     public float base_dmg;   // Dmg dealt to food
 
@@ -113,9 +113,9 @@ public class EnemyStatus
 
 
     // Constructor
-    public EnemyStatus(float hp, float speed, float dmg) {
+    public EnemyStatus(float hp, float centi_speed, float dmg) {
         this.base_hp = hp;
-        this.base_speed = speed;
+        this.base_speed = centi_speed / 100;
         this.base_dmg = dmg;
 
         this.hp = hp;

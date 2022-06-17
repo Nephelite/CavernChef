@@ -35,14 +35,12 @@ public class EarthTRT : AtkTower
         }
         else if (target != null)   // If ready to fire and target in range
         {
-            /* TODO Implement Boulder then uncomment this
             // Fire a bullet
             GameObject bullet = Instantiate(Boulder, (Vector2) gameObject.transform.position, Quaternion.identity) as GameObject;
             // Set the bullet's target
             bullet.GetComponent<Boulder>().target = target;
             // Reset the cooldown
             cooldown = tBetAtks;
-            */
         }
         // Else, nothing to do
     }

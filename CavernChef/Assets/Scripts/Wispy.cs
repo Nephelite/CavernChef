@@ -57,7 +57,7 @@ public class Wispy : Enemy
         animator = GetComponent<Animator>();
 
         // **************** SET BASE_HP,SPD,DMG IN UNITY ***************************************************************
-        status = new EnemyStatus(base_hp, base_speed, base_dmg);
+        status = new EnemyStatus(base_hp, base_centi_speed, base_dmg);
 
         // Set waypoints and priority
         base.setup();
