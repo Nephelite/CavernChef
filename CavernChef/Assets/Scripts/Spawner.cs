@@ -106,7 +106,7 @@ public class Spawner : MonoBehaviour
 
 
         // Set up the waves to be done
-        waves[0] = new Wave(0, 2.0f, 2);
+        waves[0] = new Wave(0, 2.0f, 10);  // Increased number of enemies from 2 to 10 for testing
         tLastSpawn = Time.time;
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
 

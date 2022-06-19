@@ -99,4 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centi_speed: 20
   dmg: 6
+  AoeRadius: 0.5
   effect_frames: 0

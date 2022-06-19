@@ -3,8 +3,123 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public class GlobalVariables : MonoBehaviour
+{
+    public static int SaveFileID = 0; // 0 means not in game, save files 1, 2 and 3 ids available.
+    public static int lastClearedScene = 0;
+    public static int nextSceneToPlay = 0;
+
+    public static int repelPoints;
+    public static GameObject selectedTrt;
+    public static List<GameObject> Grid = new List<GameObject>();
+
+    //For pathfinding purposes in the future
+    public List<GameObject> enemySpawns = new List<GameObject>();
+    public List<GameObject> foodPoints = new List<GameObject>();
+
+
+    // Custom class 
+    public static EnemyList enemyList = new EnemyList();
+
+
+    void Start() 
+    {
+
+    }
+
+
+    void Update() 
+    {
+        // Rearrange enemies based on priority
+        enemyList.rearrange();
+    }
+}
+
+
+
+// Before merging with Kevin's 2022-6-17 commit
+/*
+public class GlobalVariables : MonoBehaviour
+{
+    public static int repelPoints;
+    public static GameObject selectedTrt;
+    public static List<GameObject> Grid = new List<GameObject>();
+
+    //For pathfinding purposes in the future
+    public List<GameObject> enemySpawns = new List<GameObject>();
+    public List<GameObject> foodPoints = new List<GameObject>();
+
+
+    // NEWMARKER
+    // Leaving the old enemyList and testing on enemy_list for noew cause there's a 
+    // good chance that something's gonna break
+    public static EnemyList enemyList = new EnemyList();
+
+
+    void Start() 
+    {
+
+    }
+
+
+    void Update() 
+    {
+        // Rearrange enemies based on priority
+        enemyList.rearrange();
+    }
+ 
+}
+*/
+
+
+
+
+
+// Removed comments (2022-6-17)
+    /* POSSIBLE FUTURE OPTIMIZATION
+    In the worst case, you could spawn the whole wave before killing anything
+    and popping the front element repeatedly would be O(n^2)
+    O(n) can be done with self-resizing array and 2 pointers but not now (and possibly not at all)
+    */
+    // public static List<GameObject> enemyList = new List<GameObject>();
+
+        /*
+        // With the new `EnemyList`:tm: this should be done within `Enemy` or it's subclass instead
+        if (enemyList.Count > 0 && enemyList[0] == null)
+        {
+            enemyList.RemoveAt(0);
+        }
+        */
+
+   /*
+    void Update()
+    {
+        if (selectedTrt != null && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            int x_pos = (int)Input.mousePosition.x;
+            int y_pos = (int)Input.mousePosition.y;
+
+            //if (x_pos >= 39 && x_pos <= 938 && y_pos >= 257.5 && y_pos <= 565.5) 
+            //{
+                Debug.Log("Registered Input");
+                GameObject block = Instantiate(selectedTrt, Input.mousePosition, Quaternion.identity) as GameObject;
+                block.transform.SetParent(this.transform);
+                Grid.Add(block);
+            //}
+
+            selectedTrt = null;
+        }
+    }
+    */
+
+
+// Random comment at the top (2022-6-16 night edit)
 // using System.Runtime.dll;
 
+
+
+// EnemyList class moved to it's own file (2022-6-16 night edit)
 /*
 class EnemyList   (to be placed in GlobalVariables.cs)
     Fields
@@ -42,7 +157,7 @@ class EnemyList   (to be placed in GlobalVariables.cs)
 
 // TODO Change EnemyList.enemyList to use List<T>
 
-
+/*
 // Represents the list of enemies in the current wave
 public class EnemyList
 {
@@ -61,7 +176,7 @@ public class EnemyList
         for (int i = 0; i < 100; i++) {
             enemyList.Add(null);
         }
-        */
+        * /
         numSpawned = 0;
         numDead = 0;
     }
@@ -89,7 +204,7 @@ public class EnemyList
         while (enemyList[ind] != deadEnemy) {
             ind += 1;
         }
-        */
+        * /
 
         // Index of the enemy that is about to die
         int ind = enemyList.IndexOf(deadEnemy);
@@ -155,12 +270,28 @@ public class EnemyList
         for (int i = 0; i < 100; i++) {
             enemyList[i] = null;
         }
-        */
+        * /
         enemyList = new List<Enemy>();
         numSpawned = 0;
         numDead = 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Merge was copy pasted up (2022-6-18)
+/*
+<<< <<<< Updated upstream
 
 
 public class GlobalVariables : MonoBehaviour
@@ -176,7 +307,7 @@ public class GlobalVariables : MonoBehaviour
     In the worst case, you could spawn the whole wave before killing anything
     and popping the front element repeatedly would be O(n^2)
     O(n) can be done with self-resizing array and 2 pointers but not now (and possibly not at all)
-    */
+    * /
     // public static List<GameObject> enemyList = new List<GameObject>();
 
     //For pathfinding purposes in the future
@@ -207,7 +338,7 @@ public class GlobalVariables : MonoBehaviour
         {
             enemyList.RemoveAt(0);
         }
-        */
+        * /
     }
     /*
     void Update()
@@ -228,5 +359,9 @@ public class GlobalVariables : MonoBehaviour
             selectedTrt = null;
         }
     }
-    */
+    * /
 }
+=======
+* /
+>>>>>>> Stashed changes
+*/

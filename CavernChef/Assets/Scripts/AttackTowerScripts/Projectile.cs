@@ -5,11 +5,8 @@ using UnityEngine;
 /* Access modifiers for c#: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
 
 public - all scripts can access and can edit in unity
-       - use for fields that are initialized by the programmer in unity
 internal - all scripts should(?) be able to acees but cannot edit in unity
-         - use for fields that are initialized by the script instead to declutter the unity UI
 protected - all subclasses
-          - for functions that get called by children
 */
 
 /* Current projectile behavior if target dies while en route (2022-6-15 night/2022-6-16 morning)
@@ -26,8 +23,12 @@ public abstract class Projectile : MonoBehaviour
     public float centi_speed;   // This is in centiunits per frame
     // Dmg of the projectile (SET IN UNITY)
     public float dmg;
-    // Effect duration, if any (snow, wet)
-    public int effect_frames;
+    // AoE radius, if any
+    public float AoeRadius;
+    // Chain length, if any
+    public int chainLen;
+    // Effect duration, if any (snow, water)
+    public int effectFrames;
 
     // True speed
     internal float speed;

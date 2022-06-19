@@ -31,12 +31,24 @@ public class Fireball : Projectile
 
         if (dist < speed)   // Hit
         {
+            // Get list of enemies hit by AoE
+            List<Enemy> hit = GlobalVariables.enemyList.AoECasualties(targetPos, AoeRadius);
+            foreach (Enemy enemy in hit) {
+                // Deal dmg
+                enemy.status.fireDmg(dmg);
+            }
+
+            // DEBUG
+            // Debug.Log(hit.Count);   Note to self actually double check that I typed the right variables
+
+
+            /*
             // If target not yet dead, deal dmg
             if (target != null) {
                 target.status.fireDmg(dmg);
             }
-
             // If the projectile is AoE, do AoE stuff
+            */
 
             // Destroy the bullet itself
             Destroy(gameObject);

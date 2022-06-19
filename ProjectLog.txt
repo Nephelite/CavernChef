@@ -174,3 +174,11 @@ Next TODO: Add AoE and Lightning chaining to EnemyList and incorporate them into
 Implemented most of the core gameplay loop
 Added saving and loading of a run
 - Kevin (12 hrs)
+
+17/6 - 19/6:
+Moved out some redundant code and deleted some redundant files.
+Implemented scripts for Snowball, Waterball, Boulder, and Lightning using EnemyStatus.
+Hopefully they work as intended.
+TODO1: Make/search sprites for projectiles, make them prefabs, and test the scripts.
+TODO2: Implement LightTRT
+- Bryce (3 hrs total, June 17 0.5 hrs + June 18 1 hr + June 19 1.5 hrs)

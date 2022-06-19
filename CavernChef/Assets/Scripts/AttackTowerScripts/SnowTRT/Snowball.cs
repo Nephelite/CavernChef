@@ -9,7 +9,7 @@ public class Snowball : Projectile
     /* Stats as of 2022-6-
     centi_speed = 
     dmg = 
-    effect_frames = 
+    effectFrames = 
     */
 
     // Start is called before the first frame update
@@ -31,12 +31,24 @@ public class Snowball : Projectile
 
         if (dist < speed)   // If target is hit
         {
+            // Get list of enemies hit by the AoE
+            List<Enemy> hit = GlobalVariables.enemyList.AoECasualties(targetPos, AoeRadius);
+            // Hit every hit enemy
+            foreach (Enemy enemy in hit)
+            {
+                // Deal damage
+                enemy.status.snowDmg(dmg);
+                // Apply status effect
+                enemy.status.snow(effectFrames);
+            }
+            /*
             if (target != null) {   // if target is not yet dead
                 // Deal damage (possibly AoE)
                 target.status.snowDmg(dmg);
                 // Apply status effect (if any; possibly AoE)
-                target.status.snow(effect_frames);
+                target.status.snow(effectFrames);
             }
+            */
             Destroy(gameObject);   // Destroy the bullet itself
         }
         else   // Elif not yet hit

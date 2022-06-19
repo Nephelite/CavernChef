@@ -7,8 +7,6 @@ public class LightTRT : AtkTower
     // Set in Unity, contains a reference to a basic bullet
     //public GameObject LightLaser;
 
-    // Slow duration and dmg to be put into the created bullet
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +33,7 @@ public class LightTRT : AtkTower
         }
         else if (target != null)   // If ready to fire and target in range
         {
-            /* TODO implement LightLaser
+            /* TODO implement LazerBeam
             */
         }
         // Else, nothing to do

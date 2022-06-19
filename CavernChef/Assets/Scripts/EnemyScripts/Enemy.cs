@@ -2,45 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// For Math.Max
-using System;
-
-
-
-/* "CS2030S Labs Plan.txt Style" Summary
-class EnemyStatus (moved to the bottom)
-    Fields
-        float base_hp
-        float base_speed
-        float base_dmg
-        float hp
-        etc (probably not needed outside)
-    Methods
-        EnemyStatus(hp, speed, dmg)
-        float currSpeed()
-        float currHp()
-        void updateStatus()
-            Updates frame_count's to decrease by 1 if >0
-
-        bool isDead()
-        bool isSnowed()
-        bool isStunned()
-        bool isWet()
-
-        void snow(int frame_count)
-        void stun(int frame_count)
-        void wet(int frame_count)
-
-        void basicDmg(float bullet_dmg)
-        void earthDmg(float bullet_dmg)
-        void electricDmg(float bullet_dmg)
-        void fireDmg(float bullet_dmg)
-        void snowDmg(float bullet_dmg)
-        void waterDmg(float bullet_dmg)
-*/
-
-
-
 public abstract class Enemy : MonoBehaviour
 {
     public EnemyStatus status;
@@ -72,7 +33,9 @@ public abstract class Enemy : MonoBehaviour
 
 
 // Summary of EnemyStatus at the top
+// MOVED INTO ITS OWN FILE (2022-6-17)
 
+/*
 public class EnemyStatus
 {
     // FIELDS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,6 +190,9 @@ public class EnemyStatus
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
+*/
+
+
 
 
 

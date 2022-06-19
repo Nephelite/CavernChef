@@ -7,7 +7,7 @@ public class Waterball : Projectile
     /* Stats as of 2022-6-
     centi_speed = 
     dmg = 
-    effect_frames = 
+    effectFrames = 
     */
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Waterball : Projectile
                 // Deal damage (possibly AoE)
                 target.status.waterDmg(dmg);
                 // Apply status effect (if any; possibly AoE)
-                target.status.wet(effect_frames);
+                target.status.wet(effectFrames);
             }
             Destroy(gameObject);   // Destroy the bullet itself
         }
