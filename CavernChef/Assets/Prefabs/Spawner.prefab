@@ -44,4 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d54c17faca7b490e9347d8b31f2c7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  enemyList: []
+  waypoints: {fileID: 0}
+  tBetWaves: 5
+  nWaves: 0
+  foodPoint: {fileID: 0}
+  waypointPrefab: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
+  offsetFromGridX: 0
+  offsetFromGridY: 0
+  foodOffsetFromGridX: 0
+  foodOffsetFromGridY: 0

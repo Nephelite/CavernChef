@@ -12,6 +12,7 @@ public class GlobalVariables : MonoBehaviour
 
     public static int repelPoints;
     public static GameObject selectedTrt;
+    public static bool isOffensiveTRT, isDefensiveTRT;
     public static List<GameObject> Grid = new List<GameObject>();
 
     //For pathfinding purposes in the future

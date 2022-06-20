@@ -182,3 +182,13 @@ Hopefully they work as intended.
 TODO1: Make/search sprites for projectiles, make them prefabs, and test the scripts.
 TODO2: Implement LightTRT
 - Bryce (3 hrs total, June 17 0.5 hrs + June 18 1 hr + June 19 1.5 hrs)
+
+20/6: 
+Implemented a blockage TRT.
+Desc: When placed on an enemy path tile, all spawners and enemies will search for a path without the tile with the blockage.
+Currently implemented: Almost everything about it
+Not implemented: A check for if a valid path exists if the initial path is blocked off.
+Bug: Priority is messed up. Awaiting Bryce's bugfix as he is the one to implement the priority system.
+Slight bug: Occasionally, enemies will stall slightly on a tile when blockage is placed.
+This is likely to be because of how we coded wisps to move. To be fixed later as bug is super minor.
+- Kevin (5 hrs)

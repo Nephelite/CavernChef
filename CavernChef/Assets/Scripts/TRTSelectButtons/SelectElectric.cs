@@ -10,6 +10,8 @@ public class SelectElectric : MonoBehaviour
         if (GlobalVariables.repelPoints >= cost) 
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("ElectricTRT");
+            GlobalVariables.isDefensiveTRT = false;
+            GlobalVariables.isOffensiveTRT = true;
         }
         // else text shows not enough RP to be implemented
     }

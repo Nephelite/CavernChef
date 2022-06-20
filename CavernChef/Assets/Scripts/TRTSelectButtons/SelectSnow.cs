@@ -10,6 +10,8 @@ public class SelectSnow : MonoBehaviour
         if (GlobalVariables.repelPoints >= cost) 
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("SnowTRT");
+            GlobalVariables.isDefensiveTRT = false;
+            GlobalVariables.isOffensiveTRT = true;
         }
         // else text shows not enough RP to be implemented
     }

@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class RunManager : MonoBehaviour
 {
     public List<GameObject> foodsList = new List<GameObject>();
-    public List<GameObject> TRTIndexedList = new List<GameObject>();
-    //List: 0 - Econ, 1 - Fire, 2 - Water, 3 - Snow, 4 - Light, 5 - Electric, 6 - Earth 
+    public List<GameObject> TRTButtonsIndexedList = new List<GameObject>(); //Need to manually add all of the buttons from canvas
+    //List: 0 - Econ, 1 - Fire, 2 - Water, 3 - Snow, 4 - Light, 5 - Electric, 6 - Earth, 7 - Blockage
     public GameObject TRTMenu;
     public static bool testRun = true; //For making game testing easier. Remove in final product.
     public static bool[] accessibleButtonsSaveData = new bool[32]; //NOTE: Change this if needed, it has to be at least greater than the number of TRT tpes placeable.;
@@ -24,9 +24,9 @@ public class RunManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < TRTIndexedList.Count; i++)
+        for (int i = 0; i < TRTButtonsIndexedList.Count; i++)
         {
-            TRTIndexedList[i].SetActive(accessibleButtonsSaveData[i]);
+            TRTButtonsIndexedList[i].SetActive(accessibleButtonsSaveData[i]);
         }
     }
 
@@ -64,11 +64,11 @@ public class RunManager : MonoBehaviour
         Run currentRun = SaveSystem.LoadRun();
         accessibleButtonsSaveData = currentRun.unlocks;
         
-        for (int i = 0; i < TRTIndexedList.Count; i++)
+        for (int i = 0; i < TRTButtonsIndexedList.Count; i++)
         {
             if (accessibleButtonsSaveData[i])
             {
-                TRTIndexedList[i].SetActive(true);
+                TRTButtonsIndexedList[i].SetActive(true);
             }
         }
 
@@ -77,7 +77,7 @@ public class RunManager : MonoBehaviour
 
     void newButtonAdded(int i)
     {
-        GameObject buttonToAssign = TRTIndexedList[i];
+        GameObject buttonToAssign = TRTButtonsIndexedList[i];
         buttonToAssign.transform.SetParent(TRTMenu.transform);
         accessibleButtonsSaveData[i] = true;
     }

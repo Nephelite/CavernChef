@@ -89,9 +89,31 @@ public class Spawner : MonoBehaviour
     public GameObject foodPoint, waypointPrefab;
     public float offsetFromGridX, offsetFromGridY, foodOffsetFromGridX, foodOffsetFromGridY;
 
+    public void newPath()
+    {
+        //Pathing generation
+        GameObject spawnPoint = waypointList[0];
+        GameObject endPoint = waypointList[waypointList.Count - 1];
+        GameObject waypointStart = waypointList[1];
+        GameObject waypointEnd = waypointList[waypointList.Count - 2];
+        waypointList.Clear();
+        
+        AStarEnemyPathfinding pathFinder = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
+        List<GameObject> pathBody = pathFinder.generatePathing();
+        waypointList.Add(spawnPoint);
+        pathBody.Reverse();
+        waypointList.AddRange(pathBody);
+        waypointList.Add(endPoint);
+        //Pathing done
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        BlockageTRT.spawner = this.gameObject;
+
+        waypointList.Clear();
+
         //Pathing generation
         GameObject waypointStart = GridGenerator.validEnemyTiles[(int) ((gameObject.transform.position.x - offsetFromGridX) + (gameObject.transform.position.y - offsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
         GameObject waypointEnd = GridGenerator.validEnemyTiles[(int) ((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
@@ -147,6 +169,12 @@ public class Spawner : MonoBehaviour
                 // Update the number of enemies spawned
                 GlobalVariables.enemyList.add(newEnemy.GetComponent<Enemy>());
                 currWave.enemySpawned++;
+
+                newEnemy.GetComponent<Enemy>().foodOffsetFromGridX = foodOffsetFromGridX;
+                newEnemy.GetComponent<Enemy>().foodOffsetFromGridY = foodOffsetFromGridY;
+                newEnemy.GetComponent<Enemy>().spawnOffsetFromGridX = offsetFromGridX;
+                newEnemy.GetComponent<Enemy>().spawnOffsetFromGridY = offsetFromGridY;
+                newEnemy.GetComponent<Enemy>().foodPoint = foodPoint;
             }
 
 
@@ -253,6 +281,11 @@ public class AStarEnemyPathfinding
                 foreach (var adjWaypoint in adjWaypoints)
                 {
                     Debug.Log("checking adjacent waypoints");
+                    if (adjWaypoint.transform.parent.GetComponent<EnemyTile>().isBlockage) // If the enemy tile is a blockage, skip that tile.
+                    {
+                        Debug.Log("SKIP");
+                        continue;
+                    }
                     Node adjNode = new Node(checkNode.costToStart + 1, adjWaypoint, endPoint);
                     if (closedPoints.Any(x => x.associatedWaypoint.GetComponent<WaypointInternals>().tileIndex == adjWaypoint.GetComponent<WaypointInternals>().tileIndex))
                         continue;
