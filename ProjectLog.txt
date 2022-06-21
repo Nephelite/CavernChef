@@ -197,4 +197,11 @@ This is likely to be because of how we coded wisps to move. To be fixed later as
 Implemented a stalling TRT.
 Currently enemies do damage per frame so the stalling TRT has inflated HP.
 To revisit and balance once enemies have an attack cycle.
-- Kevin (1.5h)
+- Kevin (2h)
+
+Updated priority of Enemies to be able to handle blockage placements (renamed to distToFood also for practicality).
+Updated EnemyList to use this new definition of priority.
+Updated the movement of enemies to use this new variable distToFood.
+Added layers of abstraction to Enemy through methods.
+Bug: Placing a blockage causes the error "NullReferenceException: Object reference not set to an instance of an object" and kills all the enemies on the board atm.
+- Bryce (3 hrs)

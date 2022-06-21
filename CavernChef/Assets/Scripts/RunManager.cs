@@ -12,7 +12,7 @@ public class RunManager : MonoBehaviour
     public static bool testRun = true; //For making game testing easier. Remove in final product.
     public static bool[] accessibleButtonsSaveData = new bool[32]; //NOTE: Change this if needed, it has to be at least greater than the number of TRT tpes placeable.;
 
-    private int testNum = 2; //Change if testing of a certain TRT is needed
+    private int testNum = 8; //Change if testing of a certain TRT is needed
 
     void Start()
     {
