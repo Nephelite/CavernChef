@@ -86,6 +86,8 @@ public class Wispy : Enemy
             }
             else //If alive
             {
+                this.movementUpdate();
+                /*
                 // Get the speed given the current status
                 float curr_speed = status.currSpeed();
 
@@ -119,6 +121,7 @@ public class Wispy : Enemy
                 nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
 
                 gameObject.transform.position = Vector2.Lerp(startPos, endPos, decimalTilesTraversed);
+                */
 
 
             }

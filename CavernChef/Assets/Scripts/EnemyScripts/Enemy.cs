@@ -3,6 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+// So that I can use Math.Floor()
+using System;
+
+/* Lab style summary
+class Enemy
+    Fields
+        public EnemyStatus status
+        public GameObject waypointPrefab, foodPoint
+
+        public float base_centi_speed
+        public float base_hp
+        public float base_dmg
+
+        public List<GameObject> waypoints;
+        public GameObject nextTileToVisit
+        public float distToFood
+        public float wayptPathLen
+
+        public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY
+    Methods
+        public virtual void setup()
+            Initializes waypoints, distToFood, wayptPathLen
+        public bool isInFrontOf(Enemy enemy0)
+            a.isInFrontOf(b) = a.distToFood < b.distToFood
+        public void movementUpdate()
+            Updates distToFood, this.transform.position, and relevant WaypointInternals
+*/
+
 public abstract class Enemy : MonoBehaviour
 {
     public EnemyStatus status;
@@ -13,24 +41,147 @@ public abstract class Enemy : MonoBehaviour
     public float base_hp;
     public float base_dmg;   // Dmg dealt to food
 
-    // Distance from the start; higher val -> higher prio for turrets
-    public float priority;
-
     // Waypoints to path the enemy (from Kevin's A Star pathfinding)
     public List<GameObject> waypoints;
 
-    public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY; //might not need spawn coords
-
     public GameObject nextTileToVisit;
+
+    // Distance from the end; Also used for determining the priority
+    public float distToFood;
+
+    // Total distance along the currently set `waypoints`
+    // Used to aid in handling movement
+    public float wayptPathLen;
+
+    public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY; //might not need spawn coords
 
     // "public virtual void" so that it can be called in child classes through
     //     base.Start()
     public virtual void setup()
     {
-        // Initialize the waypoints and priority
+        // Initialize the waypoints
         waypoints = new List<GameObject>(Spawner.waypointList);
-        priority = 0;
+        
+        // Initialize distToFood
+        if (waypoints.Count == 2) {   // Corner case of there being no waypoints except for the start and end
+            Vector2 displacementVectorInThisCase = waypoints[1].transform.position- waypoints[0].transform.position;
+            distToFood = displacementVectorInThisCase.magnitude;
+        
+        } else {   // There's at least 1 grid waypoint
+            int n = waypoints.Count;       // Number of waypoints in total
+            // *grid spacing is assumed to be 1, doubt this will change
+            // If grid spacing is changed, siply do (n-3)*units_per_grid
+            float distAlongGridWaypoints = n - 3;   // Distance traveled between grid waypoints
+
+            // Get positions of the first 2 and last 2 waypoints (possible overlap in middle)
+            Vector2 spawnPoint = waypoints[0].transform.position;
+            Vector2 firstGridWaypoint = waypoints[1].transform.position;
+            Vector2 lastGridWaypoint = waypoints[n-2].transform.position;
+            Vector2 endPoint = waypoints[n-1].transform.position;
+
+            // Get the first and last segment to travel
+            Vector2 firstSegment = firstGridWaypoint - spawnPoint;
+            Vector2 lastSegment = endPoint - lastGridWaypoint;
+
+            // Get the magnitude of these two vectors
+            float firstSegmentDist = firstSegment.magnitude;
+            float lastSegmentDist = lastSegment.magnitude;
+
+            // Add them up to get total dist to food
+            distToFood = firstSegmentDist + distAlongGridWaypoints + lastSegmentDist;
+        }
+        
+        // Initialize distAlongWaypoints
+        wayptPathLen = distToFood;
     }
+
+    // For relative comparison of priorities
+    //     enemy1.goFirsterThan(enemy2)
+    // returns True iff enemy1 is strictly closer than enemy2
+    public bool isInFrontOf(Enemy enemy0)
+    {
+        return this.distToFood < enemy0.distToFood;
+    }
+
+    // Updates the position of the enemy based on waypoints and distToFood
+    public void movementUpdate()
+    {
+        // Get the speed given the current status
+        float curr_speed = status.currSpeed();
+
+        // Update dist to food
+        distToFood -= curr_speed;
+
+        // Get dist from start of the waypoints
+        float distFromStart = wayptPathLen - distToFood;
+
+        // Get dist along first and last segments
+        Vector2 vector_i_0 = waypoints[0].transform.position;   // Start of first segment
+        Vector2 vector_i_1 = waypoints[1].transform.position;   // End of first segment
+        Vector2 vector_f_0 = waypoints[waypoints.Count-2].transform.position;   // Start of last segment
+        Vector2 vector_f_1 = waypoints[waypoints.Count-1].transform.position;   // End of last segment
+
+        Vector2 vector_i = vector_i_1 - vector_i_0;   // Vector of first segment
+        Vector2 vector_f = vector_f_1 - vector_f_0;   // Vector of last segment
+
+        float dist_i = vector_i.magnitude;   // Length of first segment
+        float dist_f = vector_f.magnitude;   // Length of last segment
+
+        // Initialize the segment the enemy is in, which is [prevWaypoint, nextWaypoint)
+        // All intialized to anything cause of stupid "Use of unassigned local variable" error
+        GameObject prevWaypoint = null;
+        GameObject nextWaypoint = null;
+        float fracOfWayToNextWaypoint = 0;   // Initialize this too
+
+        // If at the food
+        if (distToFood <= 0)
+        {
+            // TODO Deal base_dmg to the food TODO
+            GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());
+            Destroy(gameObject);
+        }
+
+        // Elif at the last segment
+        else if (distToFood <= dist_f)
+        {
+            prevWaypoint = waypoints[waypoints.Count-2];
+            nextWaypoint = waypoints[waypoints.Count-1];
+            fracOfWayToNextWaypoint = 1 - distToFood/dist_f;
+        }
+
+        // Elif at the first segment
+        else if (distFromStart < dist_i)
+        {
+            prevWaypoint = waypoints[0];
+            nextWaypoint = waypoints[1];
+            fracOfWayToNextWaypoint = distFromStart/dist_i;
+        }
+
+        // Elif between two grid waypoints
+        else
+        {
+            float gridTilesTraversed = distFromStart - dist_i;                                // Distance traveled along grid waypoints
+            int floorGridTilesTraversed = (int)Math.Floor(gridTilesTraversed);                // Number grid waypoints passed
+            float decimalGridTilesTraversed = gridTilesTraversed - floorGridTilesTraversed;   // Fraction of way along current segment
+
+            prevWaypoint = waypoints[floorGridTilesTraversed+1];   // +1 to include first non grid waypoint
+            nextWaypoint = waypoints[floorGridTilesTraversed+2];
+            fracOfWayToNextWaypoint = decimalGridTilesTraversed;
+        }
+
+        // Get the position between above waypoints
+        Vector3 startPos = prevWaypoint.transform.position;
+        Vector3 endPos = nextWaypoint.transform.position;
+        nextTileToVisit = nextWaypoint;
+
+        prevWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.RemoveAll(x => x.Equals(gameObject)); //How does .Equals() work in C# and Unity?
+        nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
+
+        gameObject.transform.position = Vector2.Lerp(startPos, endPos, fracOfWayToNextWaypoint);
+    }
+
+
+
 
     //Only called if, in a list of waypoints, an obstacle is placed on a tile with a waypoint in the list. All spawns using this list, and enemies that are still
     //not past the point of blockage will then call this method to generate the new path.
@@ -50,7 +201,7 @@ public abstract class Enemy : MonoBehaviour
         pathBody.Reverse();
         waypoints.AddRange(pathBody);
         waypoints.Add(destination);
-        priority = 0;
+        distToFood = 0;
     }
 
 

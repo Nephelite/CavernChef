@@ -89,7 +89,7 @@ public class EnemyList
         // "Insertion sort" swapped enemy back in place
         // High probability that this doesn't need many swaps since an enemy at the front
         // is more likely to die first.
-        while (ind > numDead && enemyList[ind].priority > enemyList[ind-1].priority) {
+        while (ind > numDead && enemyList[ind].isInFrontOf(enemyList[ind-1])) {
             enemySwap(ind, ind-1);
             ind -= 1;
         }
@@ -108,7 +108,7 @@ public class EnemyList
             int ind = i;
 
             // While not in position, shuffle left
-            while (ind > L && enemyList[ind].priority > enemyList[ind-1].priority) {
+            while (ind > L && enemyList[ind].isInFrontOf(enemyList[ind-1])) {
                 enemySwap(ind, ind-1);
                 ind -= 1;
             }
@@ -117,7 +117,7 @@ public class EnemyList
 
 
 
-    // Finds the enemy with the highest priority within a certain radius from a certain point
+    // Finds the enemy closest within a certain radius from a certain point
     // TO-CALL whenever an offensive tower fires
     public Enemy findTarget(Vector2 towerPos, float towerRange) {
         // For each existing enemy in order
