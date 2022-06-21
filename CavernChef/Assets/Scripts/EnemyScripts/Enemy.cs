@@ -55,6 +55,8 @@ public abstract class Enemy : MonoBehaviour
 
     public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY; //might not need spawn coords
 
+
+
     // "public virtual void" so that it can be called in child classes through
     //     base.Start()
     public virtual void setup()
@@ -252,6 +254,42 @@ public abstract class Enemy : MonoBehaviour
         pathBody.Reverse();
         waypoints.AddRange(pathBody);
         waypoints.Add(destination);
+
+        // Update distToFood
+        if (waypoints.Count == 2)   // Corner case of no grid tile waypoints in between
+        {
+            Vector2 cornerCaseStart = waypoints[0].transform.position;          // Starting pos
+            Vector2 cornerCaseEnd = waypoints[1].transform.position;            // Ending pos
+            Vector2 cornerCaseDisplacement = cornerCaseEnd - cornerCaseStart;   // Vector from start to end
+            float cornerCaseDist = cornerCaseDisplacement.magnitude;            // Dist bet start and end
+            distToFood = cornerCaseDist;
+        }
+        else   // There exists at least one grid tile waypoint in between (copy pasted from above)
+        {
+            int n = waypoints.Count;       // Number of waypoints in total
+            // *grid spacing is assumed to be 1, doubt this will change
+            // If grid spacing is changed, siply do (n-3)*units_per_grid
+            float distAlongGridWaypoints = n - 3;   // Distance traveled between grid waypoints
+
+            // Get positions of the first 2 and last 2 waypoints (possible overlap in middle)
+            Vector2 spawnPoint = waypoints[0].transform.position;
+            Vector2 firstGridWaypoint = waypoints[1].transform.position;
+            Vector2 lastGridWaypoint = waypoints[n-2].transform.position;
+            Vector2 endPoint = waypoints[n-1].transform.position;
+
+            // Get the first and last segment to travel
+            Vector2 firstSegment = firstGridWaypoint - spawnPoint;
+            Vector2 lastSegment = endPoint - lastGridWaypoint;
+
+            // Get the magnitude of these two vectors
+            float firstSegmentDist = firstSegment.magnitude;
+            float lastSegmentDist = lastSegment.magnitude;
+
+            // Add them up to get total dist to food
+            distToFood = firstSegmentDist + distAlongGridWaypoints + lastSegmentDist;
+        }
+
+        // Update wayptPathLen
         wayptPathLen = distToFood;
     }
 
