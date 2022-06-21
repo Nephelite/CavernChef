@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour
     // For setting in unity; will be put into status
     public float base_centi_speed;   // units is "centiunits per frame"
     public float base_hp;
-    public float base_dmg;   // Dmg dealt to food
+    public float base_dmg;   // Dmg dealt to food/stall TRTs
 
     // Distance from the start; higher val -> higher prio for turrets
     public float priority;
@@ -31,6 +31,61 @@ public abstract class Enemy : MonoBehaviour
         waypoints = new List<GameObject>(Spawner.waypointList);
         priority = 0;
     }
+
+    private bool stalled;
+
+    void stall()
+    {
+        Debug.Log("Stalling");
+        heldSpeed = status.stop();
+        stalled = true;
+    }
+
+    private float heldSpeed;
+
+    public void checkForStall(GameObject currentTile, GameObject nextTile)
+    {
+        if (stalled)
+        {
+            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") != null)
+            {
+                nextTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+            }
+
+            if (currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") != null)
+            {
+                currentTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+            }
+
+
+            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null 
+                && currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") == null)
+            {
+                status.restoreSpeed(heldSpeed);
+                heldSpeed = 0f;
+                stalled = false;
+            }
+        }
+        else
+        {
+            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") != null)
+            {
+                nextTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                Invoke("stall", 0f);
+            }
+
+            if (currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") != null)
+            {
+                currentTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                Invoke("stall", 0f);
+            }
+        }
+    }
+
+
+
+
+    //Below this will be methods for finding a path when a blockage TRT is placed.
 
     //Only called if, in a list of waypoints, an obstacle is placed on a tile with a waypoint in the list. All spawns using this list, and enemies that are still
     //not past the point of blockage will then call this method to generate the new path.

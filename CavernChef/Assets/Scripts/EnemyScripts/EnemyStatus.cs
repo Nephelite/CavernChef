@@ -129,7 +129,20 @@ public class EnemyStatus
     public bool isWet() { return wet_frames > 0; }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    //STALLING ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Methods to set speed to 0, and restore it
+    public float stop()
+    {
+        float speed = base_speed;
+        base_speed = 0;
+        return speed;
+    }
 
+    public void restoreSpeed(float speed)
+    {
+        base_speed = speed;
+    }
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // APPLYING STATUS EFFECTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // (In general, durations don't stack but can overlap) ~~~~~~~~~~~~~~~~~~~~

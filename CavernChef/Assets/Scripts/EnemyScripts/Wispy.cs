@@ -113,14 +113,12 @@ public class Wispy : Enemy
                 // Get the position between above waypoints
                 Vector3 startPos = prevWaypoint.transform.position;
                 Vector3 endPos = nextWaypoint.transform.position;
-                nextTileToVisit = nextWaypoint;
+                base.checkForStall(prevWaypoint, nextWaypoint);
 
                 prevWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.RemoveAll(x => x.Equals(gameObject)); //How does .Equals() work in C# and Unity?
                 nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
 
                 gameObject.transform.position = Vector2.Lerp(startPos, endPos, decimalTilesTraversed);
-
-
             }
         }
     }

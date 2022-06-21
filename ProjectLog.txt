@@ -192,3 +192,9 @@ Bug: Priority is messed up. Awaiting Bryce's bugfix as he is the one to implemen
 Slight bug: Occasionally, enemies will stall slightly on a tile when blockage is placed.
 This is likely to be because of how we coded wisps to move. To be fixed later as bug is super minor.
 - Kevin (5 hrs)
+
+21/6:
+Implemented a stalling TRT.
+Currently enemies do damage per frame so the stalling TRT has inflated HP.
+To revisit and balance once enemies have an attack cycle.
+- Kevin (1.5h)
