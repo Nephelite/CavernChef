@@ -121,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
             }
 
 
-            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null 
+            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null
                 && currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") == null)
             {
                 status.restoreSpeed(heldSpeed);
@@ -143,7 +143,8 @@ public abstract class Enemy : MonoBehaviour
                 Invoke("stall", 0f);
             }
         }
-        
+    }
+
     // For relative comparison of priorities
     //     enemy1.goFirsterThan(enemy2)
     // returns True iff enemy1 is strictly closer than enemy2
@@ -188,6 +189,7 @@ public abstract class Enemy : MonoBehaviour
             // TODO Deal base_dmg to the food TODO
             GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());
             Destroy(gameObject);
+            return ;
         }
 
         // Elif at the last segment
@@ -222,6 +224,7 @@ public abstract class Enemy : MonoBehaviour
         Vector3 startPos = prevWaypoint.transform.position;
         Vector3 endPos = nextWaypoint.transform.position;
         nextTileToVisit = nextWaypoint;
+        checkForStall(prevWaypoint, nextWaypoint);
 
         prevWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.RemoveAll(x => x.Equals(gameObject)); //How does .Equals() work in C# and Unity?
         nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
@@ -249,7 +252,7 @@ public abstract class Enemy : MonoBehaviour
         pathBody.Reverse();
         waypoints.AddRange(pathBody);
         waypoints.Add(destination);
-        distToFood = 0;
+        wayptPathLen = distToFood;
     }
 
 
