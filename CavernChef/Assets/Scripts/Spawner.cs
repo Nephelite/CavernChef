@@ -63,10 +63,12 @@ public class Spawner : MonoBehaviour
     // private GameManagerBehavior gameManager;  // TODO?
     // private WaveManager waveManager;   // Holds relevant wave related info
 
+    public bool isMirroredSpawns;
+
     // Array of the enemies
     public List<GameObject> enemyList = new List<GameObject>();   // SET THIS IN UNITY
 
-    public WayPoints waypoints; //FIX NUMBER 1
+    public List<GameObject> displayWaypoints = new List<GameObject>();
 
     // Time between waves
     public int tBetWaves = 5;
@@ -83,11 +85,20 @@ public class Spawner : MonoBehaviour
 
     // List of all possible spawning points
     // NOTE: This is 0-indexed
-    public List<int[]> spawnPoints = new List<int[]>(1);
+    public static List<GameObject> spawnPoints = new List<GameObject>();
+    public List<GameObject> displaySpawns = new List<GameObject>();
+    public static int choice;
 
     public static List<GameObject> waypointList = new List<GameObject>();  // MADE STATIC NOW
+    public static List<GameObject> waypointSecondList = new List<GameObject>();  // MADE STATIC NOW
     public GameObject foodPoint, waypointPrefab;
     public float offsetFromGridX, offsetFromGridY, foodOffsetFromGridX, foodOffsetFromGridY;
+
+    public static void destroyAndRemoveSpawn(int i)
+    {
+        Destroy(spawnPoints[i]);
+        spawnPoints.RemoveAt(i);
+    }
 
     public void newPath()
     {
@@ -105,27 +116,71 @@ public class Spawner : MonoBehaviour
         waypointList.AddRange(pathBody);
         waypointList.Add(endPoint);
         //Pathing done
+
+        //Pathing generation
+        spawnPoint = waypointSecondList[0];
+        endPoint = waypointSecondList[waypointSecondList.Count - 1];
+        waypointStart = waypointSecondList[1];
+        waypointEnd = waypointSecondList[waypointSecondList.Count - 2];
+        waypointSecondList.Clear();
+
+        AStarEnemyPathfinding pathFinder2 = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
+        List<GameObject> pathBody2 = pathFinder2.generatePathing();
+        waypointSecondList.Add(spawnPoint);
+        pathBody2.Reverse();
+        waypointSecondList.AddRange(pathBody2);
+        waypointSecondList.Add(endPoint);
+        //Pathing done
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Spawner activated");
+
+        displaySpawns = spawnPoints;
+
         BlockageTRT.spawner = this.gameObject;
 
         waypointList.Clear();
+        waypointSecondList.Clear();
 
         //Pathing generation
-        GameObject waypointStart = GridGenerator.validEnemyTiles[(int) ((gameObject.transform.position.x - offsetFromGridX) + (gameObject.transform.position.y - offsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
-        GameObject waypointEnd = GridGenerator.validEnemyTiles[(int) ((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
+        GameObject waypointStart = GridGenerator.validEnemyTiles[(int)((spawnPoints[0].transform.position.x - offsetFromGridX) + (spawnPoints[0].transform.position.y - offsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
+        GameObject waypointEnd = GridGenerator.validEnemyTiles[(int)((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
 
-        AStarEnemyPathfinding pathFinder = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
-        List<GameObject> pathBody = pathFinder.generatePathing();
-        waypointList.Add(Instantiate(waypointPrefab, gameObject.transform.position, Quaternion.identity) as GameObject);
-        pathBody.Reverse();
-        waypointList.AddRange(pathBody);
+        AStarEnemyPathfinding pathFinder1 = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
+        List<GameObject> pathBody1 = pathFinder1.generatePathing();
+        waypointList.Add(Instantiate(waypointPrefab, spawnPoints[0].transform.position, Quaternion.identity) as GameObject);
+        pathBody1.Reverse();
+        waypointList.AddRange(pathBody1);
         waypointList.Add(Instantiate(waypointPrefab, foodPoint.transform.position, Quaternion.identity) as GameObject);
         //Pathing done
 
+        if (isMirroredSpawns)
+        {
+            offsetFromGridX = 1 + (-offsetFromGridX);
+        }
+
+        //Debug.Log("Second Waypoint Start: " + (int)((spawnPoints[1].transform.position.x - offsetFromGridX) + (spawnPoints[1].transform.position.y - offsetFromGridY) * 32));
+        //Pathing generation
+        GameObject waypointStart2 = GridGenerator.validEnemyTiles[(int)((spawnPoints[1].transform.position.x - offsetFromGridX) + (spawnPoints[1].transform.position.y - offsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
+        //waypointEnd = GridGenerator.validEnemyTiles[(int)((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
+
+        AStarEnemyPathfinding pathFinder2 = new AStarEnemyPathfinding(ref waypointStart2, ref waypointEnd);
+        List<GameObject> pathBody2 = pathFinder2.generatePathing();
+        waypointSecondList.Add(Instantiate(waypointPrefab, spawnPoints[1].transform.position, Quaternion.identity) as GameObject);
+        pathBody2.Reverse();
+        waypointSecondList.AddRange(pathBody2);
+        waypointSecondList.Add(Instantiate(waypointPrefab, foodPoint.transform.position, Quaternion.identity) as GameObject);
+        //Pathing done
+
+        if (isMirroredSpawns)
+        {
+            offsetFromGridX = 1 + (-offsetFromGridX);
+        }
+
+        displayWaypoints = waypointSecondList;
 
         // Set up the waves to be done
         waves[0] = new Wave(0, 2.0f, 10);  // Increased number of enemies from 2 to 10 for testing
@@ -153,15 +208,38 @@ public class Spawner : MonoBehaviour
                 timeInterval > currWave.spawnInterval) &&                         //      next enemy in wave ) AND
                 currWave.enemySpawned < waves[waveCount].enemyCount )         //    wave isn't done yet
             {
+                choice = Random.Range(0, 2);
                 // Update last spawn time
                 tLastSpawn = Time.time;
-                // Make a new instance of the specified enemy type for the wave
-                GameObject newEnemy = (GameObject) Instantiate(enemyList[currWave.enemyInd], 
-                    gameObject.transform.position, Quaternion.identity);
-                //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
-                newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
-                // Set the parent of the enemy in the hierarchy to be the Spawner
-                newEnemy.transform.SetParent(this.transform);
+
+                GameObject newEnemy;
+
+                if (choice == 0)
+                {
+                    Debug.Log("First Spawn");
+                    // Make a new instance of the specified enemy type for the wave
+                    newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
+                    spawnPoints[0].transform.position, Quaternion.identity);
+                    //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                    //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
+
+
+                    // Set the parent of the enemy in the hierarchy to be the Spawner
+                    newEnemy.transform.SetParent(this.transform);
+                }
+                else
+                {
+                    Debug.Log("Second Spawn");
+                    // Make a new instance of the specified enemy type for the wave
+                    newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
+                    spawnPoints[1].transform.position, Quaternion.identity);
+                    //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                    //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointSecondList);
+
+
+                    // Set the parent of the enemy in the hierarchy to be the Spawner
+                    newEnemy.transform.SetParent(this.transform);
+                }
                 // Toss the enemy into `aEnemies` for access
                 currWave.aEnemies[currWave.enemySpawned] = newEnemy;
                 // ???

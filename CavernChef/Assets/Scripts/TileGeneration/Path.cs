@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Path
+public class Path : MonoBehaviour
 {
     private List<GameObject> path = new List<GameObject>();
     private List<int> shortestPath = new List<int> ();
@@ -20,93 +20,117 @@ public class Path
 
     // Start is called before the first frame update
 
-    public Path(List<GameObject> enemySpawns, List<GameObject> foodPoints, int xLength, int yLength, int pathMinLen, float offsetX, float offsetY)
+    public Path(ref List<GameObject> enemySpawns, List<GameObject> foodPoints, int xLength, int yLength, int pathMinLen, float offsetX, float offsetY, bool isMirroredSpawns)
     {
         this.enemySpawns = enemySpawns;
         this.foodPoints = foodPoints;
         this.xLength = xLength;
         this.yLength = yLength;
         this.pathMinLen = pathMinLen;
-        this.offsetX = offsetX;
+        if (isMirroredSpawns)
+        {
+            this.offsetX = 1.0f + (-offsetX);
+            Debug.Log("Enemy offset: " + this.offsetX);
+        }
+        else
+        {
+            this.offsetX = offsetX;
+        }
         this.offsetY = offsetY;
     }
-    
-    public void GeneratePath()
+
+    public void GeneratePath(int i)
     {
-        for (int i = 0; i < enemySpawns.Count; i++)
+        /*
+        //True Random
+        chosenSpawns.Add(Random.Range(0, enemySpawns.Count));
+        int two = Random.Range(0, enemySpawns.Count - 1);
+        if (two < chosenSpawns[0])
         {
-            //Coordinates of start and end points (more specifically, the tiles closest to them  on the 32x12 play grid)
-            int enemyX = (int)(enemySpawns[i].transform.position.x - offsetX); 
-            int enemyY = (int)(enemySpawns[i].transform.position.y - offsetY);
-            int foodX = (int)(foodPoints[i].transform.position.x - 0.5);
-            int foodY = (int)(foodPoints[i].transform.position.y + 2.5);
+            chosenSpawns.Add(two);
+        }
+        else
+        {
+            chosenSpawns.Add(two + 1);
+        }
+        */
+        
+        Debug.Log("Path number " + i);
+                //Coordinates of start and end points (more specifically, the tiles closest to them  on the 32x12 play grid)
+                int enemyX = (int)(enemySpawns[i].transform.position.x - offsetX);
+                int enemyY = (int)(enemySpawns[i].transform.position.y - offsetY);
+                int foodX = (int)(foodPoints[0].transform.position.x - 0.5);
+                int foodY = (int)(foodPoints[0].transform.position.y + 2.5);
+        Debug.Log("EnemyX: " + enemyX + " EnemyY: " + enemyY);
+                //Tile assignments
+                GameObject startTile = GridGenerator.validEnemyTiles[enemyY * xLength + enemyX];
+                GameObject endTile = GridGenerator.validEnemyTiles[foodY * xLength + foodX];
+                GameObject currentTile = startTile;
+                // X and Y distances between enemy and food spawns
+                int xDist = (int)Math.Abs(currentTile.transform.position.x - endTile.transform.position.x);
+                int yDist = (int)Math.Abs(currentTile.transform.position.y - endTile.transform.position.y);
 
-            //Tile assignments
-            GameObject startTile = GridGenerator.validEnemyTiles[enemyY * xLength + enemyX];
-            GameObject endTile = GridGenerator.validEnemyTiles[foodY * xLength + foodX];
-            GameObject currentTile = startTile;
-            // X and Y distances between enemy and food spawns
-            int xDist = (int) Math.Abs(currentTile.transform.position.x - endTile.transform.position.x); 
-            int yDist = (int) Math.Abs(currentTile.transform.position.y - endTile.transform.position.y); 
-
-            //This part generates a random SSSP, but somewhat biased.
-            //SSSP is guaranteed because the path is a rectangular grid with no obstacles.
-            //Part 1: Generates a list of 0s and 1s, 0 means go horizontal, 1 means go vertical.
-            List<int> turns = new List<int>();
-            while (true)
-            {
-                if (xDist > 0 && yDist > 0)
+                //This part generates a random SSSP, but somewhat biased.
+                //SSSP is guaranteed because the path is a rectangular grid with no obstacles.
+                //Part 1: Generates a list of 0s and 1s, 0 means go horizontal, 1 means go vertical.
+                List<int> turns = new List<int>();
+                while (true)
                 {
-                    int sui = Random.Range(0, 2);
-                    if (sui == 0)
+                    if (xDist > 0 && yDist > 0)
+                    {
+                        int sui = Random.Range(0, 2);
+                        if (sui == 0)
+                        {
+                            xDist--;
+                        }
+                        else
+                        {
+                            yDist--;
+                        }
+                        turns.Add(sui);
+                    }
+                    else if (xDist > 0)
                     {
                         xDist--;
+                        turns.Add(0);
+                    }
+                    else if (yDist > 0)
+                    {
+                        yDist--;
+                        turns.Add(1);
+                    }
+                    else { break; }
+                }
+                //Part 2: Converts the list of 0s and 1s into an actual path.
+                var safetyBreak = 0;
+                while (turns.Count > 0)
+                {
+                    // Safety break to prevent crash
+                    safetyBreak++;
+                    if (safetyBreak > 500)
+                        break;
+
+                    // Movement
+                    if (turns[0] == 0)
+                    {
+                        if (currentTile.transform.position.x > endTile.transform.position.x)
+                            MoveLeft(ref currentTile);
+                        else
+                            MoveRight(ref currentTile);
                     }
                     else
                     {
-                        yDist--;
+                        if (currentTile.transform.position.y > endTile.transform.position.y)
+                            MoveDown(ref currentTile);
+                        else
+                            MoveUp(ref currentTile);
                     }
-                    turns.Add(sui);
+                    turns.RemoveAt(0);
                 }
-                else if (xDist > 0)
-                {
-                    xDist--;
-                    turns.Add(0);
-                }
-                else if (yDist > 0)
-                {
-                    yDist--;
-                    turns.Add(1);
-                }
-                else { break; }
-            }
-            //Part 2: Converts the list of 0s and 1s into an actual path.
-            var safetyBreak = 0;
-            while (turns.Count > 0)
-            {
-                // Safety break to prevent crash
-                safetyBreak++;
-                if (safetyBreak > 500)
-                    break;
+                path.Add(currentTile);
+            
+        
 
-                // Movement
-                if (turns[0] == 0)
-                {
-                    if (currentTile.transform.position.x > endTile.transform.position.x)
-                        MoveLeft(ref currentTile);
-                    else
-                        MoveRight(ref currentTile);
-                }
-                else
-                {
-                    if (currentTile.transform.position.y > endTile.transform.position.y)
-                        MoveDown(ref currentTile);
-                    else
-                        MoveUp(ref currentTile);
-                }
-                turns.RemoveAt(0);
-            }
-            path.Add(currentTile);
 
             //Now, we check if the path we have is long enough. If not, we randomly add a sidestep to increase the length.
             while (path.Count < pathMinLen) //change to while after confirming this works once
@@ -156,7 +180,7 @@ public class Path
                 }
                 path = pathNextIter;
             }
-        }
+        
     }
 
 

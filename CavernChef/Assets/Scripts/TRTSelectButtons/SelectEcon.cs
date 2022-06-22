@@ -10,6 +10,8 @@ public class SelectEcon : MonoBehaviour
         if (GlobalVariables.repelPoints >= cost)
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("EconTRT");
+            GlobalVariables.isDefensiveTRT = false;
+            GlobalVariables.isOffensiveTRT = true;
         }
         // else text shows not enough RP to be implemented
     }

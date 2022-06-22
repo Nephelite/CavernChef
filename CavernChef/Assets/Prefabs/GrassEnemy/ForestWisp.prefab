@@ -117,20 +117,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointPrefab: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
   foodPoint: {fileID: 0}
-  base_centi_speed: 5
+  base_centi_speed: 1
   base_hp: 10
   base_dmg: 2
-  priority: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  nextTileToVisit: {fileID: 0}
+  distToFood: 0
+  wayptPathLen: 0
   foodOffsetFromGridX: 0
   foodOffsetFromGridY: 0
   spawnOffsetFromGridX: 0
   spawnOffsetFromGridY: 0
-  nextTileToVisit: {fileID: 0}
 --- !u!95 &-1698285143516670414
 Animator:
   serializedVersion: 4

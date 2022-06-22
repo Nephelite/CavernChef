@@ -198,7 +198,7 @@ Implemented a stalling TRT.
 Currently enemies do damage per frame so the stalling TRT has inflated HP.
 To revisit and balance once enemies have an attack cycle.
 Bug fixing
-- Kevin (3h)
+- Kevin (3hrs)
 
 Updated priority of Enemies to be able to handle blockage placements (renamed to distToFood also for practicality).
 Updated EnemyList to use this new definition of priority.
@@ -207,3 +207,8 @@ Added layers of abstraction to Enemy through methods.
 Bug: Placing a blockage causes the error "NullReferenceException: Object reference not set to an instance of an object" and kills all the enemies on the board atm.
 Bug fixing (including above bug)
 - Bryce (3.25 hrs)
+
+22/6: 
+Implemented multiple enemy spawns system, and changed the path generation and spawner
+systems to allow for multiple enemy spawns.
+- Kevin (4 hrs)

@@ -62,7 +62,14 @@ public abstract class Enemy : MonoBehaviour
     public virtual void setup()
     {
         // Initialize the waypoints
-        waypoints = new List<GameObject>(Spawner.waypointList);
+        if (Spawner.choice == 0)
+        {
+            waypoints = new List<GameObject>(Spawner.waypointList);
+        }
+        else
+        {
+            waypoints = new List<GameObject>(Spawner.waypointSecondList);
+        }
         
         // Initialize distToFood
         if (waypoints.Count == 2) {   // Corner case of there being no waypoints except for the start and end

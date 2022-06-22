@@ -26,29 +26,28 @@ public class WaypointGenerator : MonoBehaviour
         {
             if (GridGenerator.validEnemyTiles[i].name == "EnemyPaths(Clone)")
             {
-                if (i / xLength != yLength - 1 && GridGenerator.validEnemyTiles[i + xLength].name == "EnemyPaths(Clone)") //consider adding a prefab to check, instead of a name
+                if (i / xLength < yLength - 1 && GridGenerator.validEnemyTiles[i + xLength].name == "EnemyPaths(Clone)") //consider adding a prefab to check, instead of a name
                 {
                     GridGenerator.validEnemyTiles[i].transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().
                         adjWaypoints.Add(GridGenerator.validEnemyTiles[i + xLength].transform.Find("WayPointTemplate(Clone)").gameObject);
                 }
-                if (i % xLength != 0 && GridGenerator.validEnemyTiles[i - 1].name == "EnemyPaths(Clone)")
+                if (i % xLength > 0 && GridGenerator.validEnemyTiles[i - 1].name == "EnemyPaths(Clone)")
                 {
                     GridGenerator.validEnemyTiles[i].transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().
                         adjWaypoints.Add(GridGenerator.validEnemyTiles[i - 1].transform.Find("WayPointTemplate(Clone)").gameObject);
                 }
-                if (i / xLength != 0 && GridGenerator.validEnemyTiles[i - xLength].name == "EnemyPaths(Clone)")
+                if (i / xLength > 0 && GridGenerator.validEnemyTiles[i - xLength].name == "EnemyPaths(Clone)")
                 {
                     GridGenerator.validEnemyTiles[i].transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().
                         adjWaypoints.Add(GridGenerator.validEnemyTiles[i - xLength].transform.Find("WayPointTemplate(Clone)").gameObject);
                 }
-                if (i / xLength != xLength - 1 && GridGenerator.validEnemyTiles[i + 1].name == "EnemyPaths(Clone)")
+                if (i % xLength < xLength - 1 && GridGenerator.validEnemyTiles[i + 1].name == "EnemyPaths(Clone)")
                 {
                     GridGenerator.validEnemyTiles[i].transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().
                         adjWaypoints.Add(GridGenerator.validEnemyTiles[i + 1].transform.Find("WayPointTemplate(Clone)").gameObject);
                 }
             }
         }
-
-        Debug.Log("Waypoints Done");
+        //Debug.Log("Waypoints Done");
     }
 }
