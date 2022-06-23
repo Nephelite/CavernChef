@@ -32,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UnlockAndUpgrade.unity
     guid: cf31c226cd4f7e64189710f00b612048
+  - enabled: 1
+    path: Assets/Scenes/MainMenu2TransitionScene.unity
+    guid: fbed29dfdebce884aa5abe57acd5fdf8
+  - enabled: 1
+    path: Assets/Scenes/AlmanacToC.unity
+    guid: 390d1eba9661b424fb63963301b3f3a6
+  - enabled: 1
+    path: Assets/Scenes/AlmanacTRTs.unity
+    guid: 9083c25f4b4f1514da610cf827b6b827
+  - enabled: 1
+    path: Assets/Scenes/AlmanacFoods.unity
+    guid: 0283a72361569534cafffe0bed7cc9a9
+  - enabled: 1
+    path: Assets/Scenes/AlmanacEnemies.unity
+    guid: e1801d8429885434d9709e93ed403dd7
   m_configObjects: {}

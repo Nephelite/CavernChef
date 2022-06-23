@@ -12,7 +12,6 @@ public class FoodProperties : MonoBehaviour
     //The ID of any TRT that is already unlocked will not show up here.
     public List<int> obtainUnlocks()
     {
-        Debug.Log(associatedUnlocks.Count);
         List<int> removed = new List<int>();
         //This loop removes all IDs in associatedUnlocks that have been already unlocked in the save file.
         for (int i = 0; i < associatedUnlocks.Count; i++)

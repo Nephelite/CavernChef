@@ -9,5 +9,6 @@ public class AccessSaveFile : MonoBehaviour
     {
         SceneManager.LoadScene(2);
         GlobalVariables.SaveFileID = saveID;
+        RunManager.loadFile();
     }
 }

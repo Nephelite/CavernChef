@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StallTRT : MonoBehaviour
+public class StallTRT : DefensiveTRT
 {
     public int cost;
     public float hp; //Pudding and Jelly will have different hp values and costs and potentially cooldowns.

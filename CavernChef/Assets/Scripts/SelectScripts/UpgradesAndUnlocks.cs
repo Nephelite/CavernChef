@@ -12,20 +12,15 @@ public class UpgradesAndUnlocks : MonoBehaviour
     {
         food = RandomSelectionScript.lastChosenFood;
         List<int> unlocks = food.GetComponent<FoodProperties>().obtainUnlocks();
-        Debug.Log(food.GetComponent<FoodProperties>().foodID);
         if (unlocks != null)
         {
             firstUnlock = unlocks[0];
+            RunManager.seenTRTs[firstUnlock] = true;
             if (unlocks.Count > 1)
             {
                 secondUnlock = unlocks[1];
+                RunManager.seenTRTs[secondUnlock] = true;
             }
-        }
-        Debug.Log("Unlocks: " + firstUnlock + " " + secondUnlock);
-
-        for (int i = 0; i < 10; i++)
-        {
-            Debug.Log("ID " + i + ": " + RunManager.accessibleButtonsSaveData[i].ToString());
         }
     }
 }

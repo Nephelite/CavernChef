@@ -33,6 +33,7 @@ class Enemy
 
 public abstract class Enemy : MonoBehaviour
 {
+    public int enemyID;
     public EnemyStatus status;
     public GameObject waypointPrefab, foodPoint;
 
@@ -61,6 +62,8 @@ public abstract class Enemy : MonoBehaviour
     //     base.Start()
     public virtual void setup()
     {
+        RunManager.seenEnemies[enemyID] = true;
+
         // Initialize the waypoints
         if (Spawner.choice == 0)
         {

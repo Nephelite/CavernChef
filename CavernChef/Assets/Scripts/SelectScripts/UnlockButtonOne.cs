@@ -13,7 +13,6 @@ public class UnlockButtonOne : MonoBehaviour
         int iter = 0, index = UpgradesAndUnlocks.firstUnlock;
         if (index > -1)
         {
-            Debug.Log("Offer: " + index);
             trtIndex = index;
             while (gameObject.transform.Find(iter.ToString()) != null)
             {

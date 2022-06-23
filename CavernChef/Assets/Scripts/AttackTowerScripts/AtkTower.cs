@@ -33,7 +33,7 @@ Plasma tower could also work as the "Basic TRT"
 */
 
 
-public abstract class AtkTower : MonoBehaviour
+public abstract class AtkTower : TRT
 {
     // Set in Unity, contains a reference to the projectile of the tower
     // public GameObject Projectile;

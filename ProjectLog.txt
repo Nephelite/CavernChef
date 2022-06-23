@@ -212,3 +212,8 @@ Bug fixing (including above bug)
 Implemented multiple enemy spawns system, and changed the path generation and spawner
 systems to allow for multiple enemy spawns.
 - Kevin (4 hrs)
+
+23/6:
+Implemented the Almanac with transitions. 
+Almanac now currently only tracks all the food, enemies and TRTs the player has seen.
+- Kevin (5 hrs)

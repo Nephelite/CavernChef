@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockageTRT : MonoBehaviour
+public class BlockageTRT : DefensiveTRT
 {
     public int cost;
     public static GameObject spawner; //Temp

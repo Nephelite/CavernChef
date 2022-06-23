@@ -97,5 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb47fc1b1ac29d24b9a8a5e17a7f7753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TRTID: 7
   cost: 0
-  spawner: {fileID: 6915721599330486999, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}

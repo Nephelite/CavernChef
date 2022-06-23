@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EconTRT : MonoBehaviour
+public class EconTRT : TRT //Consider making this inherit from AtkTower
 {
     public int value, cost;
     public float cycleDuration;

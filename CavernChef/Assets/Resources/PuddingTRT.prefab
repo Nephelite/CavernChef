@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8673ac0dd32714d8c44c9811e279d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TRTID: 8
   cost: 50
   hp: 10000

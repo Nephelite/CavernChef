@@ -50,6 +50,10 @@ public class RandomSelectionScript : MonoBehaviour
             GameObject three = Instantiate(choiceThree, pos3, Quaternion.identity) as GameObject;
             three.transform.SetParent(this.transform);
             three.transform.localScale += new Vector3(4, 4, 4);
+
+            RunManager.seenFoods[choiceOne.GetComponent<FoodProperties>().foodID] = true;
+            RunManager.seenFoods[choiceTwo.GetComponent<FoodProperties>().foodID] = true;
+            RunManager.seenFoods[choiceThree.GetComponent<FoodProperties>().foodID] = true;
         }
     }
 

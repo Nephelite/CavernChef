@@ -12,7 +12,7 @@ public static class SaveSystem
         FileStream stream = new FileStream (path, FileMode.Create);
         formatter.Serialize(stream, currentRun);
         stream.Close();
-        Debug.Log("Saved");
+        Debug.Log("Saved Run");
     }
 
     public static Run LoadRun()
@@ -27,19 +27,36 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("No unlocks save file found in " + path);
+            Debug.Log("No run save file found in " + path);
             return null;
         }
     }
 
-    public static void SaveFile(bool[] almanacEntries)
+    public static void SaveCurrentFile(SaveFile currentFile)
     {
-
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/file" + GlobalVariables.SaveFileID + ".alm";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, currentFile);
+        stream.Close();
+        Debug.Log("Saved File");
     }
 
-    public static void LoadFile()
+    public static SaveFile LoadFile()
     {
-
+        string path = Application.persistentDataPath + "/file" + GlobalVariables.SaveFileID + ".alm";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SaveFile file = formatter.Deserialize(stream) as SaveFile;
+            return file;
+        }
+        else
+        {
+            Debug.Log("No save file found in " + path);
+            return null;
+        }
     }
 
 }
