@@ -111,9 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 6
-  cost: 0
-  tBetAtks: 0
-  range: 0
-  towerPos: {x: 0, y: 0}
-  cooldown: 0
-  Boulder: {fileID: 0}
+  cost: 225
+  tBetAtks: 5
+  range: 6
+  Boulder: {fileID: 1630826295832300365, guid: 4d6bdfc280ae243baa2ef01be8077c37, type: 3}

@@ -119,7 +119,7 @@ MonoBehaviour:
   waypointPrefab: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
   foodPoint: {fileID: 0}
   base_centi_speed: 1
-  base_hp: 10
+  base_hp: 40
   base_dmg: 2
   waypoints:
   - {fileID: 0}

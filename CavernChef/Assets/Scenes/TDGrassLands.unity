@@ -1386,7 +1386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -425}
+  m_AnchoredPosition: {x: -0.000061035156, y: -495.0002}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &735869887
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   - {fileID: 1782290411}
   offsetX: 0.5
   offsetY: 1.5
+  isMirroredSpawns: 0
 --- !u!4 &762652415
 Transform:
   m_ObjectHideFlags: 0
@@ -3265,7 +3266,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6642e08a0305844e1a8ff1aaa608a949, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19083,8 +19084,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1865270443}
   m_HandleRect: {fileID: 1865270442}
   m_Direction: 2
-  m_Value: 0.4999998
-  m_Size: 0.8585859
+  m_Value: 1.0000008
+  m_Size: 0.85790783
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

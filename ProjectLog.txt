@@ -217,3 +217,10 @@ systems to allow for multiple enemy spawns.
 Implemented the Almanac with transitions. 
 Almanac now currently only tracks all the food, enemies and TRTs the player has seen.
 - Kevin (5 hrs)
+
+22/6-24/6 afternoon:
+Copied/Found sprites to use as projectiles for water, electric, earth, and snow turret.
+Created their corresponding prefabs and debugged the projectile scripts.
+Edited access modifiers for some fields in turrets/projectiles to declutter the value setting in Unity's UI.
+Next TODOs: Ideation and implementation for Light TRT, Orienting the projectiles properly
+- Bryce (5.5 hrs, June 22 1 hr + June 23 2.5 hrs + June 24 2 hrs)

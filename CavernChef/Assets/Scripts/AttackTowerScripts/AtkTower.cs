@@ -39,15 +39,18 @@ public abstract class AtkTower : TRT
     // public GameObject Projectile;
     // Moved back to indiv towers
 
+
+    // Set these 3 in Unity
     // Cost of the turret
     public int cost;
     // Time between attacks
     public float tBetAtks;
     // Range
     public float range;
+
     // Position of the turret
-    public Vector2 towerPos;
+    internal Vector2 towerPos;
 
     // CD till next atk
-    public float cooldown;
+    internal float cooldown;
 }

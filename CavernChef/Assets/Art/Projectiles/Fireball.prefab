@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 528545379504691184}
   - component: {fileID: 528545379504691186}
   m_Layer: 0
-  m_Name: BasicBullet
+  m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

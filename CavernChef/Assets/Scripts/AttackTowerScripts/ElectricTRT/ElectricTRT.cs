@@ -12,10 +12,9 @@ public class ElectricTRT : AtkTower
     // Start is called before the first frame update
     void Start()
     {
-        // Set the fields
-        cost = 250;
-        tBetAtks = 1.0f;
-        range = 7.0f;
+        // Set cost, tBetAtks, and range in Unity
+
+        // Initialize CD and towerPos
         cooldown = 0.0f;
         towerPos = (Vector2) gameObject.transform.position;
 

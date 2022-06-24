@@ -22,13 +22,29 @@ class Enemy
         public float wayptPathLen
 
         public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY
+
+        private bool stalled
+        private float heldSpeed
     Methods
         public virtual void setup()
             Initializes waypoints, distToFood, wayptPathLen
+        
+        void stall()
+            potat tower stall stuff
+        public void checkForStall(GameObject currentTile, GameObject nextTile)
+            potat tower stall stuff
+        
         public bool isInFrontOf(Enemy enemy0)
             a.isInFrontOf(b) = a.distToFood < b.distToFood
         public void movementUpdate()
             Updates distToFood, this.transform.position, and relevant WaypointInternals
+        public void statusUpdate()
+            this.status.updateStatus()
+        
+        public virtual void findNewPath()
+            A-star alg to find new path if og path is blocked
+        public class AStarEnemyPathfinding
+            copy pasta to run A-star (I think)
 */
 
 public abstract class Enemy : MonoBehaviour
@@ -55,6 +71,9 @@ public abstract class Enemy : MonoBehaviour
     public float wayptPathLen;
 
     public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY; //might not need spawn coords
+
+    private bool stalled;
+    private float heldSpeed;
 
 
 
@@ -103,11 +122,11 @@ public abstract class Enemy : MonoBehaviour
             distToFood = firstSegmentDist + distAlongGridWaypoints + lastSegmentDist;
         }
         
-        // Initialize distAlongWaypoints
+        // Initialize wayptPathLen
         wayptPathLen = distToFood;
     }
 
-    private bool stalled;
+
 
     void stall()
     {
@@ -116,7 +135,7 @@ public abstract class Enemy : MonoBehaviour
         stalled = true;
     }
 
-    private float heldSpeed;
+
 
     public void checkForStall(GameObject currentTile, GameObject nextTile)
     {
@@ -242,6 +261,12 @@ public abstract class Enemy : MonoBehaviour
         nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
 
         gameObject.transform.position = Vector2.Lerp(startPos, endPos, fracOfWayToNextWaypoint);
+    }
+
+    // Update frame count for effects
+    public void statusUpdate()
+    {
+        this.status.updateStatus();
     }
 
 

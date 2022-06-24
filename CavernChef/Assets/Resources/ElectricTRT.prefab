@@ -111,9 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 5
-  cost: 0
-  tBetAtks: 0
-  range: 0
-  towerPos: {x: 0, y: 0}
-  cooldown: 0
-  Lightning: {fileID: 0}
+  cost: 300
+  tBetAtks: 1
+  range: 8
+  Lightning: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}

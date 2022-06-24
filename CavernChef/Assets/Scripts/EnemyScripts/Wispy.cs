@@ -42,15 +42,6 @@ public class Wispy : Enemy
     Animator animator;
     bool isDestroyed = false;
     
-    /* Fields in `Enemy`, latter 4 are set in base.Start()
-    public EnemyStatus status
-    public float base_speed;
-    public float base_hp;
-    public float base_dmg;
-    public float priority;
-    public static List<GameObject> waypoints;
-    */
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +78,7 @@ public class Wispy : Enemy
             else //If alive
             {
                 this.movementUpdate();
+                this.statusUpdate();
                 /*
                 // Get the speed given the current status
                 float curr_speed = status.currSpeed();
