@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectWater : MonoBehaviour
+public class SelectWater : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("WaterTRT") as GameObject).GetComponent<WaterTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

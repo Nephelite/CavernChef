@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436a14b030f1af84f942e7e100b1ec3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100
-  cost: 100
-  cycleDuration: 10
+  TRTID: 0
+  value: 50
+  cost: 50
+  cycleDuration: 5

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectLight : MonoBehaviour
+public class SelectLight : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("LightTRT") as GameObject).GetComponent<LightTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectElectric : MonoBehaviour
+public class SelectElectric : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

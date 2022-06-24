@@ -8,7 +8,7 @@ public class ButtonDisabler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 1; i < 3; i++) //Disables the
+        for (int i = 1; i < 3; i++) //Disables the upgrade windows for now, because they aren't implemented yet
         {
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").Find("Upgrade " + i).gameObject.SetActive(false);
         }
@@ -16,12 +16,20 @@ public class ButtonDisabler : MonoBehaviour
         if (UpgradesAndUnlocks.firstUnlock < 0)
         {
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").Find("Unlock " + 1).gameObject.SetActive(false);
+            gameObject.transform.Find("Canvas").Find("TempOutOfUpgrades").gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.transform.Find("Canvas").Find("TempOutOfUpgrades").gameObject.SetActive(false);
         }
 
         if (UpgradesAndUnlocks.secondUnlock < 0)
         {
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").Find("Unlock " + 2).gameObject.SetActive(false);
         }
+
+        gameObject.transform.Find("Canvas").Find("Advance").gameObject.SetActive(false);
+        gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(true);
     }
 
     void Update()
@@ -30,6 +38,8 @@ public class ButtonDisabler : MonoBehaviour
         {
             buttonClicked = false;
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").gameObject.SetActive(false);
+            gameObject.transform.Find("Canvas").Find("Advance").gameObject.SetActive(true);
+            gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(false);
         }
     }
 }

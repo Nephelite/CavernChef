@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectFire : MonoBehaviour
+public class SelectFire : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("FireTRT") as GameObject).GetComponent<FireTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

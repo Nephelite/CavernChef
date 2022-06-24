@@ -9072,6 +9072,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8247cbb2d2222d46ae7bae218acd17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodsList:
+  - {fileID: 3626264442001632431, guid: dad0e61ebaff2954897a059bce29118c, type: 3}
+  - {fileID: 3626264442001632431, guid: 940dfcc7de2a4e8458f8a6eb214ff826, type: 3}
+  - {fileID: 3626264442001632431, guid: 3f70a0fa7256b7f4f8cb041ae2a08d67, type: 3}
+  - {fileID: 3626264442001632431, guid: f2c1075098c36304e9342d3d191a0811, type: 3}
+  - {fileID: 3626264442001632431, guid: ac0fbe04a7ee543419420853679ca73a, type: 3}
+  - {fileID: 3626264442001632431, guid: 7a291a50acdcf494381019b19e929567, type: 3}
+  - {fileID: 3626264442001632431, guid: f64b55871af690f40946a132fe3e95af, type: 3}
+  - {fileID: 3626264442001632431, guid: 6ccd0196f8d3c1d43ab2f74261d7074d, type: 3}
+  - {fileID: 3626264442001632431, guid: 21bd059fcc2d93940af368aabfcc01ce, type: 3}
+  - {fileID: 3626264442001632431, guid: fdf109e06cd403a41a26810fad2a20ad, type: 3}
+  - {fileID: 3626264442001632431, guid: 3c40657a6d923d24b80081192117048e, type: 3}
+  - {fileID: 3626264442001632431, guid: 6d5f15337b72d1b48a7825ec9ef4f4c7, type: 3}
+  - {fileID: 3626264442001632431, guid: c46953a3a5f1cd14a8393d5be93a5747, type: 3}
+  - {fileID: 3626264442001632431, guid: c06dd6930683cd54ebe9f2d33677a48b, type: 3}
+  - {fileID: 3626264442001632431, guid: b4b359b949ff05347bddc20a402b78cd, type: 3}
 --- !u!4 &1372813653
 Transform:
   m_ObjectHideFlags: 0

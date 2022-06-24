@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectBlockage : MonoBehaviour
+public class SelectBlockage : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("BlockageTRT") as GameObject).GetComponent<BlockageTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost)

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectStallPudding : MonoBehaviour
+public class SelectStallPudding : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("PuddingTRT") as GameObject).GetComponent<StallTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost)

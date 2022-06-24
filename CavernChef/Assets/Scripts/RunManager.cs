@@ -12,6 +12,7 @@ public class RunManager : MonoBehaviour
     public static bool testRun = true; //For making game testing easier. Remove in final product.
     public static bool[] accessibleButtonsSaveData = new bool[32]; //NOTE: Change this if needed, it has to be at least greater than the number of TRT tpes placeable.;
     public static bool[] seenFoods = new bool[32], seenEnemies = new bool[32], seenTRTs = new bool[32];
+    public static int[] last3FoodChoicesID;
 
     private int testNum = 9; //Change if testing of a certain TRT is needed
 
@@ -57,14 +58,17 @@ public class RunManager : MonoBehaviour
             accessibleButtonsSaveData[i] = false;
         }
 
+        RandomSelectionScript.choiceOne = null;
+        RandomSelectionScript.choiceTwo = null;
+        RandomSelectionScript.choiceThree = null;
+        last3FoodChoicesID = null;
         SceneManager.LoadScene(3);
         RandomSelectionScript.Initialise(foodsList);
-
     }
 
     public void saveRun()
     {
-        SaveSystem.SaveRun(new Run(accessibleButtonsSaveData, GlobalVariables.lastClearedScene, GlobalVariables.nextSceneToPlay));
+        SaveSystem.SaveRun(new Run(accessibleButtonsSaveData, GlobalVariables.lastClearedScene, GlobalVariables.nextSceneToPlay, last3FoodChoicesID));
         SaveSystem.SaveCurrentFile(new SaveFile(RunManager.seenTRTs, RunManager.seenFoods, RunManager.seenEnemies));
     }
 
@@ -97,6 +101,7 @@ public class RunManager : MonoBehaviour
             }
         }
 
+        last3FoodChoicesID = currentRun.last3FoodChoicesID;
         //Next scene generate
     }
 

@@ -113,5 +113,5 @@ MonoBehaviour:
   TRTID: 5
   cost: 300
   tBetAtks: 1
-  range: 8
+  range: 8.5
   Lightning: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}

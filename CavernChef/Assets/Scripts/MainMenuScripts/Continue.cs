@@ -22,6 +22,7 @@ public class Continue : MonoBehaviour
             RunManager.accessibleButtonsSaveData = resumed.unlocks;
             GlobalVariables.lastClearedScene = resumed.scene;
             GlobalVariables.nextSceneToPlay = resumed.next;
+            RunManager.last3FoodChoicesID = resumed.last3FoodChoicesID;
             SceneManager.LoadScene(3);
             RandomSelectionScript.Initialise(foodsList);
             RunManager.testRun = false;

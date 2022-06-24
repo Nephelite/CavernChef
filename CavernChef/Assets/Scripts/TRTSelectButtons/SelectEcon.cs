@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectEcon : MonoBehaviour
+public class SelectEcon : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("EconTRT") as GameObject).GetComponent<EconTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost)

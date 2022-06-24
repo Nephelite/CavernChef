@@ -224,3 +224,9 @@ Created their corresponding prefabs and debugged the projectile scripts.
 Edited access modifiers for some fields in turrets/projectiles to declutter the value setting in Unity's UI.
 Next TODOs: Ideation and implementation for Light TRT, Orienting the projectiles properly
 - Bryce (5.5 hrs, June 22 1 hr + June 23 2.5 hrs + June 24 2 hrs)
+
+24/6:
+Made the MS2 poster (4 hrs)
+Added more things to the save system, thus fixing a continue bug (2 hrs)
+Edited some scripts (1 hr)
+- Kevin (7 hrs total)

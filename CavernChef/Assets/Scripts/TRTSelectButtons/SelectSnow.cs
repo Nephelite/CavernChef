@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectSnow : MonoBehaviour
+public class SelectSnow : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("SnowTRT") as GameObject).GetComponent<SnowTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

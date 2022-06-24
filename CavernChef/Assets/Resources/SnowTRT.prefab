@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 3
-  cost: 150
+  cost: 125
   tBetAtks: 4
   range: 5
   Snowball: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}

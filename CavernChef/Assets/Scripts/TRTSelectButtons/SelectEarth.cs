@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectEarth : MonoBehaviour
+public class SelectEarth : SelectButton
 {
-    public int cost;
+    void Start()
+    {
+        cost = (Resources.Load("EarthTRT") as GameObject).GetComponent<EarthTRT>().cost;
+    }
+
     public void select()
     {
         if (GlobalVariables.repelPoints >= cost) 

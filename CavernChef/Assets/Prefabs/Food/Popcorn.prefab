@@ -112,5 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodID: 14
-  associatedUnlocks: 0200000003000000040000000500000006000000
+  associatedUnlocks: 02000000030000000400000005000000060000000700000008000000
   associatedUpgrades: 

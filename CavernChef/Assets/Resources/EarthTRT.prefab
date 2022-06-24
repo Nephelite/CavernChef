@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 6
-  cost: 225
+  cost: 250
   tBetAtks: 5
   range: 6
   Boulder: {fileID: 1630826295832300365, guid: 4d6bdfc280ae243baa2ef01be8077c37, type: 3}

@@ -114,6 +114,4 @@ MonoBehaviour:
   cost: 100
   tBetAtks: 2
   range: 7.5
-  towerPos: {x: 0, y: 0}
-  cooldown: 0
   Fireball: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
