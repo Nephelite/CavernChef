@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+pointed up
+angle theta
+toa
+tan(theta) = -x/y
+theta = arctan(-x/y)
+*/
+
 public class LazerBeam : Projectile
 {
     // Unit vector for movement; set in LightTRT.cs
@@ -41,6 +49,10 @@ public class LazerBeam : Projectile
         hit = new List<Enemy>();
 
         // TODO Orient the lazer properly TODO
+        float x = unitTraj.x;
+        float y = unitTraj.y;
+        float angle = Mathf.Atan(-x/y) * Mathf.Rad2Deg;
+        gameObject.transform.Rotate(0,0,angle);
     }
 
 

@@ -237,3 +237,8 @@ Implemented LightTRT and LazerBeam.
 Updated TRT orientation (now a method in AtkTower.cs and uses the range of the TRT instead of a fixed value)
 TODO: Fix lazer beam orientation, create project log thing
 - Bryce (5 hrs total, June 24 1.5 hrs + June 25 3.5 hrs)
+
+25/6 night:
+Fixed lazer beam orientation
+TODO: Create project log thing
+- Bryce (10 mins)
