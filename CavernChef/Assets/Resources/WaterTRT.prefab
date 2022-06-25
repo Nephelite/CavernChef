@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8239623786559663926}
   - component: {fileID: 8249962339550546778}
-  - component: {fileID: -2688862492152122194}
   - component: {fileID: -1651659427066522936}
   m_Layer: 9
   m_Name: WaterTRT
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &-2688862492152122194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5134305957202709094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b0bcefe27d2147279298ba594b23cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1651659427066522936
 MonoBehaviour:
   m_ObjectHideFlags: 0

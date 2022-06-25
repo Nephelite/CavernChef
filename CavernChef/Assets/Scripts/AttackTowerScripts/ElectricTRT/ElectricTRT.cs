@@ -42,6 +42,10 @@ public class ElectricTRT : AtkTower
             cooldown = tBetAtks;
         }
         // Else, nothing to do
+
+
+        // Correct the orientation
+        base.LookAtEnemy();
     }
 }
 

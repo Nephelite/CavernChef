@@ -33,6 +33,7 @@ class EnemyStatus (moved to the bottom)
         void earthDmg(float bullet_dmg)
         void electricDmg(float bullet_dmg)
         void fireDmg(float bullet_dmg)
+        void lightDmg(float bullet_dmg)
         void snowDmg(float bullet_dmg)
         void waterDmg(float bullet_dmg)
 */
@@ -192,6 +193,11 @@ public class EnemyStatus
             wet_frames = 0;
         }
         hp -= dmg;
+    }
+    // Deal light dmg to an enemy
+    public void lightDmg(float bullet_dmg) {
+        // No special interaction for now
+        hp -= bullet_dmg;
     }
     // Deal snow dmg to an enemy
     public void snowDmg(float bullet_dmg) {

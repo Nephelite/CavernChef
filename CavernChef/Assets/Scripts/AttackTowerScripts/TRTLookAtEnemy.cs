@@ -4,7 +4,10 @@ using UnityEngine;
 
 
 
-public class TRTLookAtEnemy : MonoBehaviour
+// No longer in use; now a method in AtkTower.cs
+// Leaving it here for now
+
+public class TRTLookAtEnemy : AtkTower
 {
     // Update is called once per frame
     void Update()
@@ -14,7 +17,10 @@ public class TRTLookAtEnemy : MonoBehaviour
 
         Vector2 towerPos = gameObject.transform.position;
 
-        Enemy targetToLookAt = GlobalVariables.enemyList.findTarget(towerPos, 7.5f);
+        // Getting the range by *magic* (hopefully)
+        // float theTheRange = gameObject.GetComponent<SnowTRT>().range;
+
+        Enemy targetToLookAt = GlobalVariables.enemyList.findTarget(towerPos, range);
 
         if (targetToLookAt != null)
         {

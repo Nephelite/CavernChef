@@ -53,4 +53,47 @@ public abstract class AtkTower : TRT
 
     // CD till next atk
     internal float cooldown;
+
+
+
+    // Orients the TRT to face the enemy
+    protected void LookAtEnemy()
+    {
+        //Aiming script
+        //This script aims at the only generated wisp for now
+
+        Vector2 towerPos = gameObject.transform.position;
+
+        // Getting the range by *magic* (hopefully)
+        // float theTheRange = gameObject.GetComponent<SnowTRT>().range;
+
+        Enemy targetToLookAt = GlobalVariables.enemyList.findTarget(towerPos, range);
+
+        if (targetToLookAt != null)
+        {
+            //transform.Rotate(new Vector3(0, 0, 50));
+            // Transform target = GlobalVariables.enemyList[0].transform;
+            //gameObject.transform.LookAt(target);
+
+            /*
+THIS IS SPECIFICALLY FOR THE BASIC TURRET ONLY AS OF RN
+*/
+            Transform target = targetToLookAt.transform;
+            float angle = 0;
+            Vector3 relative = transform.InverseTransformPoint(target.position);
+            angle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+            transform.Rotate(0, 0, -angle);
+
+            // Will comment this out for now (Bryce, 2022-6-15)
+            // Debug.Log(transform.rotation.x + " " + transform.rotation.y + " " + transform.rotation.z);
+            
+
+            /*
+            if (targetToLookAt != null) // If an enemy is in range
+            { 
+                
+            }
+            */
+        }
+    }
 }
