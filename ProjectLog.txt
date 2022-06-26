@@ -223,7 +223,7 @@ Copied/Found sprites to use as projectiles for water, electric, earth, and snow 
 Created their corresponding prefabs and debugged the projectile scripts.
 Edited access modifiers for some fields in turrets/projectiles to declutter the value setting in Unity's UI.
 Next TODOs: Ideation and implementation for Light TRT, Orienting the projectiles properly
-- Bryce (5.5 hrs total, June 22 1 hr + June 23 2.5 hrs + June 24 2 hrs)
+- Bryce (5.5 hrs total, June 22 1 hr + June 23 2.5 hrs + June 24 2 hrs; 3.5 hrs for sprites and 2 hrs for etc)
 
 24/6:
 Made the MS2 poster (4 hrs)
@@ -232,7 +232,7 @@ Edited some scripts (1 hr)
 - Kevin (7 hrs total)
 
 24/6 night - 25/6 afternoon:
-Created lazer sprite.
+Created lazer sprite. (1.5 hrs)
 Implemented LightTRT and LazerBeam.
 Updated TRT orientation (now a method in AtkTower.cs and uses the range of the TRT instead of a fixed value)
 TODO: Fix lazer beam orientation, create project log thing
@@ -241,4 +241,4 @@ TODO: Fix lazer beam orientation, create project log thing
 25/6 night:
 Fixed lazer beam orientation
 TODO: Create project log thing
-- Bryce (10 mins)
+- Bryce (0.25 hrs)
