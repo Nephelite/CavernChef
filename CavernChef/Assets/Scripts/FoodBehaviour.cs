@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FoodBehaviour : MonoBehaviour
 {
     public GameObject defaultFood; //For Testing purposes only, to allow for individual testing of the game without clicking through the menus
+
+    public static float FoodHP;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,5 +16,14 @@ public class FoodBehaviour : MonoBehaviour
         Debug.Log(food.transform.position.x + " " + food.transform.position.y);
         food.transform.SetParent(this.transform);
         food.transform.position = this.transform.position;
+        FoodHP = 5f;
+    }
+
+    void Update()
+    {
+        if (FoodHP <= 0)
+        {
+            SceneManager.LoadScene(14);
+        }
     }
 }

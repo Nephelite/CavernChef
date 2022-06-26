@@ -32,6 +32,15 @@ public static class SaveSystem
         }
     }
 
+    public static void DeleteRun()
+    {
+        string path = Application.persistentDataPath + "/file" + GlobalVariables.SaveFileID + ".run";
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+    }
+
     public static void SaveCurrentFile(SaveFile currentFile)
     {
         BinaryFormatter formatter = new BinaryFormatter();

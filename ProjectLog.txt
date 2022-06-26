@@ -242,4 +242,6 @@ TODO: Create project log thing
 26/6:
 Implemented a counter for number of zones cleared, and
 difficulty scaling  (Spawn intervals and number of enemies)
-- Kevin (1 hr)
+
+Added HP and added logos to the other main menu scenes
+- Kevin (2 hr)

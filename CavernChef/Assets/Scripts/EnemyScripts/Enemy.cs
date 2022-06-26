@@ -217,7 +217,7 @@ public abstract class Enemy : MonoBehaviour
         // If at the food
         if (distToFood <= 0)
         {
-            // TODO Deal base_dmg to the food TODO
+            FoodBehaviour.FoodHP -= base_dmg; // TODO Deal base_dmg to the food TODO
             GlobalVariables.enemyList.remove(gameObject.GetComponent<Enemy>());
             Destroy(gameObject);
             return ;
