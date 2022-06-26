@@ -238,3 +238,8 @@ Updated TRT orientation (now a method in AtkTower.cs and uses the range of the T
 Fixed lazer beam orientation
 TODO: Create project log thing
 - Bryce (5 hrs total, 2 hrs for sprites + 3 hrs for coding)
+
+26/6:
+Implemented a counter for number of zones cleared, and
+difficulty scaling  (Spawn intervals and number of enemies)
+- Kevin (1 hr)

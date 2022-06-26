@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 2
-  cost: 100
-  tBetAtks: 3
+  cost: 75
+  tBetAtks: 1.5
   range: 5
   Waterball: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}

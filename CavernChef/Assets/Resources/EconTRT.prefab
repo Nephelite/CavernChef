@@ -100,4 +100,4 @@ MonoBehaviour:
   TRTID: 0
   value: 50
   cost: 50
-  cycleDuration: 5
+  cycleDuration: 4

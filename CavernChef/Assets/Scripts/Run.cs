@@ -9,11 +9,14 @@ public class Run
     public int scene;
     public int next;
     public int[] last3FoodChoicesID;
-    public Run(bool[] unlocks, int scene, int next, int[] choices)
+    public int numZones;
+
+    public Run(bool[] unlocks, int scene, int next, int[] choices, int numZones)
     {
         this.unlocks = unlocks;
         this.scene = scene;
         this.next = next;
         this.last3FoodChoicesID = choices;
+        this.numZones = numZones;
     }
 }

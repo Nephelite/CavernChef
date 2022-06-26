@@ -44,6 +44,8 @@ public class Spawner : MonoBehaviour
     // private GameManagerBehavior gameManager;  // TODO?
     // private WaveManager waveManager;   // Holds relevant wave related info
 
+    public static int zoneNumber;
+
     public bool isMirroredSpawns;
 
     // Array of the enemies
@@ -61,7 +63,7 @@ public class Spawner : MonoBehaviour
     private int waveCount; // Current wave number
 
     // Information on what waves will be spawned
-    public Wave[] waves = new Wave[1];   // MANUALLY SET THIS HERE (or in start() ig)
+    public List<Wave> waves = new List<Wave>();   // MANUALLY SET THIS HERE (or in start() ig)
     // Wait I can't set this in here due to how classes work, SET THIS IN start()
 
     // List of all possible spawning points
@@ -117,7 +119,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Spawner activated");
+        zoneNumber++;
+        Debug.Log("Spawner activated, zone number " + zoneNumber);
 
         displaySpawns = spawnPoints;
 
@@ -164,7 +167,12 @@ public class Spawner : MonoBehaviour
         displayWaypoints = waypointSecondList;
 
         // Set up the waves to be done
-        waves[0] = new Wave(0, 2.0f, 10);  // Increased number of enemies from 2 to 10 for testing
+        for (int i = 0; i <= zoneNumber / 2; i++)
+        {
+            waves.Add(new Wave(0, 2.0f / (Mathf.Log(zoneNumber / 2 + 2, 2)), (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f))));  // Increased number of enemies from 2 to 10 for testing
+            Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f)));
+        }
+        nWaves = zoneNumber / 2 < 1 ? 1 : zoneNumber / 2;
         tLastSpawn = Time.time;
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
 

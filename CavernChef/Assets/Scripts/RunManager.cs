@@ -62,13 +62,14 @@ public class RunManager : MonoBehaviour
         RandomSelectionScript.choiceTwo = null;
         RandomSelectionScript.choiceThree = null;
         last3FoodChoicesID = null;
+        Spawner.zoneNumber = 0;
         SceneManager.LoadScene(3);
         RandomSelectionScript.Initialise(foodsList);
     }
 
     public void saveRun()
     {
-        SaveSystem.SaveRun(new Run(accessibleButtonsSaveData, GlobalVariables.lastClearedScene, GlobalVariables.nextSceneToPlay, last3FoodChoicesID));
+        SaveSystem.SaveRun(new Run(accessibleButtonsSaveData, GlobalVariables.lastClearedScene, GlobalVariables.nextSceneToPlay, last3FoodChoicesID, Spawner.zoneNumber));
         SaveSystem.SaveCurrentFile(new SaveFile(RunManager.seenTRTs, RunManager.seenFoods, RunManager.seenEnemies));
     }
 
@@ -102,6 +103,7 @@ public class RunManager : MonoBehaviour
         }
 
         last3FoodChoicesID = currentRun.last3FoodChoicesID;
+        Spawner.zoneNumber = currentRun.numZones;
         //Next scene generate
     }
 

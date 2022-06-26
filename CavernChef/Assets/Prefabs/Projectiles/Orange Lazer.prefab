@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centi_speed: 50
-  dmg: 0.5
+  dmg: 0.3
   AoeRadius: 0.5
   chainLen: 0
   effectFrames: 0

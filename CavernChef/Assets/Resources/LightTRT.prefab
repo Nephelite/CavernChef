@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 4
-  cost: 350
+  cost: 300
   tBetAtks: 0.1
   range: 6
   OrangeLazer: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
