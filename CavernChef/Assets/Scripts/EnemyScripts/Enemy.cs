@@ -156,8 +156,8 @@ public abstract class Enemy : MonoBehaviour
                 && currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") == null)
             {
                 status.restoreSpeed(heldSpeed);
-                heldSpeed = 0f;
                 stalled = false;
+                Debug.Log("Speed: " + gameObject.GetComponent<Enemy>().status.base_speed + " " + stalled);
             }
         }
         else

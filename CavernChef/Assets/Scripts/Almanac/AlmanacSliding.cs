@@ -28,14 +28,14 @@ public class AlmanacSliding : MonoBehaviour
     void slideFast()
     {
         Debug.Log("Sliding");
-        Vector3 temp = new Vector3(0, 3f, 0);
+        Vector3 temp = new Vector3(0, 12.5f, 0);
         gameObject.transform.position += temp;
     }
 
     void slideSlow()
     {
         Debug.Log("Sliding");
-        Vector3 temp = new Vector3(0, 2.5f, 0);
+        Vector3 temp = new Vector3(0, 10f, 0);
         gameObject.transform.position += temp;
     }
 }

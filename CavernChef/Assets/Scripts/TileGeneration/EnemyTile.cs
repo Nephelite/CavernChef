@@ -24,7 +24,8 @@ public class EnemyTile : MonoBehaviour
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.selectedTrt = null; //Comment out this line to disable one-at-a-time selection
 
-            isBlockage = true; //change to include a check in near future
+            if (TRT.GetComponent<BlockageTRT>() != null)
+                isBlockage = true; //change to include a check in near future
         }
     }
 
