@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
+// Commented out some debug logs - Bryce (2022-6-30)
+
 /*
 [System.Serializable]   // Lets you edit values in the Unity editor
 public class Wave //: MonoBehaviour
@@ -120,7 +122,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         zoneNumber++;
-        Debug.Log("Spawner activated, zone number " + zoneNumber);
+        // Debug.Log("Spawner activated, zone number " + zoneNumber); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         displaySpawns = spawnPoints;
 
@@ -170,7 +172,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i <= zoneNumber / 2; i++)
         {
             waves.Add(new Wave(0, 2.0f / (Mathf.Log(zoneNumber / 2 + 2, 2)), (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f))));  // Increased number of enemies from 2 to 10 for testing
-            Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f)));
+            // Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f)));
         }
         nWaves = zoneNumber / 2 < 1 ? 1 : zoneNumber / 2;
         tLastSpawn = Time.time;
@@ -205,7 +207,7 @@ public class Spawner : MonoBehaviour
 
                 if (choice == 0)
                 {
-                    Debug.Log("First Spawn");
+                    // Debug.Log("First Spawn");
                     // Make a new instance of the specified enemy type for the wave
                     newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
                     spawnPoints[0].transform.position, Quaternion.identity);
@@ -218,7 +220,7 @@ public class Spawner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Second Spawn");
+                    // Debug.Log("Second Spawn");
                     // Make a new instance of the specified enemy type for the wave
                     newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
                     spawnPoints[1].transform.position, Quaternion.identity);
@@ -331,7 +333,7 @@ public class AStarEnemyPathfinding
         while (activeNodes.Count > 0)
         {
             Node checkNode = activeNodes.OrderBy(x => x.totalCost).First();
-            Debug.Log("Pathfinding " + checkNode.associatedWaypoint.GetComponent<WaypointInternals>().adjWaypoints.Count);
+            // Debug.Log("Pathfinding " + checkNode.associatedWaypoint.GetComponent<WaypointInternals>().adjWaypoints.Count);
 
             if (checkNode.associatedWaypoint.GetComponent<WaypointInternals>().tileIndex == endPoint.GetComponent<WaypointInternals>().tileIndex)
             {
@@ -344,13 +346,13 @@ public class AStarEnemyPathfinding
                 closedPoints.Add(checkNode);
                 activeNodes.Remove(checkNode);
                 List<GameObject> adjWaypoints = checkNode.associatedWaypoint.GetComponent<WaypointInternals>().adjWaypoints;
-                Debug.Log("Num of adj Waypoints: " + adjWaypoints.Count);
+                // Debug.Log("Num of adj Waypoints: " + adjWaypoints.Count);
                 foreach (var adjWaypoint in adjWaypoints)
                 {
-                    Debug.Log("checking adjacent waypoints");
+                    // Debug.Log("checking adjacent waypoints");
                     if (adjWaypoint.transform.parent.GetComponent<EnemyTile>().isBlockage) // If the enemy tile is a blockage, skip that tile.
                     {
-                        Debug.Log("SKIP");
+                        // Debug.Log("SKIP");
                         continue;
                     }
                     Node adjNode = new Node(checkNode.costToStart + 1, adjWaypoint, endPoint);
@@ -379,7 +381,7 @@ public class AStarEnemyPathfinding
         {
             waypointPathing.Add(finalNode.associatedWaypoint);
             finalNode = finalNode.parent;
-            Debug.Log("finding parent");
+            // Debug.Log("finding parent");
         }
         if (finalNode != null)
         {

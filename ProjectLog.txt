@@ -245,3 +245,10 @@ difficulty scaling  (Spawn intervals and number of enemies)
 
 Added HP and added logos to the other main menu scenes
 - Kevin (2 hr)
+
+30/6 - 1/7:
+Implemented general projectile orienting methods in Projectile.cs. Currently used in Waterball and Lightning.
+Deleted Script_Recycling_Bin.txt and moved contents to the bottom of their corresponding scripts.
+Next planned TODOs: Make better fireball sprite, update lightning chaining behavior
+Bug discovered: null pointer error in the logic of Lightning's movement. This bug will disappear anyway once the planned change for lightning is implemented.
+- Bryce (2 hrs)

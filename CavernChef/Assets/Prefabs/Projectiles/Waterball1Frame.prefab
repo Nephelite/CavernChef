@@ -102,3 +102,4 @@ MonoBehaviour:
   AoeRadius: 0
   chainLen: 0
   effectFrames: 240
+  arg: 0

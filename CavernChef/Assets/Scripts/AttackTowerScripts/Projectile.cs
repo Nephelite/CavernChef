@@ -30,6 +30,9 @@ public abstract class Projectile : MonoBehaviour
     // Effect duration, if any (snow, water)
     public int effectFrames;
 
+    // Argument of the trajectory of the projectile (SET IN UNITY to og arg of sprite)
+    public float arg;
+
     // True speed
     internal float speed;
     // Target of a projectile (set by the TRT firing this)
@@ -41,6 +44,35 @@ public abstract class Projectile : MonoBehaviour
     protected void Setup() {
         speed = centi_speed / 100;   // Convert to true speed
     }
+
+    // Angles the projectile towards the target (Does not apply to lazer or lightning)
+    internal void AngleTowardsTarget() {
+        // If target is dead, no change needed
+        if (target != null)
+        {
+            // If target is alive, 
+            this.AngleTowardsPosition(target.transform.position);
+        }
+    }
+
+    // Angles the projectile towards a specified coordinate
+    internal void AngleTowardsPosition(Vector2 destination) {
+        // Get the current trajectory
+        Vector2 projPos = gameObject.transform.position;
+        // Vector2 targetPos = target.transform.position;
+        Vector2 traj = destination - projPos;
+
+        // Get the argument of the current trajectory
+        float x = traj.x;
+        float y = traj.y;
+        float new_arg = Mathf.Atan(y/x) * Mathf.Rad2Deg;
+
+        // Update the field arg and rotate accordingly
+        transform.Rotate(0,0,new_arg - arg);
+        arg = new_arg;
+    }
+
+
 
     // Start is called before the first frame update
     void Start()

@@ -81,7 +81,7 @@ public class Lightning : Projectile
             // Move the lightning
             int hitCount = framesSinceChainStart/framesPerEnemy;         // Number of enemies chained so far
             int framesSinceZap = framesSinceChainStart%framesPerEnemy;   // Number of frames since last dmg dealt
-            float fracToNextEnemy = framesSinceZap/framesPerEnemy;       // 
+            float fracToNextEnemy = (float)framesSinceZap/ (float)framesPerEnemy;
             Enemy currEnemy = toZap[hitCount];                           // Last enemy hit
             Enemy nextEnemy = toZap[hitCount+1];                         // Next enemy to hit
             Vector2 currEnemyPos = currEnemy.transform.position;         // Pos of last enemy hit
@@ -89,9 +89,17 @@ public class Lightning : Projectile
             Vector2 moveTo = Vector2.Lerp(currEnemyPos, nextEnemyPos, fracToNextEnemy);   // Position between curr and next enemy for the lightning
             gameObject.transform.position = moveTo;                      // Set the desired position
             framesSinceChainStart += 1;                                  // Increment framesSinceChainStart
+
+            // Angle projectile properly
+            if (nextEnemy != null) {
+                base.AngleTowardsPosition(nextEnemy.transform.position);
+            }
         }
         else   // If not yet chaining
         {
+            // Angle projectile properly
+            base.AngleTowardsTarget();
+
             Vector2 projectilePos = gameObject.transform.position;   // Bullet position
             if (target != null) {                                    // If target is not yet dead,
                 targetPos = target.transform.position;               // Update targetPos

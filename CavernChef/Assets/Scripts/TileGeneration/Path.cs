@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+// Commenting out the debug logs here cause I also need to check a debug log - Bryce, 2022-6-30
+
 public class Path : MonoBehaviour
 {
     private List<GameObject> path = new List<GameObject>();
@@ -30,7 +32,7 @@ public class Path : MonoBehaviour
         if (isMirroredSpawns)
         {
             this.offsetX = 1.0f + (-offsetX);
-            Debug.Log("Enemy offset: " + this.offsetX);
+            // Debug.Log("Enemy offset: " + this.offsetX); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         }
         else
         {
@@ -55,13 +57,13 @@ public class Path : MonoBehaviour
         }
         */
         
-        Debug.Log("Path number " + i);
+        // Debug.Log("Path number " + i); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 //Coordinates of start and end points (more specifically, the tiles closest to them  on the 32x12 play grid)
                 int enemyX = (int)(enemySpawns[i].transform.position.x - offsetX);
                 int enemyY = (int)(enemySpawns[i].transform.position.y - offsetY);
                 int foodX = (int)(foodPoints[0].transform.position.x - 0.5);
                 int foodY = (int)(foodPoints[0].transform.position.y + 2.5);
-        Debug.Log("EnemyX: " + enemyX + " EnemyY: " + enemyY);
+        // Debug.Log("EnemyX: " + enemyX + " EnemyY: " + enemyY); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 //Tile assignments
                 GameObject startTile = GridGenerator.validEnemyTiles[enemyY * xLength + enemyX];
                 GameObject endTile = GridGenerator.validEnemyTiles[foodY * xLength + foodX];
@@ -142,7 +144,7 @@ public class Path : MonoBehaviour
                 {
                     int first = a;
                     int second = b;
-                    Debug.Log(first);
+                    // Debug.Log(first); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                     for (int j = 0; j < path.Count; j++)
                     {
                         if (j == first)
@@ -158,10 +160,10 @@ public class Path : MonoBehaviour
                                 int direction = directions[Random.Range(0, directions.Count)];
                                 //create a sidestep from tiles associated to first to tiles associated to second
                                 int max = maxDistAccesible(direction, ref currTile);
-                                Debug.Log(max + " " + direction);
+                                // Debug.Log(max + " " + direction); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                     
                                 max = Random.Range(1, max);
-                                Debug.Log(max);
+                                // Debug.Log(max); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                 travelUntilCannot(ref currTile, ref pathNextIter, max, direction, ref end); //Adds tiles in direction to pathNextIter until max tiles have been added
                                 //pathNextIter.Add(path[j]);
                                 j = second; // effectively blanks out the initial path between first and second
@@ -228,7 +230,7 @@ public class Path : MonoBehaviour
                 else
                 {
                     //bug: Dead end
-                    Debug.Log("Dead End");
+                    // Debug.Log("Dead End"); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 }
 
                 dist = (GridGenerator.validEnemyTiles.IndexOf(initTile) / xLength) - (GridGenerator.validEnemyTiles.IndexOf(endTile) / xLength);
@@ -288,7 +290,7 @@ public class Path : MonoBehaviour
                 else
                 {
                     //bug: Dead end
-                    Debug.Log("Dead End");
+                    // Debug.Log("Dead End"); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 }
 
                 dist = (GridGenerator.validEnemyTiles.IndexOf(initTile) % xLength) - (GridGenerator.validEnemyTiles.IndexOf(endTile) % xLength);
@@ -349,7 +351,7 @@ public class Path : MonoBehaviour
                 else
                 {
                     //bug: Dead end
-                    Debug.Log("Dead End");
+                    // Debug.Log("Dead End"); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 }
 
                 dist = (GridGenerator.validEnemyTiles.IndexOf(initTile) / xLength) - (GridGenerator.validEnemyTiles.IndexOf(endTile) / xLength);
@@ -407,7 +409,7 @@ public class Path : MonoBehaviour
                 else
                 {
                     //bug: Dead end
-                    Debug.Log("Dead End");
+                    // Debug.Log("Dead End"); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 }
 
                 dist = (GridGenerator.validEnemyTiles.IndexOf(initTile) % xLength) - (GridGenerator.validEnemyTiles.IndexOf(endTile) % xLength);

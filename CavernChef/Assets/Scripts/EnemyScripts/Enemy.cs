@@ -684,3 +684,67 @@ public abstract class Enemy : MonoBehaviour
     * /
 }
 */
+
+
+
+
+
+// Deleted 2022-6-13 (comments from a few days ago for EnemyStatus) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/* TODO
+Implement class to encapsulate enemy status (name to be decided)
+Include stuff like
+    hp
+    dmg
+    speed
+    status effects
+So that it'll be easier to handle possible status effects
+
+Fix up the 
+*/
+
+// Deleted 2022-6-13 (old comments from when I implemented EnemyList about a week ago) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/* TODO
+Main goals:
+1.) Make speed system consistent (aka change the copy pasted code in Wispy)
+2.) Implement priority queue for enemyList
+3.) Implement range for turret
+
+- Copy the idea for bullet movement over for enemies
+- Implement `EnemyList` class
+- Implement abstract `Enemy` class
+- Implement abstract 'AtkTower' class
+
+abstract class Enemy extends MonoBehaviour
+    Fields
+        static float speed
+        float hp
+        static GameObject[] waypoints (Maybe WayPoints[]?)
+        float priority
+            Basically distance to walk to get to the food
+            Lower value => Higher prio for turrets if in range
+    Methods
+        Start()
+        Update()
+
+
+
+(Impl details moved to comment in GlobalVariables.cs)
+class EnemyList   (to be placed in GlobalVariables.cs)
+    Fields
+        Enemy[100] enemies = [null for i in range(100)]
+        int numEnemies     = 0
+        int numDead        = 0
+    Methods
+        add(Enemy nextEnemy)
+        kill(Enemy deadEnemy)
+        rearrange()
+        findTarget(Vector2 towerPos, float range)
+        reset()
+        
+
+
+// Wait why was I planning this again what
+abstract class AtkTower extends MonoBehaviour
+*/

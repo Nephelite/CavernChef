@@ -20,6 +20,9 @@ public class Waterball : Projectile
     // Update is called once per frame
     void Update()
     {
+        // Angle projectile properly
+        base.AngleTowardsTarget();
+
         Vector2 projectilePos = gameObject.transform.position;   // Bullet position
         if (target != null) {                                    // If target is not yet dead,
             targetPos = target.transform.position;               // Update targetPos
