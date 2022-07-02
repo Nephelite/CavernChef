@@ -98,5 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 8
+  rarity: 2
   cost: 50
   hp: 10000

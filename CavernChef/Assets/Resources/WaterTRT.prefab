@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 2
+  rarity: 0
   cost: 75
   tBetAtks: 1.5
   range: 5

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UpgradesAndUnlocks : MonoBehaviour
 {
-    public List<GameObject> TRTs = new List<GameObject>();
     private GameObject food;
     public static int firstUnlock = -1, secondUnlock = -1;
 

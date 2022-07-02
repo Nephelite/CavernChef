@@ -3,7 +3,10 @@ guid: 6034735efb81a804e95e11c04c2e5dcc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gold: {fileID: 21300000, guid: e7bdabc51454f564180b397502cb5c9a, type: 3}
+  - silver: {fileID: 21300000, guid: 27a301a63261656418e03dc061046b90, type: 3}
+  - bronze: {instanceID: 0}
   executionOrder: 800
   icon: {instanceID: 0}
   userData: 

@@ -252,3 +252,7 @@ Deleted Script_Recycling_Bin.txt and moved contents to the bottom of their corre
 Next planned TODOs: Make better fireball sprite, update lightning chaining behavior
 Bug discovered: null pointer error in the logic of Lightning's movement. This bug will disappear anyway once the planned change for lightning is implemented.
 - Bryce (2 hrs)
+
+2/7: 
+UI Buttons on the menus and the unlocks screen now have actual textures, not just a white box.
+- Kevin (3 hrs)

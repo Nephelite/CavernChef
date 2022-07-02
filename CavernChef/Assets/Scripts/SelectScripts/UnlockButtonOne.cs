@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnlockButtonOne : MonoBehaviour
 {
+    public List<GameObject> TRTList = new List<GameObject>();
     public int trtIndex;
+    public Sprite gold, silver, bronze;
 
     // Start is called before the first frame update
     void Start()
     {
+        Sprite[] rarities = new Sprite[] { bronze, silver, gold };
         trtIndex = 0;
         int iter = 0, index = UpgradesAndUnlocks.firstUnlock;
         if (index > -1)
@@ -31,6 +35,7 @@ public class UnlockButtonOne : MonoBehaviour
                     break;
                 }
             }
+            gameObject.GetComponent<Button>().image.sprite = rarities[TRTList[trtIndex].GetComponent<TRT>().rarity];
         }
         else
         {
