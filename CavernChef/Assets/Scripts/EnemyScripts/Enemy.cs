@@ -257,11 +257,20 @@ public abstract class Enemy : MonoBehaviour
         nextTileToVisit = nextWaypoint;
         checkForStall(prevWaypoint, nextWaypoint);
 
-        prevWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.RemoveAll(x => x.Equals(gameObject)); //How does .Equals() work in C# and Unity?
-        nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
+        if (prevWaypoint != storedWaypoint)
+        {
+            if (storedWaypoint != null)
+            {
+                storedWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Remove(gameObject); //How does .Equals() work in C# and Unity?
+            }
+            storedWaypoint = prevWaypoint;
+            nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
+        }
 
         gameObject.transform.position = Vector2.Lerp(startPos, endPos, fracOfWayToNextWaypoint);
     }
+
+    GameObject storedWaypoint = null;
 
     // Update frame count for effects
     public void statusUpdate()
@@ -273,18 +282,29 @@ public abstract class Enemy : MonoBehaviour
     //Below this will be methods for finding a path when a blockage TRT is placed.
     //Only called if, in a list of waypoints, an obstacle is placed on a tile with a waypoint in the list. All spawns using this list, and enemies that are still
     //not past the point of blockage will then call this method to generate the new path.
-    public virtual void findNewPath() 
+
+    private AStarEnemyPathfinding pathFinder;
+
+    public virtual bool findNewPath() 
     {
         //Pathing generation
-        GameObject initialPosition = Instantiate(waypointPrefab, gameObject.transform.position, Quaternion.identity) as GameObject; //Create a waypoint from its current position
+        //GameObject initialPosition = Instantiate(waypointPrefab, gameObject.transform.position, Quaternion.identity) as GameObject; //Create a waypoint from its current position
         GameObject waypointStart = nextTileToVisit;
         //The enemy will look for a path that first finishes its initial movement towards nextTileToVisit, then look for a new route to waypointEnd.
         GameObject waypointEnd = waypoints[waypoints.Count - 2];
+        //GameObject destination = waypoints[waypoints.Count - 1];
+
+        pathFinder = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
+        return pathFinder.generateAndCheck();
+    }
+
+    public virtual void assignNewPath()
+    {
+        GameObject initialPosition = Instantiate(waypointPrefab, gameObject.transform.position, Quaternion.identity) as GameObject; //Create a waypoint from its current position
         GameObject destination = waypoints[waypoints.Count - 1];
         waypoints.Clear();
 
-        AStarEnemyPathfinding pathFinder = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
-        List<GameObject> pathBody = pathFinder.generatePathing();
+        List<GameObject> pathBody = pathFinder.waypoints;
         waypoints.Add(initialPosition);
         pathBody.Reverse();
         waypoints.AddRange(pathBody);
@@ -329,12 +349,11 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-
-
     public class AStarEnemyPathfinding
     {
         public GameObject startPoint, endPoint; //Specifically start and ending waypoints
         private int gridSizeX = 32, gridSizeY = 11;
+        public List<GameObject> waypoints;
 
         public AStarEnemyPathfinding(ref GameObject start, ref GameObject end)
         {
@@ -380,8 +399,13 @@ public abstract class Enemy : MonoBehaviour
             }
         }
 
+        public bool generateAndCheck()
+        {
+            waypoints = generatePathing();
+            return waypoints.Count > 0;
+        }
 
-        public List<GameObject> generatePathing() // Returns a list of Waypoints for an enemy to follow. Can be from a spawn point or an enemy.
+        private List<GameObject> generatePathing() // Returns a list of Waypoints for an enemy to follow. Can be from a spawn point or an enemy.
         {
             //List<GameObject> openPoints = new List<GameObject>(WaypointGenerator.allWaypoints); //All unexplored waypoints
             List<Node> activeNodes = new List<Node>(); //The nodes that are being investigated

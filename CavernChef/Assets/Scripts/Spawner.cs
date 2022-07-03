@@ -85,36 +85,64 @@ public class Spawner : MonoBehaviour
         spawnPoints.RemoveAt(i);
     }
 
-    public void newPath()
+    private AStarEnemyPathfinding pathFinder, pathFinder2;
+
+    public bool newPath()
     {
         //Pathing generation
-        GameObject spawnPoint = waypointList[0];
-        GameObject endPoint = waypointList[waypointList.Count - 1];
-        GameObject waypointStart = waypointList[1];
-        GameObject waypointEnd = waypointList[waypointList.Count - 2];
-        waypointList.Clear();
+        GameObject waypointStart1 = waypointList[1];
+        GameObject waypointEnd1 = waypointList[waypointList.Count - 2];
         
-        AStarEnemyPathfinding pathFinder = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
-        List<GameObject> pathBody = pathFinder.generatePathing();
-        waypointList.Add(spawnPoint);
-        pathBody.Reverse();
-        waypointList.AddRange(pathBody);
-        waypointList.Add(endPoint);
-        //Pathing done
+
+        pathFinder = new AStarEnemyPathfinding(ref waypointStart1, ref waypointEnd1);
+        bool check1 = pathFinder.generateAndCheck();
+        //Body of path assigned later; paths from both spawns must exist
 
         //Pathing generation
-        spawnPoint = waypointSecondList[0];
-        endPoint = waypointSecondList[waypointSecondList.Count - 1];
-        waypointStart = waypointSecondList[1];
-        waypointEnd = waypointSecondList[waypointSecondList.Count - 2];
+        GameObject waypointStart2 = waypointSecondList[1];
+        GameObject waypointEnd2 = waypointSecondList[waypointSecondList.Count - 2];
+
+
+        pathFinder2 = new AStarEnemyPathfinding(ref waypointStart2, ref waypointEnd2);
+        bool check2 = pathFinder2.generateAndCheck();
+
+
+        if (check1 && check2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    public void assignPaths()
+    {
+
+        GameObject spawnPoint1 = waypointList[0];
+        GameObject endPoint1 = waypointList[waypointList.Count - 1];
+
+        GameObject spawnPoint2 = waypointSecondList[0];
+        GameObject endPoint2 = waypointSecondList[waypointSecondList.Count - 1];
+
+        waypointList.Clear();
         waypointSecondList.Clear();
 
-        AStarEnemyPathfinding pathFinder2 = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
-        List<GameObject> pathBody2 = pathFinder2.generatePathing();
-        waypointSecondList.Add(spawnPoint);
+        List<GameObject> pathBody = pathFinder.waypoints;
+        List<GameObject> pathBody2 = pathFinder2.waypoints;
+
+        waypointList.Add(spawnPoint1);
+        pathBody.Reverse();
+        waypointList.AddRange(pathBody);
+        waypointList.Add(endPoint1);
+        //Pathing done
+
+        waypointSecondList.Add(spawnPoint2);
         pathBody2.Reverse();
         waypointSecondList.AddRange(pathBody2);
-        waypointSecondList.Add(endPoint);
+        waypointSecondList.Add(endPoint2);
         //Pathing done
     }
 
@@ -136,7 +164,8 @@ public class Spawner : MonoBehaviour
         GameObject waypointEnd = GridGenerator.validEnemyTiles[(int)((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
 
         AStarEnemyPathfinding pathFinder1 = new AStarEnemyPathfinding(ref waypointStart, ref waypointEnd);
-        List<GameObject> pathBody1 = pathFinder1.generatePathing();
+        bool temp = pathFinder1.generateAndCheck();
+        List<GameObject> pathBody1 = pathFinder1.waypoints;
         waypointList.Add(Instantiate(waypointPrefab, spawnPoints[0].transform.position, Quaternion.identity) as GameObject);
         pathBody1.Reverse();
         waypointList.AddRange(pathBody1);
@@ -154,7 +183,8 @@ public class Spawner : MonoBehaviour
         //waypointEnd = GridGenerator.validEnemyTiles[(int)((foodPoint.transform.position.x - foodOffsetFromGridX) + (foodPoint.transform.position.y - foodOffsetFromGridY) * 32)].transform.Find("WayPointTemplate(Clone)").gameObject;
 
         AStarEnemyPathfinding pathFinder2 = new AStarEnemyPathfinding(ref waypointStart2, ref waypointEnd);
-        List<GameObject> pathBody2 = pathFinder2.generatePathing();
+        temp = pathFinder2.generateAndCheck();
+        List<GameObject> pathBody2 = pathFinder2.waypoints;
         waypointSecondList.Add(Instantiate(waypointPrefab, spawnPoints[1].transform.position, Quaternion.identity) as GameObject);
         pathBody2.Reverse();
         waypointSecondList.AddRange(pathBody2);
@@ -275,6 +305,7 @@ public class AStarEnemyPathfinding
 {
     public GameObject startPoint, endPoint; //Specifically start and ending waypoints
     private int gridSizeX = 32, gridSizeY = 11;
+    public List<GameObject> waypoints;
 
     public AStarEnemyPathfinding(ref GameObject start, ref GameObject end)
     {
@@ -320,8 +351,13 @@ public class AStarEnemyPathfinding
         }
     }
 
+    public bool generateAndCheck()
+    {
+        waypoints = generatePathing();
+        return waypoints.Count > 0;
+    }
 
-    public List<GameObject> generatePathing() // Returns a list of Waypoints for an enemy to follow. Can be from a spawn point or an enemy.
+    private List<GameObject> generatePathing() // Returns a list of Waypoints for an enemy to follow. Can be from a spawn point or an enemy.
     {
         //List<GameObject> openPoints = new List<GameObject>(WaypointGenerator.allWaypoints); //All unexplored waypoints
         List<Node> activeNodes = new List<Node>(); //The nodes that are being investigated

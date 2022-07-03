@@ -256,3 +256,28 @@ Bug discovered: null pointer error in the logic of Lightning's movement. This bu
 2/7: 
 UI Buttons on the menus and the unlocks screen now have actual textures, not just a white box.
 - Kevin (3 hrs)
+
+3/7: 
+Fixed almost all bugs related to the blockage TRTs.
+Namely:
+1. Fixed the wisps going in a straight line from spawn to food if the blockage TRT blocks all valid paths so no path exists between spawn and food.
+Currently: If player attempts to place a TRT that would make traversal impossible, the game will physically not allow such a placement.
+Future: Text pop-up for a small period of time to tell the player about the banned placement.
+
+2. Fixed being able to place the blockage TRT on the enemies, thereby leading to awkward looking moments where the wisp just waltzes through the blockage.
+Currently: Players are now not allowed to place blockage TRTs on the tile the enemy is travelling from and to.
+E.G: Tile A --- [Enemy] --> Tile B
+Both Tile A and B do not allow for placement.
+
+A slight bug still exists. If blockage TRT is placed such that the ideal path is that the enemy needs to turn 180 degrees, 
+the enemy will first complete its traversal from tile A to B, then go back to A.
+E.G: 
+Ideal path : D A B C
+D --> A -- [Enemy] --> B --> C
+Then a block is placed at C, and the ideal path for the enemy is now one where it needs to go A -> D. 
+The enemy will first complete its movement to B, then go back to A, effectively being not an actual SSSP.
+
+The plan for now is to claim this minor bug as a feature, as this bug is beneficial to the player by buying more time because the enemies need to move more.
+It also does not break any parts of the game.
+
+- Kevin (2 hrs)

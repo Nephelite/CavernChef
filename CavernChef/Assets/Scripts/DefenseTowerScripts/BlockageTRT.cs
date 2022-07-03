@@ -11,12 +11,28 @@ public class BlockageTRT : DefensiveTRT
     // Start is called before the first frame update
     void Start()
     {
-        GlobalVariables.repelPoints -= cost;
-        spawner.GetComponent<Spawner>().newPath();
+        bool isBlockageSuccessful = spawner.GetComponent<Spawner>().newPath();
         for (int i = 0; i < spawner.transform.childCount; i++)
         {
-            Debug.Log("Enemy finding new path");
-            spawner.transform.GetChild(i).GetComponent<Enemy>().findNewPath();
+            isBlockageSuccessful = isBlockageSuccessful && spawner.transform.GetChild(i).GetComponent<Enemy>().findNewPath();
         }
+
+        if (isBlockageSuccessful)
+        {
+            spawner.GetComponent<Spawner>().assignPaths();
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                spawner.transform.GetChild(i).GetComponent<Enemy>().assignNewPath();
+            }
+
+            GlobalVariables.repelPoints -= cost;
+        }
+        else
+        {
+            Debug.Log("Either a spawner or an enemy cannot reach the food with this blockage");
+            Destroy(gameObject);
+            //Some error text display animation
+        }
+
     }
 }

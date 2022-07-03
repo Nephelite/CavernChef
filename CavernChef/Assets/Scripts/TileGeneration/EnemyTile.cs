@@ -17,6 +17,21 @@ public class EnemyTile : MonoBehaviour
         if (GlobalVariables.selectedTrt != null && GlobalVariables.isDefensiveTRT && CanPlaceTRT())
         {
             TRT = (GameObject)Instantiate(GlobalVariables.selectedTrt, new Vector2(this.transform.position.x + 0.5f, this.transform.position.y + 0.5f), Quaternion.identity);
+            if (TRT.GetComponent<BlockageTRT>() != null)
+            {
+                if (gameObject.transform.Find("WayPointTemplate(Clone)") != null && 
+                    gameObject.transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Count > 0)
+                {
+                    Debug.Log("Enemy is coming to this tile");
+                    Destroy(TRT);
+                    return ;
+                }
+                else
+                {
+                    isBlockage = true; //change to include a check in near future
+                }
+            }
+
             //GameObject parent = this.transform.parent.gameObject;
             //TRT.transform.SetParent(parent.transform);
             //this.transform.SetParent(TRT.transform);
@@ -24,8 +39,6 @@ public class EnemyTile : MonoBehaviour
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.selectedTrt = null; //Comment out this line to disable one-at-a-time selection
 
-            if (TRT.GetComponent<BlockageTRT>() != null)
-                isBlockage = true; //change to include a check in near future
         }
     }
 
