@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlmanacEnemies.unity
     guid: e1801d8429885434d9709e93ed403dd7
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 645b1134a1566144bb091105a9356dce
   m_configObjects: {}

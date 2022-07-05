@@ -22,6 +22,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
             Debug.Log("Producing " + value + " RP");
             GlobalVariables.repelPoints += value;
             cycleDuration = savedCycleDuration;
+            FindObjectOfType<AudioManager>().Play("Econ");
         }
         else
         {

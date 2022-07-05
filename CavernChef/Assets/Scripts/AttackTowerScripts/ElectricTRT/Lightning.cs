@@ -43,6 +43,7 @@ public class Lightning : Projectile
     {
         // Set speed
         base.Setup();
+        FindObjectOfType<AudioManager>().Play("Electric");
     }
 
     // Update is called once per frame

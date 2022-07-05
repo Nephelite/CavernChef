@@ -17,6 +17,7 @@ public class Snowball : Projectile
     {
         // Set speed
         base.Setup();
+        FindObjectOfType<AudioManager>().Play("Snow");
     }
 
     // Update is called once per frame

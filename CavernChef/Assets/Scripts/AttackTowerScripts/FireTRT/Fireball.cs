@@ -17,6 +17,7 @@ public class Fireball : Projectile
     {
         // Set speed
         base.Setup();
+        FindObjectOfType<AudioManager>().Play("Fire");
     }
 
     // Update is called once per frame

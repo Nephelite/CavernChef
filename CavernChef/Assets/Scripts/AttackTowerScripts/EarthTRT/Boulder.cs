@@ -15,6 +15,7 @@ public class Boulder : Projectile
     {
         // Set speed
         base.Setup();
+        FindObjectOfType<AudioManager>().Play("Earth");
     }
 
     // Update is called once per frame
