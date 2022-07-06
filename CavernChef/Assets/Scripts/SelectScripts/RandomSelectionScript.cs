@@ -14,6 +14,8 @@ public class RandomSelectionScript : MonoBehaviour
 
     public static void Initialise(List<GameObject> foodsList)
     {
+        FindObjectOfType<AudioManager>().StopAllAudio();
+        FindObjectOfType<AudioManager>().PlayMusic("FoodSelectTheme");
         foodsRemaining = foodsList;
     }
 
@@ -150,6 +152,23 @@ public class RandomSelectionScript : MonoBehaviour
         {
             GlobalVariables.nextSceneToPlay = 4;
             nextSceneIndex = 4;
+        }
+
+        FindObjectOfType<AudioManager>().StopAllAudio();
+        switch (nextSceneIndex)
+        {
+            case 4:
+                FindObjectOfType<AudioManager>().PlayMusic("GrasslandTheme");
+                break;
+            case 5:
+                FindObjectOfType<AudioManager>().PlayMusic("CaveTheme");
+                break;
+            case 6:
+                FindObjectOfType<AudioManager>().PlayMusic("FloodedCaveTheme");
+                break;
+            case 7:
+                FindObjectOfType<AudioManager>().PlayMusic("MagmaTheme");
+                break;
         }
         SceneManager.LoadScene(nextSceneIndex);
     }

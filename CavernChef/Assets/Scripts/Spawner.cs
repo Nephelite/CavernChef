@@ -297,6 +297,8 @@ public class Spawner : MonoBehaviour
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
             Debug.Log("Cleared: " + GlobalVariables.lastClearedScene + " Next: " + GlobalVariables.nextSceneToPlay);
             SceneManager.LoadScene(8);
+            FindObjectOfType<AudioManager>().StopAllAudio();
+            FindObjectOfType<AudioManager>().PlayMusic("UnlocksAndUpgradesTheme");
         }
     }
 }

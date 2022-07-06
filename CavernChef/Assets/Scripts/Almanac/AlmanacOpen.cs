@@ -8,5 +8,6 @@ public class AlmanacOpen : MonoBehaviour
     public void open()
     {
         SceneManager.LoadScene(10);
+        FindObjectOfType<AudioManager>().Play("OpenBook");
     }
 }

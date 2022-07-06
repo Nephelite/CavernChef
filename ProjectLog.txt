@@ -281,3 +281,15 @@ The plan for now is to claim this minor bug as a feature, as this bug is benefic
 It also does not break any parts of the game.
 
 - Kevin (2 hrs)
+
+5/7 - 6/7:
+Added BGM and SFX to the game.
+Missing BGM and SFX:
+Game Over BGM
+Menu to Tower Defense transition SFX and vice versa
+Button click SFX
+Save Game SFX
+Unlock/Upgrade SFX
+Light TRT laser SFX (Awaiting reworked light TRT)
+Econ TRT producing RP SFX (There is a placeholder but consider changing it)
+- Kevin (2 hrs on 5th, 3 hrs on 6th)

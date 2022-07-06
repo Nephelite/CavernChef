@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2697689647887179038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2697689647887179040}
+  - component: {fileID: 2697689647887179039}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2697689647887179040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697689647887179038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.111733, y: 4.4752502, z: 0.0064809127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2697689647887179039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697689647887179038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a334f354c2f1eb42988246be19719fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffects:
+  - name: Econ
+    clip: {fileID: 8300000, guid: 3a3a15a135f3a50468f70736e891b7c5, type: 3}
+    volume: 0.4
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 5f0568e6bb2b14c498ea93d4bb359740, type: 3}
+    volume: 0.02
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Water
+    clip: {fileID: 8300000, guid: b83ade678e9c11949be8b6a29d3b793e, type: 3}
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Snow
+    clip: {fileID: 8300000, guid: 8370487fa698ec148aa73bd61fd54bdf, type: 3}
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Light
+    clip: {fileID: 8300000, guid: 01310503ae980f24e9eca180c03e7b1e, type: 3}
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Electric
+    clip: {fileID: 8300000, guid: 1da33ce9a187d1a429b6f550634d3be9, type: 3}
+    volume: 0.02
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: Earth
+    clip: {fileID: 8300000, guid: 21d5a43f601046041986e8672507f083, type: 3}
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: OpenBook
+    clip: {fileID: 8300000, guid: 92f54980732539b4cabb371d944def8d, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CloseBook
+    clip: {fileID: 8300000, guid: ebf3662b5d802cc48a88eb42a95954f2, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CloseBook
+    clip: {fileID: 8300000, guid: 8de575a71afafcb49a97029d0ccc2ac8, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  music:
+  - name: TestTheme1
+    clip: {fileID: 8300000, guid: 9866392c5aad6ad428fe7de07704fa01, type: 3}
+    volume: 0.1
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: af56674d86778fc41904c76d3b62cfad, type: 3}
+    volume: 0.2
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: FoodSelectTheme
+    clip: {fileID: 8300000, guid: eaced8131fda23f47bb54a30370be280, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GrasslandTheme
+    clip: {fileID: 8300000, guid: d061f9d1d18aba84689c11e09c16c965, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: CaveTheme
+    clip: {fileID: 8300000, guid: e9ea7aa02a96c1e48aa11cd28365061e, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FloodedCaveTheme
+    clip: {fileID: 8300000, guid: 0c5294ccc33e2f947a60b95c5171ca10, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MagmaTheme
+    clip: {fileID: 8300000, guid: 31cb7a268fe97164ebbc2d2e93ef3605, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: UnlocksAndUpgradesTheme
+    clip: {fileID: 8300000, guid: b1ba977b7350a454ab71ed66448e239b, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AlmanacTheme
+    clip: {fileID: 8300000, guid: 1e5198ca6f0b7e64191658b9465545b0, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}

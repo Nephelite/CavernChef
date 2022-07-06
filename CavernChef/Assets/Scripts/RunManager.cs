@@ -44,6 +44,8 @@ public class RunManager : MonoBehaviour
         }
         UpgradesAndUnlocks.firstUnlock = -1;
         UpgradesAndUnlocks.secondUnlock = -1;
+        FindObjectOfType<AudioManager>().StopAllAudio();
+        FindObjectOfType<AudioManager>().PlayMusic("FoodSelectTheme");
         SceneManager.LoadScene(3);
     }
 
