@@ -25,8 +25,6 @@ public abstract class Projectile : MonoBehaviour
     public float dmg;
     // AoE radius, if any
     public float AoeRadius;
-    // Chain length, if any
-    public int chainLen;
     // Effect duration, if any (snow, water)
     public int effectFrames;
 
@@ -65,7 +63,22 @@ public abstract class Projectile : MonoBehaviour
         // Get the argument of the current trajectory
         float x = traj.x;
         float y = traj.y;
-        float new_arg = Mathf.Atan(y/x) * Mathf.Rad2Deg;
+        float new_arg;
+        // Handle corner cases
+        if (x != 0) {   // Standard case
+            new_arg = Mathf.Atan(y/x) * Mathf.Rad2Deg;   // Only returns in the range (-90,90)
+            if (x < 0) {                 // Face the other way
+                new_arg += 180;
+            }
+        } else if (y != 0) {   // x=0, y!=0
+            if (y > 0) {
+                new_arg = 90;
+            } else {
+                new_arg = -90;
+            }
+        } else {   // If x=y=0, do nothing
+            return;
+        }
 
         // Update the field arg and rotate accordingly
         transform.Rotate(0,0,new_arg - arg);

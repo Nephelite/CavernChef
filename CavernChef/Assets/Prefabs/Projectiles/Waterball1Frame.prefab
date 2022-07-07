@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed529e02472644063a0ac7574935e473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centi_speed: 25
+  centi_speed: 3
   dmg: 8
   AoeRadius: 0
-  chainLen: 0
   effectFrames: 240
   arg: 0
