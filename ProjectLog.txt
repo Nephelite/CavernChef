@@ -293,3 +293,13 @@ Unlock/Upgrade SFX
 Light TRT laser SFX (Awaiting reworked light TRT)
 Econ TRT producing RP SFX (There is a placeholder but consider changing it)
 - Kevin (2 hrs on 5th, 3 hrs on 6th)
+
+1/7:
+Created improved fireball sprite by recoloring waterball sprite (30 mins)
+- Bryce (30 mins)
+
+5/7 - 7/7:
+Lightning rework part 1: A lightning now chains towards the nearest enemy that has not been previously hit by this specific instance of lightning
+Fixed bugs related to projectile rotation (Face opposite way when going left, tan(+-90) = +- infinity issues)
+Next TODOs: Lightning rework part 2 (maximum jump dist when chaining), Bring fields of projectiles from the projectiles themselves to the TRTs for convenience in the Unity editor, Rework Light TRT.
+- Bryce (7 hrs)

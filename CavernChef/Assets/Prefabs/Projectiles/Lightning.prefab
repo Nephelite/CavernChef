@@ -100,5 +100,8 @@ MonoBehaviour:
   centi_speed: 60
   dmg: 4
   AoeRadius: 0
-  chainLen: 5
   effectFrames: 10
+  arg: 0
+  framesPerJump: 10
+  chainLen: 5
+  jumpDist: 0

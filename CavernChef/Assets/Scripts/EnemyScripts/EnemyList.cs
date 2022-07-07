@@ -20,6 +20,7 @@ class EnemyList
         Enemy findTarget(Vector2 towerPos, float towerRange)
         List<Enemy> AoECasualties(Vector2 projPos, float AoERadius)
         List<Enemy> ChainCasualties(Enemy target, int chainLen)
+        List<Enemy> ClosestTo(Vector2 targetPos)
 
         int aliveEnemies()
         void reset()
@@ -153,6 +154,7 @@ public class EnemyList
         return ans;
     }
 
+    // *****This will be defunct once lightning's behavior is changed*****
     // List of enemies that get hit by a chain effect given the start and length
     public List<Enemy> ChainCasualties(Enemy target, int chainLen) {
         int ind = enemyList.IndexOf(target);   // Index of the target
@@ -169,6 +171,47 @@ public class EnemyList
         }
 
         return ans;
+    }
+
+
+    // List of enemies that exist sorted by distance from a target coordinate
+    public List<Enemy> ClosestTo(Vector2 center) {
+        // Copy the existing enemies
+        List<Enemy> enemies = new List<Enemy>();
+        for (int i = numDead; i < numSpawned; i++) {
+            enemies.Add(enemyList[i]);
+        }
+
+        // Get the distance of each existing enemy to the center
+        List<float> dists = new List<float>();
+        for (int i = numDead; i < numSpawned; i++) {
+            Enemy currEnemy = enemyList[i];                   // Current enemy
+            Vector2 currPos = currEnemy.transform.position;   // Current position
+            Vector2 currDelta = currPos - center;             // Vector diff
+            float currDist = currDelta.magnitude;             // Distance
+            dists.Add(currDist);                              // Append to dists
+        }
+
+        // Perform insertion sort
+        int n = enemies.Count;
+        for (int ind = 1; ind < n; ind++) {
+            int i = ind;                               // Index of term to slide left
+            while (i > 0 && dists[i-1] > dists[i]) {   // While there's a need to slide left
+                // Swap in ans
+                Enemy tempEnemy = enemies[i];
+                enemies[i] = enemies[i-1];
+                enemies[i-1] = tempEnemy;
+                // Swap in dists
+                float tempDist = dists[i];
+                dists[i] = dists[i-1];
+                dists[i-1] = tempDist;
+                // Decrement i
+                i -= 1;
+            }
+        }
+
+        // Return the ans
+        return enemies;
     }
 
 
