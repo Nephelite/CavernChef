@@ -295,7 +295,7 @@ Econ TRT producing RP SFX (There is a placeholder but consider changing it)
 - Kevin (2 hrs on 5th, 3 hrs on 6th)
 
 1/7:
-Created improved fireball sprite by recoloring waterball sprite (30 mins)
+Created improved fireball sprite by recoloring waterball sprite (not yet put in the files itself)
 - Bryce (30 mins)
 
 5/7 - 7/7:
