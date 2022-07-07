@@ -23,6 +23,7 @@ public class Continue : MonoBehaviour
             GlobalVariables.lastClearedScene = resumed.scene;
             GlobalVariables.nextSceneToPlay = resumed.next;
             RunManager.last3FoodChoicesID = resumed.last3FoodChoicesID;
+            Spawner.zoneNumber = resumed.numZones;
             SceneManager.LoadScene(3);
             RandomSelectionScript.Initialise(foodsList);
             RunManager.testRun = false;

@@ -21,4 +21,9 @@ public class Wave {
         this.enemySpawned = 0;
         this.aEnemies = new GameObject[enemyCount];
     }
+
+    public void replaceEnemy(GameObject enemy, int spawnIndex)
+    {
+        aEnemies[spawnIndex] = enemy;
+    }
 }

@@ -14,6 +14,9 @@ public class GameOver : MonoBehaviour
         RandomSelectionScript.choiceThree = null;
         RunManager.last3FoodChoicesID = null;
         Spawner.zoneNumber = 0;
+        Spawner.waypointList.Clear();
+        Spawner.waypointSecondList.Clear();
+        GlobalVariables.enemyList.reset();
     }
 
     public void goBack()

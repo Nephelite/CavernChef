@@ -21729,6 +21729,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: bossList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: foodOffsetFromGridX
       value: 0.5
       objectReference: {fileID: 0}
@@ -21740,6 +21744,10 @@ PrefabInstance:
       propertyPath: enemyList.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
+      propertyPath: bossList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8176188707680438536, guid: 0f788d729c46ac34c8f3b9f702c2f241, type: 3}
     - target: {fileID: 1066748081173544835, guid: 682dd4195dd53466188eb8cb2bb29174, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 4

@@ -48,10 +48,12 @@ public class Spawner : MonoBehaviour
 
     public static int zoneNumber;
 
-    public bool isMirroredSpawns;
+    public bool isMirroredSpawns, hasBossSpawned;
 
     // Array of the enemies
     public List<GameObject> enemyList = new List<GameObject>();   // SET THIS IN UNITY
+
+    public List<GameObject> bossList = new List<GameObject>();   // SET THIS IN UNITY
 
     public List<GameObject> displayWaypoints = new List<GameObject>();
 
@@ -237,29 +239,61 @@ public class Spawner : MonoBehaviour
 
                 if (choice == 0)
                 {
-                    // Debug.Log("First Spawn");
-                    // Make a new instance of the specified enemy type for the wave
-                    newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
-                    spawnPoints[0].transform.position, Quaternion.identity);
-                    //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
-                    //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
+                    if (zoneNumber > 9 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 10 or more and it is the last wave
+                    {
+                        // Debug.Log("First Spawn");
+                        // Make a new instance of the specified enemy type for the wave
+                        newEnemy = (GameObject)Instantiate(bossList[currWave.enemyInd],
+                        spawnPoints[0].transform.position, Quaternion.identity);
+                        //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                        //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
+                        hasBossSpawned = true;
+
+                        // Set the parent of the enemy in the hierarchy to be the Spawner
+                        newEnemy.transform.SetParent(this.transform);
+                    }
+                    else
+                    {
+                        // Debug.Log("First Spawn");
+                        // Make a new instance of the specified enemy type for the wave
+                        newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
+                        spawnPoints[0].transform.position, Quaternion.identity);
+                        //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                        //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
 
 
-                    // Set the parent of the enemy in the hierarchy to be the Spawner
-                    newEnemy.transform.SetParent(this.transform);
+                        // Set the parent of the enemy in the hierarchy to be the Spawner
+                        newEnemy.transform.SetParent(this.transform);
+                    }
                 }
                 else
                 {
-                    // Debug.Log("Second Spawn");
-                    // Make a new instance of the specified enemy type for the wave
-                    newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
-                    spawnPoints[1].transform.position, Quaternion.identity);
-                    //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
-                    //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointSecondList);
+                    if (zoneNumber > 9 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 10 or more and it is the last wave
+                    {
+                        // Debug.Log("First Spawn");
+                        // Make a new instance of the specified enemy type for the wave
+                        newEnemy = (GameObject)Instantiate(bossList[currWave.enemyInd],
+                        spawnPoints[1].transform.position, Quaternion.identity);
+                        //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                        //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
+                        hasBossSpawned = true;
+
+                        // Set the parent of the enemy in the hierarchy to be the Spawner
+                        newEnemy.transform.SetParent(this.transform);
+                    }
+                    else
+                    {
+                        // Debug.Log("First Spawn");
+                        // Make a new instance of the specified enemy type for the wave
+                        newEnemy = (GameObject)Instantiate(enemyList[currWave.enemyInd],
+                        spawnPoints[1].transform.position, Quaternion.identity);
+                        //newEnemy.GetComponent<Wispy>().waypoints = waypoints.waypoints; //FIX NUMBER 2 (THIS IS OLD VERSION)
+                        //newEnemy.GetComponent<Enemy>().waypoints = new List<GameObject>(waypointList);
 
 
-                    // Set the parent of the enemy in the hierarchy to be the Spawner
-                    newEnemy.transform.SetParent(this.transform);
+                        // Set the parent of the enemy in the hierarchy to be the Spawner
+                        newEnemy.transform.SetParent(this.transform);
+                    }
                 }
                 // Toss the enemy into `aEnemies` for access
                 currWave.aEnemies[currWave.enemySpawned] = newEnemy;
@@ -293,8 +327,10 @@ public class Spawner : MonoBehaviour
             // Do stuff to end the game
             Debug.Log("Stage Clear");
             Spawner.waypointList.Clear();
+            Spawner.waypointSecondList.Clear();
             GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
+            GlobalVariables.enemyList.reset();
             Debug.Log("Cleared: " + GlobalVariables.lastClearedScene + " Next: " + GlobalVariables.nextSceneToPlay);
             SceneManager.LoadScene(8);
             FindObjectOfType<AudioManager>().StopAllAudio();
