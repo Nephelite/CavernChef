@@ -303,3 +303,7 @@ Lightning rework part 1: A lightning now chains towards the nearest enemy that h
 Fixed bugs related to projectile rotation (Face opposite way when going left, tan(+-90) = +- infinity issues)
 Next TODOs: Lightning rework part 2 (maximum jump dist when chaining), Bring fields of projectiles from the projectiles themselves to the TRTs for convenience in the Unity editor, Rework Light TRT.
 - Bryce (7 hrs)
+
+7/7:
+Added a boss and fixed a Game Over bug
+- Kevin (2 hrs)
