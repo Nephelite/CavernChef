@@ -90,8 +90,18 @@ MonoBehaviour:
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
-  - name: CloseBook
+  - name: TurnPage1
     clip: {fileID: 8300000, guid: 8de575a71afafcb49a97029d0ccc2ac8, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TurnPage2
+    clip: {fileID: 8300000, guid: 5433ad3677b10cd49a76a21d28a1bf7b, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PickUpBook
+    clip: {fileID: 8300000, guid: cfb117a596155c44d831164150fc4658, type: 3}
     volume: 0.1
     pitch: 1
     source: {fileID: 0}

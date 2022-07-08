@@ -307,3 +307,8 @@ Next TODOs: Lightning rework part 2 (maximum jump dist when chaining), Bring fie
 7/7:
 Added a boss and fixed a Game Over bug
 - Kevin (2 hrs)
+
+8/7:
+Implemented random upgrades (text only)
+Fixed a minor audio SFX bug with almanac pages
+- Kevin (3 hrs)

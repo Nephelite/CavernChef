@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TRT : MonoBehaviour
 {
-    public int TRTID, rarity;
+    public int TRTID, rarity, upgradeCount;
 }
