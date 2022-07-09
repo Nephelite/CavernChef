@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 5
   rarity: 2
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Offensive
+  tooltipDescription: This TRT shoots lightning at enemies, chaining to a nearby
+    target and dealing electric damage on each chain.
   cost: 300
   tBetAtks: 1
   range: 8.5

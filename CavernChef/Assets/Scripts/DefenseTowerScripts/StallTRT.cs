@@ -11,6 +11,8 @@ public class StallTRT : DefensiveTRT
     // Start is called before the first frame update
     void Start()
     {
+        //Call upgrade apply methods
+
         GlobalVariables.repelPoints -= cost;
         gameObject.name = "StallTRT(Clone)";
     }

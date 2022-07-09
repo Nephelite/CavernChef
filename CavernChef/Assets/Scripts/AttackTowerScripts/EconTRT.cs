@@ -10,6 +10,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
 
     void Start()
     {
+        //Call apply upgrades method?
         GlobalVariables.repelPoints -= cost;
         savedCycleDuration = cycleDuration;
     }

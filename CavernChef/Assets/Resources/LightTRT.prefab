@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 4
   rarity: 2
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Offensive
+  tooltipDescription: Shoots a dazzling ray of light through an enemy, and any enemy
+    in contact with the ray takes light damage.
   cost: 300
   tBetAtks: 0.1
   range: 6

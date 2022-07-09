@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 1
   rarity: 0
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Offensive
+  tooltipDescription: This TRT shoots fireballs at an enemy, dealing fire damage
+    on all enemies near the stuck enemy.
   cost: 75
   tBetAtks: 1
   range: 7.5

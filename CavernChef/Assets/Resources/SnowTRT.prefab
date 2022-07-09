@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 3
   rarity: 1
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Offensive
+  tooltipDescription: This TRT slowly shoots snowballs at an enemy, dealing ice damage
+    and slowing them down.
   cost: 125
   tBetAtks: 3.2
   range: 5

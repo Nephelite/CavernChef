@@ -99,5 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 8
   rarity: 2
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Defenisve
+  tooltipDescription: This TRT blocks enemies on their path, forcing enemies to consume
+    this TRT before continuing.
   cost: 50
   hp: 10000

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 950aa0abd52e9f247adb6045694fa385
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gold: {fileID: 21300000, guid: e7bdabc51454f564180b397502cb5c9a, type: 3}
+  - silver: {fileID: 21300000, guid: 27a301a63261656418e03dc061046b90, type: 3}
+  - bronze: {fileID: 21300000, guid: f9f6278b49934a248ac113ca4ca5d8b1, type: 3}
+  executionOrder: 700
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

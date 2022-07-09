@@ -99,4 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 7
   rarity: 1
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Defensive
+  tooltipDescription: This TRT blocks off paths completely, forcing enemies to take
+    an alternative path. Cannot be deployed if no alternative path exists.
   cost: 50

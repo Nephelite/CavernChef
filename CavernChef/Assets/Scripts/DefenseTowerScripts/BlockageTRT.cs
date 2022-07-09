@@ -11,6 +11,8 @@ public class BlockageTRT : DefensiveTRT
     // Start is called before the first frame update
     void Start()
     {
+        //Call upgrade apply methods
+
         bool isBlockageSuccessful = spawner.GetComponent<Spawner>().newPath();
         for (int i = 0; i < spawner.transform.childCount; i++)
         {

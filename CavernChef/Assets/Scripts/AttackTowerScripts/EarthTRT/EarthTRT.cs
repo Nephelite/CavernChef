@@ -12,8 +12,10 @@ public class EarthTRT : AtkTower
     // Start is called before the first frame update
     void Start()
     {
+        //Call upgrade apply methods
+
         // Set cost, tBetAtks, and range in Unity
-        
+
         // Initialize CD and towerPos
         cooldown = 0.0f;
         towerPos = (Vector2) gameObject.transform.position;

@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TRTID: 6
   rarity: 1
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Offensive
+  tooltipDescription: This TRT extremely slowly shoots boulders at enemies, dealing
+    massive earth damage.
   cost: 250
   tBetAtks: 5
   range: 6

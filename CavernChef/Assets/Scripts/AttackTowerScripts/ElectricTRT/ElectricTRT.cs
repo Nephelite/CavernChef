@@ -12,6 +12,8 @@ public class ElectricTRT : AtkTower
     // Start is called before the first frame update
     void Start()
     {
+        //Call upgrade apply methods
+
         // Set cost, tBetAtks, and range in Unity
 
         // Initialize CD and towerPos

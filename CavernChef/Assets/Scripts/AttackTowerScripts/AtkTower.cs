@@ -54,8 +54,6 @@ public abstract class AtkTower : TRT
     // CD till next atk
     internal float cooldown;
 
-
-
     // Orients the TRT to face the enemy
     protected void LookAtEnemy()
     {

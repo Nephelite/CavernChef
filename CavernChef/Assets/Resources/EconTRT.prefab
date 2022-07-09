@@ -98,6 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TRTID: 0
+  rarity: 0
+  upgradeCount: 0
+  tooltipDescriptionPlacement: Economical
+  tooltipDescription: This TRT produces RP every few seconds.
   value: 50
   cost: 50
   cycleDuration: 4

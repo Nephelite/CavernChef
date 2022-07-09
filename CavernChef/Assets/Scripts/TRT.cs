@@ -5,4 +5,6 @@ using UnityEngine;
 public class TRT : MonoBehaviour
 {
     public int TRTID, rarity, upgradeCount;
+
+    public string tooltipDescriptionPlacement, tooltipDescription;
 }
