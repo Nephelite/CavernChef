@@ -118,7 +118,7 @@ MonoBehaviour:
   enemyID: 2
   waypointPrefab: {fileID: 8026642720977391048, guid: 8d43208a48b014c968684e1d286cf31e, type: 3}
   foodPoint: {fileID: 0}
-  base_centi_speed: 2
+  base_centi_speed: 1.25
   base_hp: 30
   base_dmg: 2
   waypoints:

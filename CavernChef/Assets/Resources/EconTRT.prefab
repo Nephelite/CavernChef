@@ -104,4 +104,4 @@ MonoBehaviour:
   tooltipDescription: This TRT produces RP every few seconds.
   value: 50
   cost: 50
-  cycleDuration: 4
+  cycleDuration: 12

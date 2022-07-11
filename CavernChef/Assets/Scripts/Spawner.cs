@@ -60,7 +60,7 @@ public class Spawner : MonoBehaviour
     // Time between waves
     public int tBetWaves = 5;
     // Last spawn time
-    private float tLastSpawn;
+    private float tLastSpawn, startTimer = 10f;
     // Number of waves done so far
     public int nWaves; //FIX NUMBER 4, changed in the inspector to 1
 
@@ -203,8 +203,8 @@ public class Spawner : MonoBehaviour
         // Set up the waves to be done
         for (int i = 0; i <= zoneNumber / 2; i++)
         {
-            waves.Add(new Wave(0, 2.0f / (Mathf.Log(zoneNumber / 2 + 2, 2)), (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f))));  // Increased number of enemies from 2 to 10 for testing
-            // Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 3f)));
+            waves.Add(new Wave(0, 2.0f / (Mathf.Log((float) (zoneNumber) / 7.5f + 2, 2)), (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 5f))));  
+            // Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 5f)));
         }
         nWaves = zoneNumber / 2 < 1 ? 1 : zoneNumber / 2;
         tLastSpawn = Time.time;
@@ -218,7 +218,15 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waveCount < nWaves)   // Not yet done with all waves
+        if (startTimer > 0)
+        {
+            if (Time.time >= startTimer)
+            {
+                startTimer = 0;
+                tLastSpawn = Time.time;
+            }
+        }
+        else if (waveCount < nWaves)   // Not yet done with all waves
         {
             // Time since last spawned enemy
             float timeInterval = Time.time - tLastSpawn;
@@ -239,7 +247,7 @@ public class Spawner : MonoBehaviour
 
                 if (choice == 0)
                 {
-                    if (zoneNumber > 9 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 10 or more and it is the last wave
+                    if (zoneNumber > 14 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 15 or more and it is the last wave
                     {
                         // Debug.Log("First Spawn");
                         // Make a new instance of the specified enemy type for the wave
@@ -268,7 +276,7 @@ public class Spawner : MonoBehaviour
                 }
                 else
                 {
-                    if (zoneNumber > 9 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 10 or more and it is the last wave
+                    if (zoneNumber > 14 && waveCount == nWaves - 1 && !hasBossSpawned) //If zone number is 15 or more and it is the last wave
                     {
                         // Debug.Log("First Spawn");
                         // Make a new instance of the specified enemy type for the wave
@@ -328,6 +336,7 @@ public class Spawner : MonoBehaviour
             Debug.Log("Stage Clear");
             Spawner.waypointList.Clear();
             Spawner.waypointSecondList.Clear();
+            startTimer = 10f;
             GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
             GlobalVariables.enemyList.reset();

@@ -22,9 +22,30 @@ public class EnemyTile : MonoBehaviour
                 if (gameObject.transform.Find("WayPointTemplate(Clone)") != null && 
                     gameObject.transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Count > 0)
                 {
-                    Debug.Log("Enemy is coming to this tile");
-                    Destroy(TRT);
-                    return ;
+                    bool check = false;
+                    for (int i = 0; i < gameObject.transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Count; i++)
+                    {
+                        if (gameObject.transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint[i] != null)
+                        {
+                            check = true; //There exists an enemy that isn't dead coming to this tile.
+                        }
+                        else
+                        {
+                            gameObject.transform.Find("WayPointTemplate(Clone)").gameObject.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.RemoveAt(i);
+                            i--;
+                        }
+                    }
+
+                    if (check) //Alive enemy coming
+                    {
+                        Debug.Log("Enemy is coming to this tile");
+                        Destroy(TRT);
+                        return ;
+                    }
+                    else //Dead enemy corpse to be ignored
+                    {
+                        isBlockage = true;
+                    }
                 }
                 else
                 {

@@ -316,4 +316,14 @@ Fixed a minor audio SFX bug with almanac pages
 9/7:
 Made the unlock buttons slightly less scuffed (Optimisation)
 Added tooltips to the unlock buttons.
- - Kevin (2 hrs)
+- Kevin (2 hrs)
+
+11/7:
+Bug fix regarding the 'corpse' of the enemies interfering with blockage TRT placements.
+Also balanced the game a bit more.
+- There is now a 10 second grace period before the first wave of a stage.
+- Enemies move about 5/8 of their original speed.
+- Difficulty scaling is now slower (number of enemies and waves increase slower, intervals between enemy spawns decreased).
+- Boss now comes at stage 15 instead of 10, to give players more time to have fun with their build.
+
+- Kevin (1 hr)
