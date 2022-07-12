@@ -91,6 +91,9 @@ public class Spawner : MonoBehaviour
 
     public bool newPath()
     {
+        pathFinder = null;
+        pathFinder2 = null;
+
         //Pathing generation
         GameObject waypointStart1 = waypointList[1];
         GameObject waypointEnd1 = waypointList[waypointList.Count - 2];
@@ -115,6 +118,7 @@ public class Spawner : MonoBehaviour
         }
         else
         {
+            Debug.Log("Spawner block");
             return false;
         }
         
@@ -122,7 +126,6 @@ public class Spawner : MonoBehaviour
 
     public void assignPaths()
     {
-
         GameObject spawnPoint1 = waypointList[0];
         GameObject endPoint1 = waypointList[waypointList.Count - 1];
 
@@ -151,6 +154,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startTimer = Time.time + 10f;
+
         zoneNumber++;
         // Debug.Log("Spawner activated, zone number " + zoneNumber); ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -336,14 +341,22 @@ public class Spawner : MonoBehaviour
             Debug.Log("Stage Clear");
             Spawner.waypointList.Clear();
             Spawner.waypointSecondList.Clear();
-            startTimer = 10f;
             GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
             GlobalVariables.enemyList.reset();
             Debug.Log("Cleared: " + GlobalVariables.lastClearedScene + " Next: " + GlobalVariables.nextSceneToPlay);
-            SceneManager.LoadScene(8);
             FindObjectOfType<AudioManager>().StopAllAudio();
-            FindObjectOfType<AudioManager>().PlayMusic("UnlocksAndUpgradesTheme");
+            if (hasBossSpawned)
+            {
+                hasBossSpawned = false;
+                SceneManager.LoadScene(15);
+            }
+            else
+            {
+
+                FindObjectOfType<AudioManager>().PlayMusic("UnlocksAndUpgradesTheme");
+                SceneManager.LoadScene(8);
+            }
         }
     }
 }

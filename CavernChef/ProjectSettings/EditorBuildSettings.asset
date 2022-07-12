@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 645b1134a1566144bb091105a9356dce
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 729eb6b0b33403f4a94b9c3252cb7df2
   m_configObjects: {}

@@ -44,28 +44,22 @@ public class EnemyTile : MonoBehaviour
                     }
                     else //Dead enemy corpse to be ignored
                     {
+                        TRT.GetComponent<BlockageTRT>().enemyTile = gameObject.GetComponent<EnemyTile>();
                         isBlockage = true;
                     }
-                }
+                } //Bug: If placement fails, the tick probably still happens
                 else
                 {
+                    TRT.GetComponent<BlockageTRT>().enemyTile = gameObject.GetComponent<EnemyTile>();
                     isBlockage = true; //change to include a check in near future
                 }
             }
-
             //GameObject parent = this.transform.parent.gameObject;
             //TRT.transform.SetParent(parent.transform);
             //this.transform.SetParent(TRT.transform);
             TRT.transform.SetParent(this.transform);
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.selectedTrt = null; //Comment out this line to disable one-at-a-time selection
-
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

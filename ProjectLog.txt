@@ -327,3 +327,14 @@ Also balanced the game a bit more.
 - Boss now comes at stage 15 instead of 10, to give players more time to have fun with their build.
 
 - Kevin (1 hr)
+
+12/7:
+Multiple bug fixes:
+- Fixed enemies not moving when a Pudding is placed next to their spawn, after destroying the pudding.
+- Fixed Blockage TRTs permamently not placing correctly after failing placement once.
+
+New features:
+Enemies now deal damage to Pudding at fixed 1 second intervals, so Pudding now no longer has a copious amount of health to deal with the damage from enemies every frame update.
+Thus, 1 wisp now needs 25 seconds to destroy a Pudding, and the temporary boss needs 10 seconds.
+Victory scene is added, and is transitioned to after defeating the boss zone (zone 15)
+- Kevin (4 hrs)

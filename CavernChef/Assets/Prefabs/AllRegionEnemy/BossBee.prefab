@@ -118,8 +118,8 @@ MonoBehaviour:
   waypointPrefab: {fileID: 0}
   foodPoint: {fileID: 0}
   base_centi_speed: 1
-  base_hp: 100
-  base_dmg: 10
+  base_hp: 1000
+  base_dmg: 5
   waypoints: []
   nextTileToVisit: {fileID: 0}
   distToFood: 0

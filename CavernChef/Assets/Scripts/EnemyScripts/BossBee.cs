@@ -77,7 +77,14 @@ public class BossBee : Enemy
             }
             else //If alive
             {
-                this.movementUpdate();
+                if (stalled)
+                {
+                    this.checkForStall(stallWaypointPrev, stallWaypointNext);
+                }
+                else
+                {
+                    this.movementUpdate();
+                }
                 this.statusUpdate();
                 /*
                 // Get the speed given the current status

@@ -9,6 +9,7 @@ public class GlobalVariables : MonoBehaviour
     public static int SaveFileID = 0; // 0 means not in game, save files 1, 2 and 3 ids available.
     public static int lastClearedScene = 0;
     public static int nextSceneToPlay = 0;
+    public static int numOfWins = 0;
 
     public static int repelPoints;
     public static GameObject selectedTrt;

@@ -88,6 +88,7 @@ public class RunManager : MonoBehaviour
             seenTRTs = file.seenTRTs;
             seenFoods = file.seenFoods;
             seenEnemies = file.seenEnemies;
+            GlobalVariables.numOfWins = file.numOfWins;
         }
     }
 

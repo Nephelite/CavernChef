@@ -141,7 +141,7 @@ public class EnemyStatus
 
     public void restoreSpeed(float speed)
     {
-        base_speed = speed;
+        base_speed = speed / 100;
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

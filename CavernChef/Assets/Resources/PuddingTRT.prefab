@@ -104,4 +104,4 @@ MonoBehaviour:
   tooltipDescription: This TRT blocks enemies on their path, forcing enemies to consume
     this TRT before continuing.
   cost: 50
-  hp: 10000
+  hp: 50

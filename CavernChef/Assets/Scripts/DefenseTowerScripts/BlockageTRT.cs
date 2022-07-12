@@ -7,6 +7,7 @@ public class BlockageTRT : DefensiveTRT
     public int cost;
     public static GameObject spawner; //Temp
     //Cooldown?
+    public EnemyTile enemyTile;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class BlockageTRT : DefensiveTRT
         {
             Debug.Log("Either a spawner or an enemy cannot reach the food with this blockage");
             Destroy(gameObject);
+            enemyTile.isBlockage = false;
             //Some error text display animation
         }
 

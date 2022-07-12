@@ -19,9 +19,15 @@ public class GameOver : MonoBehaviour
         GlobalVariables.enemyList.reset();
     }
 
-    public void goBack()
+    public void goBack(bool isVictory)
     {
+        if (isVictory)
+        {
+            GlobalVariables.numOfWins += 1;
+        }
         SceneManager.LoadScene(2);
+
+        FindObjectOfType<AudioManager>().PlayMusic("MenuTheme");
     }
 
 }

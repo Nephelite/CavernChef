@@ -72,9 +72,9 @@ public abstract class Enemy : MonoBehaviour
 
     public float foodOffsetFromGridX, foodOffsetFromGridY, spawnOffsetFromGridX, spawnOffsetFromGridY; //might not need spawn coords
 
-    private bool stalled;
-    private float heldSpeed;
-
+    public bool stalled;
+    private float heldSpeed, lastTime;
+    public GameObject stallWaypointPrev, stallWaypointNext;
 
 
     // "public virtual void" so that it can be called in child classes through
@@ -126,52 +126,49 @@ public abstract class Enemy : MonoBehaviour
         wayptPathLen = distToFood;
     }
 
-
-
-    void stall()
-    {
-        Debug.Log("Stalling");
-        heldSpeed = status.stop();
-        stalled = true;
-    }
-
-
-
     public void checkForStall(GameObject currentTile, GameObject nextTile)
     {
         if (stalled)
         {
-            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") != null)
+            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") != null && Time.time >= lastTime + 1)
             {
                 nextTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                lastTime = Time.time;
             }
-
-            if (currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") != null)
+            else if (currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") != null && Time.time >= lastTime + 1)
             {
                 currentTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                lastTime = Time.time;
             }
-
-
-            if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null
+            else if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null
                 && currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") == null)
             {
-                status.restoreSpeed(heldSpeed);
+                status.restoreSpeed(base_centi_speed);
                 stalled = false;
-                Debug.Log("Speed: " + gameObject.GetComponent<Enemy>().status.base_speed + " " + stalled);
+            }
+            else if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") == null
+                && currentTile.transform.parent == null)
+            {
+                status.restoreSpeed(base_centi_speed);
+                stalled = false;
             }
         }
         else
         {
             if (nextTile.transform.parent != null && nextTile.transform.parent.Find("StallTRT(Clone)") != null)
             {
-                nextTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
-                Invoke("stall", 0f);
+                //nextTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                Debug.Log("Stalling");
+                heldSpeed = status.stop();
+                stalled = true;
             }
 
             if (currentTile.transform.parent != null && currentTile.transform.parent.Find("StallTRT(Clone)") != null)
             {
-                currentTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
-                Invoke("stall", 0f);
+                //currentTile.transform.parent.Find("StallTRT(Clone)").gameObject.GetComponent<StallTRT>().decrementHP(base_dmg);
+                Debug.Log("Stalling");
+                heldSpeed = status.stop();
+                stalled = true;
             }
         }
     }
@@ -251,23 +248,31 @@ public abstract class Enemy : MonoBehaviour
             fracOfWayToNextWaypoint = decimalGridTilesTraversed;
         }
 
-        // Get the position between above waypoints
-        Vector3 startPos = prevWaypoint.transform.position;
-        Vector3 endPos = nextWaypoint.transform.position;
-        nextTileToVisit = nextWaypoint;
         checkForStall(prevWaypoint, nextWaypoint);
-
-        if (prevWaypoint != storedWaypoint)
+        if (stalled)
         {
-            if (storedWaypoint != null)
-            {
-                storedWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Remove(gameObject); //How does .Equals() work in C# and Unity?
-            }
-            storedWaypoint = prevWaypoint;
-            nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
+            stallWaypointNext = nextWaypoint;
+            stallWaypointPrev = prevWaypoint;
         }
+        else
+        {
+            // Get the position between above waypoints
+            Vector3 startPos = prevWaypoint.transform.position;
+            Vector3 endPos = nextWaypoint.transform.position;
+            nextTileToVisit = nextWaypoint;
 
-        gameObject.transform.position = Vector2.Lerp(startPos, endPos, fracOfWayToNextWaypoint);
+            if (prevWaypoint != storedWaypoint)
+            {
+                if (storedWaypoint != null)
+                {
+                    storedWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Remove(gameObject);
+                }
+                storedWaypoint = prevWaypoint;
+                nextWaypoint.GetComponent<WaypointInternals>().enemiesComingToThisWaypoint.Add(gameObject);
+            }
+
+            gameObject.transform.position = Vector2.Lerp(startPos, endPos, fracOfWayToNextWaypoint);
+        }
     }
 
     GameObject storedWaypoint = null;
