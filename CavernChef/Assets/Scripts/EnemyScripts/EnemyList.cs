@@ -126,7 +126,7 @@ public class EnemyList
             // Distnace of enemy from tower
             float dist = Vector2.Distance(towerPos, enemyList[i].transform.position);
             // If in range, return it
-            if (dist <= towerRange) {
+            if (dist <= towerRange + 0.5) {
                 return enemyList[i];
             }
         }

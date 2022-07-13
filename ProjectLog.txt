@@ -338,3 +338,10 @@ Enemies now deal damage to Pudding at fixed 1 second intervals, so Pudding now n
 Thus, 1 wisp now needs 25 seconds to destroy a Pudding, and the temporary boss needs 10 seconds.
 Victory scene is added, and is transitioned to after defeating the boss zone (zone 15)
 - Kevin (4 hrs)
+
+13/7: 
+Added range indicators.
+They appear when mousing over a TRT button on the right.
+They also appear when mousing over a placeable tile after selecting the corresponding TRT.
+In the latter scenario, a ghost TRT also appears in the middle of the range indicator.
+- Kevin (2 hrs)

@@ -6,6 +6,7 @@ public class EnemyTile : MonoBehaviour
 {
     public GameObject TRT;
     public bool isBlockage;
+    private GameObject ghostTRT;
 
     private bool CanPlaceTRT()
     {
@@ -61,5 +62,26 @@ public class EnemyTile : MonoBehaviour
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.selectedTrt = null; //Comment out this line to disable one-at-a-time selection
         }
+    }
+
+    void OnMouseOver()
+    {
+        if (GlobalVariables.isDefensiveTRT && CanPlaceTRT() && ghostTRT == null)
+        {
+            ghostTRT = new GameObject();
+            ghostTRT.transform.position = gameObject.transform.position + new Vector3(0.5f, 0.5f, 0);
+            SpriteRenderer trt = ghostTRT.AddComponent<SpriteRenderer>();
+            trt.sprite = GlobalVariables.selectedTrt.GetComponent<SpriteRenderer>().sprite;
+            if (GlobalVariables.selectedTrt.GetComponent<BlockageTRT>() != null)
+                ghostTRT.transform.localScale *= 3;
+            else
+                ghostTRT.transform.localScale *= 5;
+        }
+    }
+
+    void OnMouseExit()
+    {
+        if (ghostTRT != null)
+            Destroy(ghostTRT);
     }
 }
