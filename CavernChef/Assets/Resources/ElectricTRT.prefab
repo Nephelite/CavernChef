@@ -110,4 +110,16 @@ MonoBehaviour:
   cost: 300
   tBetAtks: 1
   range: 8.5
+  Projectile: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}
+  base_cost: 300
+  base_tBetAtks: 1
+  base_range: 8.5
+  proj_base_centi_speed: 60
+  proj_base_dmg: 4
+  proj_base_AoeRadius: 0
+  proj_base_effectFrames: 10
+  proj_arg: 0
+  proj_framesPerJump: 10
+  proj_chainLen: 5
+  proj_jumpDist: 5
   Lightning: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}

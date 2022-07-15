@@ -15,8 +15,6 @@ public class Snowball : Projectile
     // Start is called before the first frame update
     void Start()
     {
-        // Set speed
-        base.Setup();
         FindObjectOfType<AudioManager>().Play("Snow");
     }
 

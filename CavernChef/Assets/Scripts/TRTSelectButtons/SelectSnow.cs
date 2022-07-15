@@ -6,7 +6,7 @@ public class SelectSnow : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("SnowTRT") as GameObject).GetComponent<SnowTRT>().cost;
+        cost = (Resources.Load("SnowTRT") as GameObject).GetComponent<SnowTRT>().Cost();
     }
 
     public void select()

@@ -6,7 +6,7 @@ public class SelectLight : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("LightTRT") as GameObject).GetComponent<LightTRT>().cost;
+        cost = (Resources.Load("LightTRT") as GameObject).GetComponent<LightTRT>().Cost();
     }
 
     public void select()

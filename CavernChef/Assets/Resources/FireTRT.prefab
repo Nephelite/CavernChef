@@ -111,3 +111,12 @@ MonoBehaviour:
   tBetAtks: 1
   range: 7.5
   Fireball: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  Projectile: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  base_cost: 75
+  base_tBetAtks: 1
+  base_range: 7.5
+  proj_base_centi_speed: 30
+  proj_base_dmg: 7
+  proj_base_AoeRadius: 1
+  proj_base_effectFrames: 0
+  proj_arg: 0

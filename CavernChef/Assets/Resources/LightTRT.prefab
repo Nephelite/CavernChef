@@ -110,6 +110,15 @@ MonoBehaviour:
   cost: 300
   tBetAtks: 0.1
   range: 6
+  Projectile: {fileID: 0}
+  base_cost: 300
+  base_tBetAtks: 0.1
+  base_range: 6
+  proj_base_centi_speed: 50
+  proj_base_dmg: 0.3
+  proj_base_AoeRadius: 0.5
+  proj_base_effectFrames: 0
+  proj_arg: 0
   OrangeLazer: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
   OrangeLazerBack: {fileID: 1275338568026455790, guid: 1bba36de22948472eaed3926b7e02c52, type: 3}
   lastTarget: {fileID: 0}

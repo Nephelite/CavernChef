@@ -104,4 +104,4 @@ MonoBehaviour:
   arg: 0
   framesPerJump: 10
   chainLen: 5
-  jumpDist: 0
+  jumpDist: 5

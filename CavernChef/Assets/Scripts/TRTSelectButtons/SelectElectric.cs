@@ -6,7 +6,7 @@ public class SelectElectric : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>().cost;
+        cost = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>().Cost();
     }
 
     public void select()
