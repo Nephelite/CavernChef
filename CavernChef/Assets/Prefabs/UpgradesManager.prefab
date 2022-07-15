@@ -117,8 +117,8 @@ MonoBehaviour:
     - 10
     - 10
     - 1
-    - 10
-    areValuesFlat: 0001000000010000
+    - 60
+    areValuesFlat: 0001000000010001
   - name: Light TRT
     projectile: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
     TRT: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}

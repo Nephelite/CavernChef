@@ -142,16 +142,23 @@ public class ElectricTRT : AtkTower
         proj_dmg_mult = 1;
         proj_AoeRadius_mult = 1;
         proj_effectFrames_mult = 1;
+
+        proj_chainLen = 3;
     }
 
 
     // Extra fields for Lightning
     // Number of frames to jump between 2 enemies (SET IN UNITY)
     public int proj_framesPerJump;
-    // Maximum length of a chain of a lightning (SET IN UNITY)
-    public int proj_chainLen;
+    // Maximum length of a chain of a lightning
+    public static int proj_chainLen = 3;
     // Maximum length of a jump between 2 enemies (SET IN UNITY)
     public float proj_jumpDist;
+
+    public void AddChain()
+    {
+        proj_chainLen++;
+    }
 
 
     // Start is called before the first frame update

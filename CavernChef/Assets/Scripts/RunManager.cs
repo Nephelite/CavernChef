@@ -269,7 +269,7 @@ public class RunManager : MonoBehaviour
                                         snow.MultTimeBetPlacements(1f - (upManager.upgradesList[3].upgradeValues[6] / 100f));
                                         break;
                                     case 7:
-                                        // Slow
+                                        snow.AddEffectFrames((int)upManager.upgradesList[3].upgradeValues[7]);
                                         break;
                                 }
                             }
@@ -344,7 +344,7 @@ public class RunManager : MonoBehaviour
                                         electric.MultTimeBetPlacements(1f - (upManager.upgradesList[5].upgradeValues[6] / 100f));
                                         break;
                                     case 7:
-                                        // + 1 chain
+                                        electric.AddChain();
                                         break;
                                 }
                             }
@@ -422,7 +422,7 @@ public class RunManager : MonoBehaviour
                                         stall.MultTimeBetPlacements(1 - (upManager.upgradesList[8].upgradeValues[6] / 100f));
                                         break;
                                     case 7:
-                                        // hp
+                                        stall.AddHp((int)upManager.upgradesList[8].upgradeValues[7]);
                                         break;
                                 }
                             }

@@ -211,12 +211,29 @@ public class UpgradeButton : MonoBehaviour
                 RunManager.upgradesTracker[TRTID][7]++;
                 Debug.Log(chosenUpgrade);
 
-                if (upgrade.areValuesFlat[upgradeID])
-                    upgrade.TRT.GetComponent<AtkTower>().AddCentiSpeed(factor);
-                else
+                if (upgrade.TRT.GetComponent<StallTRT>() != null)
                 {
-                    factor = (factor / 100f) + 1f;
-                    upgrade.TRT.GetComponent<AtkTower>().MultCentiSpeed(factor);
+                    if (upgrade.areValuesFlat[upgradeID])
+                        upgrade.TRT.GetComponent<StallTRT>().AddHp((int)factor);
+                    else
+                    {
+                        factor = (factor / 100f) + 1f;
+                        upgrade.TRT.GetComponent<StallTRT>().MultHp(factor);
+                    }
+                }
+                else if (upgrade.TRT.GetComponent<ElectricTRT>() != null)
+                {
+                    upgrade.TRT.GetComponent<ElectricTRT>().AddChain();
+                }
+                else if (upgrade.TRT.GetComponent<SnowTRT>() != null)
+                {
+                    if (upgrade.areValuesFlat[upgradeID])
+                        upgrade.TRT.GetComponent<SnowTRT>().AddEffectFrames((int)factor);
+                    else
+                    {
+                        factor = (factor / 100f) + 1f;
+                        upgrade.TRT.GetComponent<SnowTRT>().MultEffectFrames(factor);
+                    }
                 }
 
                 break;
@@ -291,7 +308,7 @@ public class UpgradeButton : MonoBehaviour
                 else if (upgrade.name == "Snow TRT")
                     displayText.text = upgrade.name + "s slow enemies by " + upgrade.upgradeValues[upgradeID] + "% more";
                 else if (upgrade.name == "Pudding")
-                    displayText.text = upgrade.name + "s' HP increases by " + upgrade.upgradeValues[upgradeID] + "%";
+                    displayText.text = upgrade.name + "s' HP increases by " + upgrade.upgradeValues[upgradeID];
                 gameObject.GetComponent<Button>().image.sprite = gold;
                 break;
         }
