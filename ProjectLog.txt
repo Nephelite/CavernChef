@@ -345,3 +345,13 @@ They appear when mousing over a TRT button on the right.
 They also appear when mousing over a placeable tile after selecting the corresponding TRT.
 In the latter scenario, a ghost TRT also appears in the middle of the range indicator.
 - Kevin (2 hrs)
+
+13/7-15/7:
+Completed Lightning rework (cannot chain between targets that are too far).
+Updated fireball to use a 1 frame version of the newer sprite.
+Moved fields of projectiles to TRTs in unity inspector for convenience.
+Modified inner workings of TRT scripts and AtkTower.cs to better follow OOP principles and allow for easier future modifications.
+Added methods to allow for upgrading of TRTs.
+A few bug fixes caused by current changes.
+CURRENT BUGS: Light TRT seems to deal no damage now, RP can go negative but not any lower once negative
+- Bryce (10 hrs)

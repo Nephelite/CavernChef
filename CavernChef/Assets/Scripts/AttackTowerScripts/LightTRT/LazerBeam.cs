@@ -35,7 +35,7 @@ public class LazerBeam : Projectile
     void Start()
     {
         // Set speed
-        base.Setup();
+        // base.Setup();
 
         // Calculate frameTraj
         frameTraj = unitTraj * speed;

@@ -103,7 +103,12 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT quickly shoots waterballs at an enemy, dealing water
     damage.
-  cost: 75
-  tBetAtks: 0.75
-  range: 5
-  Waterball: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}
+  Projectile: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}
+  base_cost: 75
+  base_tBetAtks: 0.75
+  base_range: 5
+  proj_base_centi_speed: 30
+  proj_base_dmg: 8
+  proj_base_AoeRadius: 0
+  proj_base_effectFrames: 240
+  proj_arg: 0

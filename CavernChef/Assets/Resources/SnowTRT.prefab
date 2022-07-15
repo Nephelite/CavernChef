@@ -103,7 +103,12 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT slowly shoots snowballs at an enemy, dealing ice damage
     and slowing them down.
-  cost: 125
-  tBetAtks: 3.2
-  range: 5
-  Snowball: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}
+  Projectile: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}
+  base_cost: 125
+  base_tBetAtks: 3.2
+  base_range: 5
+  proj_base_centi_speed: 10
+  proj_base_dmg: 5
+  proj_base_AoeRadius: 1
+  proj_base_effectFrames: 300
+  proj_arg: 0

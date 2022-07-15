@@ -6,7 +6,7 @@ public class SelectWater : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("WaterTRT") as GameObject).GetComponent<WaterTRT>().cost;
+        cost = (Resources.Load("WaterTRT") as GameObject).GetComponent<WaterTRT>().Cost();
     }
 
     public void select()

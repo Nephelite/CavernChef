@@ -6,7 +6,7 @@ public class SelectEarth : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("EarthTRT") as GameObject).GetComponent<EarthTRT>().cost;
+        cost = (Resources.Load("EarthTRT") as GameObject).GetComponent<EarthTRT>().Cost();
     }
 
     public void select()

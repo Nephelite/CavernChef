@@ -12,7 +12,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (TRT.GetComponent<AtkTower>() != null && TRT.GetComponent<AtkTower>().range > 0)
+        if (TRT.GetComponent<AtkTower>() != null && TRT.GetComponent<AtkTower>().Range() > 0)
         {
             Debug.Log("Can place");
             visibleRange = new GameObject();
@@ -23,7 +23,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             circle.maskable = false;
             visibleRange.transform.SetParent(gameObject.transform);
             visibleRange.transform.position = gameObject.transform.position;
-            circle.rectTransform.sizeDelta = new Vector2(TRT.GetComponent<AtkTower>().range * 50, TRT.GetComponent<AtkTower>().range * 50);
+            circle.rectTransform.sizeDelta = new Vector2(TRT.GetComponent<AtkTower>().Range() * 50, TRT.GetComponent<AtkTower>().Range() * 50);
             visibleRange.SetActive(true);
         }
     }

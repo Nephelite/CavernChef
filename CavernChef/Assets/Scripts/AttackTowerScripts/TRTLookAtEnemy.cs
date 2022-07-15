@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+// NOTE
 // No longer in use; now a method in AtkTower.cs
 // Leaving it here for now
 
+
+
+/*
 public class TRTLookAtEnemy : AtkTower
 {
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class TRTLookAtEnemy : AtkTower
         // Getting the range by *magic* (hopefully)
         // float theTheRange = gameObject.GetComponent<SnowTRT>().range;
 
-        Enemy targetToLookAt = GlobalVariables.enemyList.findTarget(towerPos, range);
+        Enemy targetToLookAt = GlobalVariables.enemyList.findTarget(towerPos, Range());
 
         if (targetToLookAt != null)
         {
@@ -30,7 +33,7 @@ public class TRTLookAtEnemy : AtkTower
 
             /*
 THIS IS SPECIFICALLY FOR THE BASIC TURRET ONLY AS OF RN
-*/
+* /
             Transform target = targetToLookAt.transform;
             float angle = 0;
             Vector3 relative = transform.InverseTransformPoint(target.position);
@@ -46,7 +49,8 @@ THIS IS SPECIFICALLY FOR THE BASIC TURRET ONLY AS OF RN
             { 
                 
             }
-            */
+            * /
         }
     }
 }
+*/

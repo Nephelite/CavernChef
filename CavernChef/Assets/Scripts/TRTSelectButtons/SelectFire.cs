@@ -6,7 +6,7 @@ public class SelectFire : SelectButton
 {
     void Start()
     {
-        cost = (Resources.Load("FireTRT") as GameObject).GetComponent<FireTRT>().cost;
+        cost = (Resources.Load("FireTRT") as GameObject).GetComponent<FireTRT>().Cost();
     }
 
     public void select()

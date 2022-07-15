@@ -19,29 +19,26 @@ protected - all subclasses
 // (5 eleemtan ns trts as of 2022-6-15-)
 public abstract class Projectile : MonoBehaviour
 {
+    // internal float centi_speed;   // TO REMOVE
+
     // Speed of the projectile (SET IN UNITY)
-    public float centi_speed;   // This is in centiunits per frame
+    internal float speed;
     // Dmg of the projectile (SET IN UNITY)
-    public float dmg;
+    internal float dmg;
     // AoE radius, if any
-    public float AoeRadius;
+    internal float AoeRadius;
     // Effect duration, if any (snow, water)
-    public int effectFrames;
+    internal int effectFrames;
 
     // Argument of the trajectory of the projectile (SET IN UNITY to og arg of sprite)
-    public float arg;
+    internal float arg;
 
-    // True speed
-    internal float speed;
     // Target of a projectile (set by the TRT firing this)
     internal Enemy target;
     // Position of the target; so that a reference still exists after the target dies
     internal Vector2 targetPos;
 
-    // Set the speed
-    protected void Setup() {
-        speed = centi_speed / 100;   // Convert to true speed
-    }
+    
 
     // Angles the projectile towards the target (Does not apply to lazer or lightning)
     internal void AngleTowardsTarget() {

@@ -32,8 +32,8 @@ public class TRTTile : MonoBehaviour
         if (GlobalVariables.isOffensiveTRT && CanPlaceTRT() && visibleRange == null && GlobalVariables.selectedTrt.GetComponent<AtkTower>() != null)
         {
             visibleRange = Instantiate(radiusCircle, gameObject.transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity) as GameObject;
-            visibleRange.transform.localScale += new Vector3(GlobalVariables.selectedTrt.GetComponent<AtkTower>().range * 0.78f, 
-                                                            GlobalVariables.selectedTrt.GetComponent<AtkTower>().range * 0.78f, 
+            visibleRange.transform.localScale += new Vector3(GlobalVariables.selectedTrt.GetComponent<AtkTower>().Range() * 0.78f, 
+                                                            GlobalVariables.selectedTrt.GetComponent<AtkTower>().Range() * 0.78f, 
                                                             0);
             //new Vector3(0.4, 0.4, 0) is unit circle for the radius circle
 

@@ -28,11 +28,11 @@ public class Lightning : Projectile
     */
 
     // Number of frames to jump between 2 enemies (SET IN UNITY)
-    public int framesPerJump;
+    internal int framesPerJump;
     // Maximum length of a chain of a lightning (SET IN UNITY)
-    public int chainLen;
+    internal int chainLen;
     // Maximum length of a jump between 2 enemies (SET IN UNITY)
-    public float jumpDist;
+    internal float jumpDist;
 
     // Number of enemies that have been zapped, including null targets
     internal int numZapped;
@@ -56,10 +56,7 @@ public class Lightning : Projectile
     // Start is called before the first frame update
     void Start()
     {
-        // Set speed
-        base.Setup();
-
-        // Setup fields
+        // Setup lightning specific fields
         numZapped = 0;
         chaining = false;
         framesSinceLastHit = 0;
@@ -123,6 +120,14 @@ public class Lightning : Projectile
                 } else {                          // If an unzapped enemy exists
                     target = sortedEnemies[i];               // Update target
                     targetPos = target.transform.position;   // Update targetPos
+
+                    // Check that the next target is neaar enough
+                    Vector2 nextTraj = targetPos - (Vector2)gameObject.transform.position;   // Traj to next target
+                    float distToNextTarget = nextTraj.magnitude;                        // Dist to next target
+                    if (distToNextTarget > jumpDist) {                              // If too far
+                        Destroy(gameObject);                                        // Destroy
+                        return;                                                     // End
+                    }
                 }
             }
         }
@@ -152,6 +157,14 @@ public class Lightning : Projectile
                 if (sortedEnemies.Count != 0) {   // If there exists at least 1 other target
                     target = sortedEnemies[0];               // Update target
                     targetPos = target.transform.position;   // Update targetPos
+
+                    // Check that the next target is neaar enough
+                    Vector2 nextTraj = targetPos - (Vector2)gameObject.transform.position;   // Traj to next target
+                    float distToNextTarget = nextTraj.magnitude;                        // Dist to next target
+                    if (distToNextTarget > jumpDist) {                              // If too far
+                        Destroy(gameObject);                                        // Destroy
+                        return;                                                     // End
+                    }
                 } else {   // If no other target
                     Destroy(gameObject);                     // Destroy
                     return;                                  // End
