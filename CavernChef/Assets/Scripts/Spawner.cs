@@ -359,12 +359,12 @@ public class Spawner : MonoBehaviour
             FindObjectOfType<AudioManager>().StopAllAudio();
             if (hasBossSpawned)
             {
+                FindObjectOfType<UpgradesManager>().ResetAll();
                 hasBossSpawned = false;
                 SceneManager.LoadScene(15);
             }
             else
             {
-
                 FindObjectOfType<AudioManager>().PlayMusic("UnlocksAndUpgradesTheme");
                 SceneManager.LoadScene(8);
             }

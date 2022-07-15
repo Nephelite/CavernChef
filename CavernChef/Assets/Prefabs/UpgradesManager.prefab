@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100193947584360873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100193947584360879}
+  - component: {fileID: 100193947584360872}
+  m_Layer: 0
+  m_Name: UpgradesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &100193947584360879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100193947584360873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.111733, y: 4.4752502, z: 0.0064809127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100193947584360872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100193947584360873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e617264c1538cc469baac9e005108f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradesList:
+  - name: Econ TRT
+    projectile: {fileID: 0}
+    TRT: {fileID: 8422623277152842013, guid: 90a610118bebae345baa8e84c5273e35, type: 3}
+    upgrades:
+    - atk
+    - cost
+    - interval
+    - cd
+    upgradeValues:
+    - 25
+    - 10
+    - 10
+    - 10
+    areValuesFlat: 01000000
+  - name: Fire TRT
+    projectile: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: 6679a2b5041915f49940918b582c522b, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - aoe
+    - cost
+    - interval
+    - range
+    - cd
+    upgradeValues:
+    - 10
+    - 1
+    - 10
+    - 10
+    - 10
+    - 1
+    - 10
+    areValuesFlat: 00010000000100
+  - name: Water TRT
+    projectile: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: 4465eda85058e4446a96c1e1413dad52, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - cost
+    - interval
+    - range
+    - cd
+    upgradeValues:
+    - 10
+    - 1
+    - 10
+    - 10
+    - 1
+    - 10
+    areValuesFlat: 000100000100
+  - name: Snow TRT
+    projectile: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: f3a632f9e60942f4598ac053d658ada1, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - aoe
+    - cost
+    - interval
+    - range
+    - cd
+    - special
+    upgradeValues:
+    - 10
+    - 1
+    - 10
+    - 10
+    - 10
+    - 10
+    - 1
+    - 10
+    areValuesFlat: 0001000000010000
+  - name: Light TRT
+    projectile: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - aoe
+    - cost
+    - interval
+    - range
+    - cd
+    upgradeValues:
+    - 10
+    - 20
+    - 10
+    - 10
+    - 10
+    - 1
+    - 10
+    areValuesFlat: 00010000000100
+  - name: Electric TRT
+    projectile: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: c8079e75d3c56bd41a7b6d523c15ac9a, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - aoe
+    - cost
+    - interval
+    - range
+    - cd
+    - special
+    upgradeValues:
+    - 10
+    - 1
+    - 10
+    - 10
+    - 10
+    - 1
+    - 10
+    - 1
+    areValuesFlat: 0001000000010001
+  - name: Earth TRT
+    projectile: {fileID: 1630826295832300365, guid: 4d6bdfc280ae243baa2ef01be8077c37, type: 3}
+    TRT: {fileID: 5134305957202709094, guid: b56874e00aca15f49ae0852ec33f9f40, type: 3}
+    upgrades:
+    - projspd
+    - atk
+    - cost
+    - interval
+    - range
+    - cd
+    upgradeValues:
+    - 10
+    - 20
+    - 10
+    - 10
+    - 1
+    - 10
+    areValuesFlat: 000000000100
+  - name: Blockage TRT
+    projectile: {fileID: 0}
+    TRT: {fileID: 2972305692998052968, guid: 481e5a5debbf41d4c9c416ea3a2ae69c, type: 3}
+    upgrades:
+    - cost
+    - cd
+    upgradeValues:
+    - 10
+    - 10
+    areValuesFlat: 0000
+  - name: Pudding
+    projectile: {fileID: 0}
+    TRT: {fileID: 4822710494846236072, guid: 1e0cfb9a16e13b146bd2ebe509a03ee7, type: 3}
+    upgrades:
+    - cost
+    - cd
+    - special
+    upgradeValues:
+    - 10
+    - 10
+    - 50
+    areValuesFlat: 000001

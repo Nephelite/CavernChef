@@ -366,3 +366,9 @@ Implemented cooldowns on TRTs.
 Implemented TRTs upgradiing visually when upgraded enough.
 Implemented upgrade counters per run.
 - Kevin (5 hrs)
+
+12/7 - 15/7:
+Implemented the full upgrade system (with help form Bryce regarding the methods in the atk towers)
+Implemented saving and loading upgrades per run.
+(Missing special upgrades implementation, i.e Snow TRT slow, Electric TRT + 1 chain, Pudding TRT + hp)
+- Kevin (10 hrs)

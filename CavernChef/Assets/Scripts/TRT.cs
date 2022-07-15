@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TRT : MonoBehaviour
+public abstract class TRT : MonoBehaviour
 {
     public int TRTID, rarity, upgradeCount;
     public string tooltipDescriptionPlacement, tooltipDescription;
     public Sprite level0, level1, level2, level3;
+
+    public abstract void Reset();
 
     void Awake()
     {

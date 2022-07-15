@@ -113,8 +113,6 @@ public abstract class AtkTower : TRT
     public abstract float ProjAoeRadius();
     public abstract int ProjEffectFrames();
 
-
-
     // Start method for standard TRT behavior
     public void StandardStart() {
         // Initialize CD and towerPos

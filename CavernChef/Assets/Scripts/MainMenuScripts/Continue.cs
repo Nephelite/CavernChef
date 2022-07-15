@@ -18,7 +18,6 @@ public class Continue : MonoBehaviour
             {
                 Debug.Log(resumed.unlocks[i]);
             }
-            Debug.Log(resumed.scene + " " + resumed.next);
             RunManager.accessibleButtonsSaveData = resumed.unlocks;
             GlobalVariables.lastClearedScene = resumed.scene;
             GlobalVariables.nextSceneToPlay = resumed.next;
@@ -27,6 +26,21 @@ public class Continue : MonoBehaviour
             SceneManager.LoadScene(3);
             RandomSelectionScript.Initialise(foodsList);
             RunManager.testRun = false;
+            RunManager.upgradeCountList = resumed.upgradeCountList;
+            for (int i = 0; i < 7; i++)
+            {
+                Debug.Log("Econ: " + resumed.upgradesEcon[i]);
+            }
+            RunManager.upgradesEcon = resumed.upgradesEcon;
+            RunManager.upgradesFire = resumed.upgradesFire;
+            RunManager.upgradesWater = resumed.upgradesWater;
+            RunManager.upgradesSnow = resumed.upgradesSnow;
+            RunManager.upgradesLight = resumed.upgradesLight;
+            RunManager.upgradesElectric = resumed.upgradesElectric;
+            RunManager.upgradesEarth = resumed.upgradesEarth;
+            RunManager.upgradesBlockage = resumed.upgradesBlockage;
+            RunManager.upgradesPudding = resumed.upgradesPudding;
+            RunManager.contRun = true;
         }
         else
         {

@@ -14,7 +14,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
     internal static float tCycle_abs_delta = 0;
     internal static float tBetPlacements_abs_delta = 0;
     // Multiplier mods on base TRT stats
-    internal static float value_mult = 0;
+    internal static float value_mult = 1;
     internal static float cost_mult = 1;
     internal static float tCycle_mult = 1;
     internal static float tBetPlacements_mult = 1;
@@ -77,6 +77,19 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
         return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
     }
 
+    public override void Reset()
+    {
+        value_abs_delta = 0;
+        cost_abs_delta = 0;
+        tCycle_abs_delta = 0;
+        tBetPlacements_abs_delta = 0;
+
+        value_mult = 1;
+        cost_mult = 1;
+        tCycle_mult = 1;
+        tBetPlacements_mult = 1;
+    }
+
 
     void Start()
     {
@@ -84,6 +97,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
         GlobalVariables.repelPoints -= Cost();
         savedCycleDuration = TCycle();
         lastPlacedTime = Time.time;
+
     }
 
     // Update is called once per frame
@@ -91,6 +105,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
     {
         if (savedCycleDuration <= 0)
         {
+            Debug.Log("Producing " + Value() + " RP");
             GlobalVariables.repelPoints += Value();
             savedCycleDuration = TCycle();
             FindObjectOfType<AudioManager>().Play("Econ");

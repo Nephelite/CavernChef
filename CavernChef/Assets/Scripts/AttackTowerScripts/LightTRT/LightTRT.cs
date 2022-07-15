@@ -121,6 +121,29 @@ public class LightTRT : AtkTower
         return (int)((proj_base_effectFrames + proj_effectFrames_abs_delta) * proj_effectFrames_mult);
     }
 
+    public override void Reset()
+    {
+        cost_abs_delta = 0;
+        tBetAtks_abs_delta = 0;
+        range_abs_delta = 0;
+        tBetPlacements_abs_delta = 0;
+
+        cost_mult = 1;
+        tBetAtks_mult = 1;
+        range_mult = 1;
+        tBetPlacements_mult = 1;
+
+        proj_centi_speed_abs_delta = 0;
+        proj_dmg_abs_delta = 0;
+        proj_AoeRadius_abs_delta = 0;
+        proj_effectFrames_abs_delta = 0;
+
+        proj_centi_speed_mult = 1;
+        proj_dmg_mult = 1;
+        proj_AoeRadius_mult = 1;
+        proj_effectFrames_mult = 1;
+    }
+
 
     // Set in Unity, contains a reference to a basic bullet
     public GameObject OrangeLazer;

@@ -28,16 +28,18 @@ public class UpgradesManager : MonoBehaviour
             if (RunManager.accessibleButtonsSaveData[i])
                 nums.Add(i);
         }
+        if (nums.Count == 0)
+            return;
         for (int i = 0; i < 4; i++)
         {
-            int choose = nums[Random.Range(0, nums.Count - i)];
+            int choose = nums[Random.Range(0, nums.Count)];
             nums.Remove(choose);
             chosen.Add(upgradesList[choose]);
             Debug.Log("Choose " + choose);
             if (nums.Count == 0)
                 break;
         }
-        //chosen contains the 4 Upgrades chosen at random
+        //chosen contains the <= 4 Upgrades chosen at random
     }
 
     public Upgrades getChosen(int i)
@@ -45,5 +47,13 @@ public class UpgradesManager : MonoBehaviour
         if (i < chosen.Count)
             return chosen[i];
         else return null;
+    }
+
+    public void ResetAll()
+    {
+        for (int i = 0; i < upgradesList.Count; i++)
+        {
+            upgradesList[i].Reset();
+        }
     }
 }

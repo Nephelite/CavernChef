@@ -50,6 +50,14 @@ public class BlockageTRT : DefensiveTRT
         return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
     }
 
+    public override void Reset()
+    {
+        cost_abs_delta = 0;
+        tBetPlacements_abs_delta = 0;
+
+        cost_mult = 1;
+        tBetPlacements_mult = 1;
+    }
 
     // Start is called before the first frame update
     void Start()

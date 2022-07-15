@@ -23,6 +23,7 @@ public class FoodBehaviour : MonoBehaviour
     {
         if (FoodHP <= 0)
         {
+            FindObjectOfType<UpgradesManager>().ResetAll();
             SceneManager.LoadScene(14);
         }
     }
