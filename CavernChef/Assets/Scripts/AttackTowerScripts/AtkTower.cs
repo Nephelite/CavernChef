@@ -45,6 +45,16 @@ public abstract class AtkTower : TRT
     public float base_tBetAtks;
     // Range
     public float base_range;
+    // Time between placements
+    public float base_tBetPlacements;
+
+    // Position of the turret
+    internal Vector2 towerPos;
+    // CD till next atk
+    internal float firingCD;
+    // CD till next placement
+    internal float placementCD;
+
 
     // Fields from the Projectiles so that they're all in 1 spot
     // Speed of the projectile (SET IN UNITY)
@@ -58,11 +68,7 @@ public abstract class AtkTower : TRT
     // Argument of the trajectory of the projectile (SET IN UNITY to og arg of sprite)
     public float proj_arg;
 
-    // Position of the turret
-    internal Vector2 towerPos;
-    // CD till next atk
-    internal float cooldown;
-
+    
 
     /* Addition is done before multiplication here
     For example:
@@ -74,12 +80,14 @@ public abstract class AtkTower : TRT
     // Abstract methods to modify TRT modifiers
     // Additive mods
     public abstract void AddCost(int delta);
-    public abstract void AddTimeBetAtks(float delta) ;
+    public abstract void AddTimeBetAtks(float delta);
     public abstract void AddRange(float delta);
+    public abstract void AddTimeBetPlacements(float delta);
     // Multiplicative mods
     public abstract void MultCost(float multiplier);
     public abstract void MultTimeBetAtks(float multiplier);
     public abstract void MultRange(float multiplier);
+    public abstract void MultTimeBetPlacements(float multiplier);
 
     // Abstract methods to modify Proj modifiers
     // Additive mods
@@ -97,6 +105,7 @@ public abstract class AtkTower : TRT
     public abstract int Cost();
     public abstract float TBetAtks();
     public abstract float Range();
+    public abstract float TBetPlacements();
 
     // Abstract methods to calculate modified projectile stats
     public abstract float ProjSpeed();
@@ -109,7 +118,7 @@ public abstract class AtkTower : TRT
     // Start method for standard TRT behavior
     public void StandardStart() {
         // Initialize CD and towerPos
-        cooldown = 0.0f;
+        firingCD = 0.0f;
         towerPos = (Vector2) gameObject.transform.position;
 
         // Deduct RP
@@ -124,9 +133,9 @@ public abstract class AtkTower : TRT
         // Projectile fired by the TRT in the current frame if it exists; put outside else {} due to scoping pains
         GameObject firedProj = null;   // null cause UnAsSiGnEd ErRoR
 
-        if (cooldown > 0)   // If reloading
+        if (firingCD > 0)   // If reloading
         {
-            cooldown -= Time.deltaTime;
+            firingCD -= Time.deltaTime;
         }
         else if (target != null)   // If ready to fire and target in range
         {
@@ -136,8 +145,8 @@ public abstract class AtkTower : TRT
             Projectile firedProjScript = firedProj.GetComponent<Projectile>();
             // Setup the standard fields of a projectile
             SetupProjectile(firedProjScript, target);
-            // Reset the cooldown
-            cooldown = TBetAtks();
+            // Reset the firingCD
+            firingCD = TBetAtks();
         }
         // Else, nothing to do
 

@@ -9,25 +9,27 @@ public class FireTRT : AtkTower
 {
     // TRT stats modifiers (modify on upgrade)
     // Absolute mods on base TRT stats
-    internal static int cost_abs_delta;
-    internal static float tBetAtks_abs_delta;
-    internal static float range_abs_delta;
+    internal static int cost_abs_delta = 0;
+    internal static float tBetAtks_abs_delta = 0;
+    internal static float range_abs_delta = 0;
+    internal static float tBetPlacements_abs_delta = 0;
     // Multiplier mods on base TRT stats
-    internal static float cost_mult;
-    internal static float tBetAtks_mult;
-    internal static float range_mult;
+    internal static float cost_mult = 1;
+    internal static float tBetAtks_mult = 1;
+    internal static float range_mult = 1;
+    internal static float tBetPlacements_mult = 1;
 
     // Projectile stats modifiers
     // Absolute mods on base proj stats
-    internal static float proj_centi_speed_abs_delta;
-    internal static float proj_dmg_abs_delta;
-    internal static float proj_AoeRadius_abs_delta;
-    internal static int proj_effectFrames_abs_delta;
+    internal static float proj_centi_speed_abs_delta = 0;
+    internal static float proj_dmg_abs_delta = 0;
+    internal static float proj_AoeRadius_abs_delta = 0;
+    internal static int proj_effectFrames_abs_delta = 0;
     // Multiplier mods on base proj stats
-    internal static float proj_centi_speed_mult;
-    internal static float proj_dmg_mult;
-    internal static float proj_AoeRadius_mult;
-    internal static float proj_effectFrames_mult;
+    internal static float proj_centi_speed_mult = 1;
+    internal static float proj_dmg_mult = 1;
+    internal static float proj_AoeRadius_mult = 1;
+    internal static float proj_effectFrames_mult = 1;
 
 
 
@@ -42,6 +44,9 @@ public class FireTRT : AtkTower
     public override void AddRange(float delta) {
         range_abs_delta += delta;
     }
+    public override void AddTimeBetPlacements(float delta) {
+        tBetPlacements_abs_delta += delta;
+    }
     // Multiplicative mods
     public override void MultCost(float multiplier) {
         cost_mult *= multiplier;
@@ -51,6 +56,9 @@ public class FireTRT : AtkTower
     }
     public override void MultRange(float multiplier) {
         range_mult *= multiplier;
+    }
+    public override void MultTimeBetPlacements(float multiplier) {
+        tBetPlacements_mult *= multiplier;
     }
 
 
@@ -95,6 +103,9 @@ public class FireTRT : AtkTower
     public override float Range() {
         return (base_range + range_abs_delta) * range_mult;
     }
+    public override float TBetPlacements() {
+        return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
+    }
 
     // Methods to calculate modified projectile stats
     public override float ProjSpeed() {
@@ -111,6 +122,7 @@ public class FireTRT : AtkTower
     }
 
 
+    /*
     // Awake is called once before anything else
     // Setup static fields
     void Awake()
@@ -133,6 +145,7 @@ public class FireTRT : AtkTower
         proj_AoeRadius_mult = 1;
         proj_effectFrames_mult = 1;
     }
+    */
 
     // Start is called before the first frame update
     void Start()
