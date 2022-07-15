@@ -5,14 +5,17 @@ using UnityEngine;
 public class EconTRT : TRT //Consider making this inherit from AtkTower
 {
     public int value, cost;
-    public float cycleDuration;
+    public float cycleDuration, cooldown;
     private float savedCycleDuration;
+    public static float lastPlacedTime;
+    public static bool firstPlacement;
 
     void Start()
     {
         //Call apply upgrades method?
         GlobalVariables.repelPoints -= cost;
         savedCycleDuration = cycleDuration;
+        lastPlacedTime = Time.time;
     }
 
     // Update is called once per frame

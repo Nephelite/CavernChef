@@ -103,5 +103,9 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Defenisve
   tooltipDescription: This TRT blocks enemies on their path, forcing enemies to consume
     this TRT before continuing.
+  level0: {fileID: 21300000, guid: 878919b072015b44abd6a4147fda3c19, type: 3}
+  level1: {fileID: 0}
+  level2: {fileID: 0}
+  level3: {fileID: 0}
   cost: 50
   hp: 50

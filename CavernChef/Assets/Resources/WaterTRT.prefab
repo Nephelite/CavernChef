@@ -103,6 +103,10 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT quickly shoots waterballs at an enemy, dealing water
     damage.
+  level0: {fileID: -198844402, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
+  level1: {fileID: 834514223, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
+  level2: {fileID: 1730555428, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
+  level3: {fileID: 1091349922, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   cost: 75
   tBetAtks: 0.75
   range: 5

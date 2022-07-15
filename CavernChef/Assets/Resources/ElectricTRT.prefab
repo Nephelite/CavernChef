@@ -103,6 +103,10 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT shoots lightning at enemies, chaining to a nearby
     target and dealing electric damage on each chain.
+  level0: {fileID: -1317906403, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
+  level1: {fileID: -401536819, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
+  level2: {fileID: -1775800630, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
+  level3: {fileID: 677524714, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   cost: 300
   tBetAtks: 1
   range: 8.5

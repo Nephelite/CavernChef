@@ -103,4 +103,9 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Defensive
   tooltipDescription: This TRT blocks off paths completely, forcing enemies to take
     an alternative path. Cannot be deployed if no alternative path exists.
+  level0: {fileID: 21300000, guid: d51a89b36fece1a428eb9ead81d18d33, type: 3}
+  level1: {fileID: 0}
+  level2: {fileID: 0}
+  level3: {fileID: 0}
   cost: 50
+  enemyTile: {fileID: 0}

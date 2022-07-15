@@ -103,6 +103,10 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT extremely slowly shoots boulders at enemies, dealing
     massive earth damage.
+  level0: {fileID: -1685215197, guid: 016c39aea643e45d3977182809b4da93, type: 3}
+  level1: {fileID: 928615291, guid: 016c39aea643e45d3977182809b4da93, type: 3}
+  level2: {fileID: -1634434388, guid: 016c39aea643e45d3977182809b4da93, type: 3}
+  level3: {fileID: -1527715863, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   cost: 250
   tBetAtks: 5
   range: 6

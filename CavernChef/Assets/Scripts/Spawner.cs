@@ -154,6 +154,9 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Reset all first placements of TRTs
+        EconTRT.firstPlacement = true;
+
         startTimer = Time.time + 10f;
 
         zoneNumber++;

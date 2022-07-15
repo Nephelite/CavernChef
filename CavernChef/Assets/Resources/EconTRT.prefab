@@ -102,6 +102,11 @@ MonoBehaviour:
   upgradeCount: 0
   tooltipDescriptionPlacement: Economical
   tooltipDescription: This TRT produces RP every few seconds.
+  level0: {fileID: 21300000, guid: a1ee37147c723c944b8ee93e0d52b51d, type: 3}
+  level1: {fileID: 0}
+  level2: {fileID: 0}
+  level3: {fileID: 0}
   value: 50
   cost: 50
   cycleDuration: 12
+  cooldown: 5

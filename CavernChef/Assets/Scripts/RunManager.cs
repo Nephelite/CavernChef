@@ -13,6 +13,7 @@ public class RunManager : MonoBehaviour
     public static bool[] accessibleButtonsSaveData = new bool[32]; //NOTE: Change this if needed, it has to be at least greater than the number of TRT tpes placeable.;
     public static bool[] seenFoods = new bool[32], seenEnemies = new bool[32], seenTRTs = new bool[32];
     public static int[] last3FoodChoicesID;
+    public static int[] upgradeCountList = new int[32];
 
     private int testNum = 9; //Change if testing of a certain TRT is needed
 

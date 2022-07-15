@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class SelectEcon : SelectButton
 {
+    private float cd;
     void Start()
     {
-        cost = (Resources.Load("EconTRT") as GameObject).GetComponent<EconTRT>().cost;
+        cost = TRT.GetComponent<EconTRT>().cost;
+        cd = TRT.GetComponent<EconTRT>().cooldown;
     }
 
     public void select()
     {
-        if (GlobalVariables.repelPoints >= cost)
+        if (GlobalVariables.repelPoints >= cost && (EconTRT.lastPlacedTime + cd < Time.time || EconTRT.firstPlacement))
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("EconTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
+            EconTRT.firstPlacement = false;
+        }
+        else if (GlobalVariables.repelPoints < cost)
+        {
+            displayErrorMessage("Not enough RP");
+        }
+        else if (EconTRT.lastPlacedTime + cd >= Time.time && !EconTRT.firstPlacement)
+        {
+            displayErrorMessage("Still on cooldown");
+        }
+        else
+        {
+            displayErrorMessage("Unknown error");
         }
         // else text shows not enough RP to be implemented
     }

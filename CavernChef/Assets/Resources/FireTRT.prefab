@@ -103,6 +103,10 @@ MonoBehaviour:
   tooltipDescriptionPlacement: Offensive
   tooltipDescription: This TRT shoots fireballs at an enemy, dealing fire damage
     on all enemies near the stuck enemy.
+  level0: {fileID: 395738411, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
+  level1: {fileID: -1406446589, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
+  level2: {fileID: 1792120320, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
+  level3: {fileID: -1090735921, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   cost: 75
   tBetAtks: 1
   range: 7.5

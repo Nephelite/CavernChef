@@ -368,9 +368,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1175043914}
-        m_TargetAssemblyTypeName: RunManager, Assembly-CSharp
-        m_MethodName: unlockTRT
+      - m_Target: {fileID: 334341143}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1082,9 +1082,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1175043914}
-        m_TargetAssemblyTypeName: RunManager, Assembly-CSharp
-        m_MethodName: unlockTRT
+      - m_Target: {fileID: 466892816}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1217,9 +1217,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1175043914}
-        m_TargetAssemblyTypeName: RunManager, Assembly-CSharp
-        m_MethodName: unlockTRT
+      - m_Target: {fileID: 484753363}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,9 +1721,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1175043914}
-        m_TargetAssemblyTypeName: RunManager, Assembly-CSharp
-        m_MethodName: unlockTRT
+      - m_Target: {fileID: 601185361}
+        m_TargetAssemblyTypeName: UpgradeButton, Assembly-CSharp
+        m_MethodName: select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
