@@ -7,8 +7,9 @@ public class SelectEcon : SelectButton
     private float cd;
     void Start()
     {
-        cost = TRT.GetComponent<EconTRT>().cost;
-        cd = TRT.GetComponent<EconTRT>().cooldown;
+        EconTRT econtrt = (Resources.Load("EconTRT") as GameObject).GetComponent<EconTRT>();
+        cost = econtrt.Cost();
+        cd = econtrt.TBetPlacements();
     }
 
     public void select()
@@ -32,6 +33,5 @@ public class SelectEcon : SelectButton
         {
             displayErrorMessage("Unknown error");
         }
-        // else text shows not enough RP to be implemented
     }
 }

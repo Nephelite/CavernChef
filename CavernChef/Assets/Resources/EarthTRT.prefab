@@ -107,14 +107,11 @@ MonoBehaviour:
   level1: {fileID: 928615291, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level2: {fileID: -1634434388, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level3: {fileID: -1527715863, guid: 016c39aea643e45d3977182809b4da93, type: 3}
-  cost: 250
-  tBetAtks: 5
-  range: 6
-  Boulder: {fileID: 1630826295832300365, guid: 4d6bdfc280ae243baa2ef01be8077c37, type: 3}
   Projectile: {fileID: 1630826295832300365, guid: 4d6bdfc280ae243baa2ef01be8077c37, type: 3}
   base_cost: 250
   base_tBetAtks: 5
   base_range: 6
+  base_tBetPlacements: 5
   proj_base_centi_speed: 30
   proj_base_dmg: 30
   proj_base_AoeRadius: 0

@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class SelectElectric : SelectButton
 {
+    private float cd;
     void Start()
     {
-        cost = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>().Cost();
+        ElectricTRT electrictrt = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>();
+        cost = electrictrt.Cost();
+        cd = electrictrt.TBetPlacements();
     }
 
     public void select()
     {
-        if (GlobalVariables.repelPoints >= cost) 
+        if (GlobalVariables.repelPoints >= cost && (ElectricTRT.lastPlacedTime + cd < Time.time || ElectricTRT.firstPlacement))
         {
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("ElectricTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
+            ElectricTRT.firstPlacement = false;
         }
-        // else text shows not enough RP to be implemented
+        else if (GlobalVariables.repelPoints < cost)
+        {
+            displayErrorMessage("Not enough RP");
+        }
+        else if (ElectricTRT.lastPlacedTime + cd >= Time.time && !ElectricTRT.firstPlacement)
+        {
+            displayErrorMessage("Still on cooldown");
+        }
+        else
+        {
+            displayErrorMessage("Unknown error");
+        }
     }
 }

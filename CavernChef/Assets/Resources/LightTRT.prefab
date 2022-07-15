@@ -107,13 +107,11 @@ MonoBehaviour:
   level1: {fileID: 1264947853, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level2: {fileID: 229322850, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level3: {fileID: -1409430606, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
-  cost: 300
-  tBetAtks: 0.1
-  range: 6
   Projectile: {fileID: 0}
   base_cost: 300
   base_tBetAtks: 0.1
   base_range: 6
+  base_tBetPlacements: 10
   proj_base_centi_speed: 50
   proj_base_dmg: 0.3
   proj_base_AoeRadius: 0.5

@@ -31,7 +31,10 @@ public class FireTRT : AtkTower
     internal static float proj_AoeRadius_mult = 1;
     internal static float proj_effectFrames_mult = 1;
 
-
+    // Time of last placed TRT of this type
+    public static float lastPlacedTime;
+    // Is the next placement the first TRT placement of this type in the stage
+    public static bool firstPlacement;
 
     // Methods to modify TRT modifiers
     // Additive mods
@@ -151,6 +154,7 @@ public class FireTRT : AtkTower
     void Start()
     {
         StandardStart();
+        lastPlacedTime = Time.time;
     }
 
     // Update is called once per frame

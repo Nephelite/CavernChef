@@ -360,3 +360,9 @@ CURRENT BUGS: Light TRT seems to deal no damage now, RP can go negative but not 
 Fixed bug of TRT range not showing for the first placement of each type.
 Added field for TRT placement CD and methods to upgrade it.
 - Bryce (1 hr)
+
+14/7 - 15/7: 
+Implemented cooldowns on TRTs.
+Implemented TRTs upgradiing visually when upgraded enough.
+Implemented upgrade counters per run.
+- Kevin (5 hrs)

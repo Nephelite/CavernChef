@@ -155,7 +155,15 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         //Reset all first placements of TRTs
-        EconTRT.firstPlacement = true;
+        EconTRT.firstPlacement = true; 
+        FireTRT.firstPlacement = true;
+        WaterTRT.firstPlacement = true;
+        SnowTRT.firstPlacement = true; 
+        LightTRT.firstPlacement = true;
+        ElectricTRT.firstPlacement = true;
+        EarthTRT.firstPlacement = true;
+        BlockageTRT.firstPlacement = true;
+        StallTRT.firstPlacement = true;
 
         startTimer = Time.time + 10f;
 

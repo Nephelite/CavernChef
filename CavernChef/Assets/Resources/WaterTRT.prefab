@@ -107,14 +107,11 @@ MonoBehaviour:
   level1: {fileID: 834514223, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level2: {fileID: 1730555428, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level3: {fileID: 1091349922, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
-  cost: 75
-  tBetAtks: 0.75
-  range: 5
-  Waterball: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}
   Projectile: {fileID: 1419938415972196656, guid: d099319277ab148409c694d95eef7e17, type: 3}
   base_cost: 75
   base_tBetAtks: 0.75
   base_range: 5
+  base_tBetPlacements: 3
   proj_base_centi_speed: 30
   proj_base_dmg: 8
   proj_base_AoeRadius: 0

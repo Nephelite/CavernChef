@@ -4,10 +4,52 @@ using UnityEngine;
 
 public class BlockageTRT : DefensiveTRT
 {
-    public int cost;
-    public static GameObject spawner; //Temp
-    //Cooldown?
+    public static GameObject spawner;
     public EnemyTile enemyTile;
+    public int base_cost; //Pudding and Jelly will have different hp values and costs and potentially cooldowns.
+    public float base_tBetPlacements;
+
+    // TRT stats modifiers (modify on upgrade)
+    // Absolute mods on base TRT stats
+    internal static int cost_abs_delta = 0;
+    internal static float tBetPlacements_abs_delta = 0;
+    // Multiplier mods on base TRT stats
+    internal static float cost_mult = 1;
+    internal static float tBetPlacements_mult = 1;
+
+    public static float lastPlacedTime;
+    public static bool firstPlacement;
+
+    // Additive mods
+    public void AddCost(int delta)
+    {
+        cost_abs_delta += delta;
+    }
+    public void AddTimeBetPlacements(float delta)
+    {
+        tBetPlacements_abs_delta += delta;
+    }
+    // Multiplicative mods
+    public void MultCost(float multiplier)
+    {
+        cost_mult *= multiplier;
+    }
+    public void MultTimeBetPlacements(float multiplier)
+    {
+        tBetPlacements_mult *= multiplier;
+    }
+
+
+    // Methods to calculate modified TRT stats
+    public int Cost()
+    {
+        return (int)((base_cost + cost_abs_delta) * cost_mult);
+    }
+    public float TBetPlacements()
+    {
+        return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +70,8 @@ public class BlockageTRT : DefensiveTRT
                 spawner.transform.GetChild(i).GetComponent<Enemy>().assignNewPath();
             }
 
-            GlobalVariables.repelPoints -= cost;
+            GlobalVariables.repelPoints -= Cost();
+            lastPlacedTime = Time.time;
         }
         else
         {

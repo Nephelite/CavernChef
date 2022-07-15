@@ -107,14 +107,11 @@ MonoBehaviour:
   level1: {fileID: 1246411499, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level2: {fileID: -733549121, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level3: {fileID: -1439043377, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
-  cost: 125
-  tBetAtks: 3.2
-  range: 5
-  Snowball: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}
   Projectile: {fileID: 2064926043645026892, guid: 331037d2472b4401083064eb08b18c67, type: 3}
   base_cost: 125
   base_tBetAtks: 3.2
   base_range: 5
+  base_tBetPlacements: 3
   proj_base_centi_speed: 10
   proj_base_dmg: 5
   proj_base_AoeRadius: 1

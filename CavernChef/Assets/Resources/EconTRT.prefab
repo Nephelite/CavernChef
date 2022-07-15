@@ -106,7 +106,7 @@ MonoBehaviour:
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
-  value: 50
-  cost: 50
-  cycleDuration: 12
-  cooldown: 5
+  base_value: 100
+  base_cost: 50
+  base_tCycle: 10
+  base_tBetPlacements: 2

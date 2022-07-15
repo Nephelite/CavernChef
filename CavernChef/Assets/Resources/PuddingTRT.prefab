@@ -107,5 +107,6 @@ MonoBehaviour:
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
-  cost: 50
-  hp: 50
+  base_cost: 50
+  base_hp: 100
+  base_tBetPlacements: 20

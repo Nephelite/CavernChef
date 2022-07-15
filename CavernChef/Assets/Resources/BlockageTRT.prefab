@@ -107,5 +107,6 @@ MonoBehaviour:
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
-  cost: 50
   enemyTile: {fileID: 0}
+  base_cost: 50
+  base_tBetPlacements: 10
