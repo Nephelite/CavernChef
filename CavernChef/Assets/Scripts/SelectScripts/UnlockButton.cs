@@ -12,7 +12,7 @@ public class UnlockButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Sprite gold, silver, bronze;
     public List<Sprite> TRTImages = new List<Sprite>();
     public int ButtonID;
-    public TMP_Text placement, description;
+    public TMP_Text placement, description, cost;
 
     // Start is called before the first frame update
     void Start()
@@ -80,6 +80,7 @@ public class UnlockButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         tooltip.SetActive(true);
         placement.text = "Deploy type:\n" + TRTList[trtIndex].GetComponent<TRT>().tooltipDescriptionPlacement;
         description.text = TRTList[trtIndex].GetComponent<TRT>().tooltipDescription;
+        cost.text = "Cost: " + TRTList[trtIndex].GetComponent<TRT>().Cost() + " RP";
         Debug.Log("tooptip generate");
     }
 

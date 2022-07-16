@@ -149,6 +149,8 @@ public class WaterTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectWater.checkReady = true;
     }
 
     // Update is called once per frame
