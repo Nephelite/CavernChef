@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectBlockage : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         BlockageTRT blockagetrt = (Resources.Load("BlockageTRT") as GameObject).GetComponent<BlockageTRT>();
@@ -19,7 +20,6 @@ public class SelectBlockage : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("BlockageTRT");
             GlobalVariables.isDefensiveTRT = true;
             GlobalVariables.isOffensiveTRT = false;
-            BlockageTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectBlockage : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + BlockageTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

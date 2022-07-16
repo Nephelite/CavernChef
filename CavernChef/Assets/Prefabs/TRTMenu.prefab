@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8877345348977872316
 CanvasRenderer:
@@ -151,10 +151,12 @@ MonoBehaviour:
   TRT: {fileID: 2972305692998052968, guid: 481e5a5debbf41d4c9c416ea3a2ae69c, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 21300000, guid: d51a89b36fece1a428eb9ead81d18d33, type: 3}
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
+  cd: 0
 --- !u!1 &8877345349002850871
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,10 +308,12 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: f3a632f9e60942f4598ac053d658ada1, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 21450181, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level1: {fileID: 1246411499, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level2: {fileID: -733549121, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level3: {fileID: -1439043377, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
+  cd: 0
 --- !u!1 &8877345349045903047
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,10 +465,12 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: 6679a2b5041915f49940918b582c522b, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 395738411, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level1: {fileID: -1406446589, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level2: {fileID: 1792120320, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level3: {fileID: -1090735921, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
+  cd: 0
 --- !u!1 &8877345349064645619
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,10 +622,12 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 86163840, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level1: {fileID: 1264947853, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level2: {fileID: 229322850, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level3: {fileID: -1409430606, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
+  cd: 0
 --- !u!1 &8877345349281336877
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -425.25125}
+  m_AnchoredPosition: {x: 0, y: -470}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8877345349281336879
@@ -745,7 +753,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8877345349442681752
 CanvasRenderer:
@@ -858,10 +866,12 @@ MonoBehaviour:
   TRT: {fileID: 8422623277152842013, guid: 90a610118bebae345baa8e84c5273e35, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 21300000, guid: a1ee37147c723c944b8ee93e0d52b51d, type: 3}
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
+  cd: 0
 --- !u!1 &8877345349661454808
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +910,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8877345349661454807
 CanvasRenderer:
@@ -1013,10 +1023,12 @@ MonoBehaviour:
   TRT: {fileID: 4822710494846236072, guid: 1e0cfb9a16e13b146bd2ebe509a03ee7, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: 21300000, guid: 878919b072015b44abd6a4147fda3c19, type: 3}
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
+  cd: 0
 --- !u!1 &8877345349720232292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,10 +1180,12 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: c8079e75d3c56bd41a7b6d523c15ac9a, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: -1317906403, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   level1: {fileID: -401536819, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   level2: {fileID: -1775800630, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   level3: {fileID: 677524714, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
+  cd: 0
 --- !u!1 &8877345350584725845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,10 +1337,12 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: b56874e00aca15f49ae0852ec33f9f40, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: -1685215197, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level1: {fileID: 928615291, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level2: {fileID: -1634434388, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level3: {fileID: -1527715863, guid: 016c39aea643e45d3977182809b4da93, type: 3}
+  cd: 0
 --- !u!1 &8877345350827556834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1494,9 @@ MonoBehaviour:
   TRT: {fileID: 5134305957202709094, guid: 4465eda85058e4446a96c1e1413dad52, type: 3}
   radiusCircle: {fileID: 9012083511015621933, guid: 0f8ff69fc31e8f742a6c4a13baea75cb, type: 3}
   message: {fileID: 0}
+  readyToDeployMessage: {fileID: 0}
   level0: {fileID: -198844402, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level1: {fileID: 834514223, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level2: {fileID: 1730555428, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level3: {fileID: 1091349922, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
+  cd: 0

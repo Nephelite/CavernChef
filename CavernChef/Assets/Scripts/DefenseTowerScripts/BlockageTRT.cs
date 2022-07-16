@@ -41,7 +41,7 @@ public class BlockageTRT : DefensiveTRT
 
 
     // Methods to calculate modified TRT stats
-    public int Cost()
+    public override int Cost()
     {
         return (int)((base_cost + cost_abs_delta) * cost_mult);
     }
@@ -80,6 +80,8 @@ public class BlockageTRT : DefensiveTRT
 
             GlobalVariables.repelPoints -= Cost();
             lastPlacedTime = Time.time;
+            firstPlacement = false;
+            SelectBlockage.checkReady = true;
         }
         else
         {

@@ -158,6 +158,8 @@ public class LightTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectLight.checkReady = true;
 
         // Initialize the last target
         lastTarget = null;

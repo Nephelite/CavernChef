@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectEarth : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         EarthTRT earthtrt = (Resources.Load("EarthTRT") as GameObject).GetComponent<EarthTRT>();
@@ -19,7 +20,6 @@ public class SelectEarth : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("EarthTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            EarthTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectEarth : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + EarthTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

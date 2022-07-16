@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectWater : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         WaterTRT watertrt = (Resources.Load("WaterTRT") as GameObject).GetComponent<WaterTRT>();
@@ -19,7 +20,6 @@ public class SelectWater : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("WaterTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            WaterTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectWater : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + WaterTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

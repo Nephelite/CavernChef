@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectLight : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         LightTRT lighttrt = (Resources.Load("LightTRT") as GameObject).GetComponent<LightTRT>();
@@ -19,7 +20,6 @@ public class SelectLight : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("LightTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            LightTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectLight : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + LightTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

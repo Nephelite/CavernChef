@@ -372,3 +372,9 @@ Implemented the full upgrade system (with help form Bryce regarding the methods 
 Implemented saving and loading upgrades per run.
 (Missing special upgrades implementation, i.e Snow TRT slow, Electric TRT + 1 chain, Pudding TRT + hp)
 - Kevin (10 hrs)
+
+16/7:
+Bug fix: Clicking a TRT button and then clicking another before placing down the first triggers the firstPlacement bool value.
+Added a text indicator for when the TRT placement cooldown is over.
+Prepared for playtesting session.
+- Kevin (3 hrs)

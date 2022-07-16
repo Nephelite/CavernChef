@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonDisabler : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class ButtonDisabler : MonoBehaviour
             buttonClicked = false;
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").gameObject.SetActive(false);
             gameObject.transform.Find("Canvas").Find("Advance").gameObject.SetActive(true);
-            gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(false);
+            gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(false); 
         }
     }
 }

@@ -64,7 +64,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
     {
         return (int)((base_value + value_abs_delta) * value_mult);
     }
-    public int Cost()
+    public override int Cost()
     {
         return (int)((base_cost + cost_abs_delta) * cost_mult);
     }
@@ -97,7 +97,8 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
         GlobalVariables.repelPoints -= Cost();
         savedCycleDuration = TCycle();
         lastPlacedTime = Time.time;
-
+        firstPlacement = false;
+        SelectEcon.checkReady = true;
     }
 
     // Update is called once per frame
@@ -114,6 +115,5 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
         {
             savedCycleDuration -= Time.deltaTime;
         }
-        
     }
 }

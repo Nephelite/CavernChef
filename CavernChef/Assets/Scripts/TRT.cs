@@ -9,6 +9,7 @@ public abstract class TRT : MonoBehaviour
     public Sprite level0, level1, level2, level3;
 
     public abstract void Reset();
+    public abstract int Cost();
 
     void Awake()
     {

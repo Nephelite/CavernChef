@@ -20,6 +20,37 @@ public class TRTTile : MonoBehaviour
             //GameObject parent = this.transform.parent.gameObject;
             //TRT.transform.SetParent(parent.transform);
             //this.transform.SetParent(TRT.transform);
+            /*
+            if (TRT.GetComponent<EconTRT> != null)
+            {
+                EconTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<FireTRT> != null)
+            {
+                FireTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<WaterTRT> != null)
+            {
+                WaterTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<SnowTRT> != null)
+            {
+                SnowTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<LightTRT> != null)
+            {
+                LightTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<ElectricTRT> != null)
+            {
+                ElectricTRT.firstPlacement = false;
+            }
+            else if (TRT.GetComponent<EarthTRT> != null)
+            {
+                EarthTRT.firstPlacement = false;
+            }
+            */
+
             TRT.transform.SetParent(this.transform);
             GlobalVariables.isOffensiveTRT = false;
             GlobalVariables.selectedTrt = null; //Comment out this line to disable one-at-a-time selection

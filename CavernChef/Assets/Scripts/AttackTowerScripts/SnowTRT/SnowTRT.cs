@@ -149,6 +149,8 @@ public class SnowTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectSnow.checkReady = true;
     }
 
     // Update is called once per frame

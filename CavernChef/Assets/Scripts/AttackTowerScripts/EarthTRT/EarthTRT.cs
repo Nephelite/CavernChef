@@ -149,6 +149,8 @@ public class EarthTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectEarth.checkReady = true;
     }
 
     // Update is called once per frame

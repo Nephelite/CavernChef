@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectFire : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         FireTRT firetrt = (Resources.Load("FireTRT") as GameObject).GetComponent<FireTRT>();
@@ -19,7 +20,6 @@ public class SelectFire : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("FireTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            FireTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectFire : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + FireTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

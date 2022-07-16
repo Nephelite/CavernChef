@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectEcon : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         EconTRT econtrt = (Resources.Load("EconTRT") as GameObject).GetComponent<EconTRT>();
@@ -19,7 +20,6 @@ public class SelectEcon : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("EconTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            EconTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectEcon : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + EconTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

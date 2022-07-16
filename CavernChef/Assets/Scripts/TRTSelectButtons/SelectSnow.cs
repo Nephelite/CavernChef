@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectSnow : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         SnowTRT snowtrt = (Resources.Load("SnowTRT") as GameObject).GetComponent<SnowTRT>();
@@ -19,7 +20,6 @@ public class SelectSnow : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("SnowTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            SnowTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectSnow : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + SnowTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

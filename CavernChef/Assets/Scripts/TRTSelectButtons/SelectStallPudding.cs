@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectStallPudding : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         StallTRT stalltrt = (Resources.Load("PuddingTRT") as GameObject).GetComponent<StallTRT>();
@@ -19,7 +20,6 @@ public class SelectStallPudding : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("PuddingTRT");
             GlobalVariables.isDefensiveTRT = true;
             GlobalVariables.isOffensiveTRT = false;
-            StallTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectStallPudding : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + StallTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

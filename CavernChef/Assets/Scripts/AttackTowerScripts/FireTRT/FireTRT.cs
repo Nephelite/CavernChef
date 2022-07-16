@@ -178,6 +178,8 @@ public class FireTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectFire.checkReady = true;
     }
 
     // Update is called once per frame

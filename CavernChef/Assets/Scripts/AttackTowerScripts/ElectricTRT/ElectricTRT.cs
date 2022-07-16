@@ -166,6 +166,8 @@ public class ElectricTRT : AtkTower
     {
         StandardStart();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectElectric.checkReady = true;
     }
 
     // Update is called once per frame

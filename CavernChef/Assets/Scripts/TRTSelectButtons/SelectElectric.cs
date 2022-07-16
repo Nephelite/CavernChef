@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SelectElectric : SelectButton
 {
-    private float cd;
+    public static bool checkReady;
+
     void Start()
     {
         ElectricTRT electrictrt = (Resources.Load("ElectricTRT") as GameObject).GetComponent<ElectricTRT>();
@@ -19,7 +20,6 @@ public class SelectElectric : SelectButton
             GlobalVariables.selectedTrt = (GameObject)Resources.Load("ElectricTRT");
             GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.isOffensiveTRT = true;
-            ElectricTRT.firstPlacement = false;
         }
         else if (GlobalVariables.repelPoints < cost)
         {
@@ -32,6 +32,15 @@ public class SelectElectric : SelectButton
         else
         {
             displayErrorMessage("Unknown error");
+        }
+    }
+
+    void Update()
+    {
+        if (checkReady && Time.time > cd + ElectricTRT.lastPlacedTime)
+        {
+            checkReady = false;
+            displayDeployMessage();
         }
     }
 }

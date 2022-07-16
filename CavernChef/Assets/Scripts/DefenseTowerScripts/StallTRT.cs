@@ -50,7 +50,7 @@ public class StallTRT : DefensiveTRT
 
 
     // Methods to calculate modified TRT stats
-    public int Cost()
+    public override int Cost()
     {
         return (int)((base_cost + cost_abs_delta) * cost_mult);
     }
@@ -83,6 +83,8 @@ public class StallTRT : DefensiveTRT
         gameObject.name = "StallTRT(Clone)";
         this.internal_hp = Hp();
         lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectStallPudding.checkReady = true;
     }
 
     public void decrementHP(float atk)

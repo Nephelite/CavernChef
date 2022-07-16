@@ -8,9 +8,10 @@ using TMPro;
 public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public int cost, upgradeCount;
-    public GameObject TRT, radiusCircle, message;
+    public GameObject TRT, radiusCircle, message, readyToDeployMessage;
     private GameObject visibleRange;
     public Sprite level0, level1, level2, level3;
+    public float cd;
 
     void Awake()
     {
@@ -64,14 +65,40 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void displayErrorMessage(string msg)
     {
-        message = new GameObject();
-        message.AddComponent<TextMeshProUGUI>();
-        message.GetComponent<TextMeshProUGUI>().text = msg;
-        message.layer = 4;
-        message.transform.position = gameObject.transform.position + new Vector3(-100, 0, 0);
-        message.GetComponent<TextMeshProUGUI>().fontSize = 24;
-        message.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 50);
-        message.transform.SetParent(gameObject.transform.parent.parent.parent);
-        Invoke("removeMessage", 1.0f);
+        if (message == null)
+        {
+            message = new GameObject();
+            message.AddComponent<TextMeshProUGUI>();
+            message.GetComponent<TextMeshProUGUI>().text = msg;
+            message.layer = 4;
+            message.transform.position = gameObject.transform.position + new Vector3(-100, -10, 0);
+            message.GetComponent<TextMeshProUGUI>().fontSize = 24;
+            message.GetComponent<TextMeshProUGUI>().raycastTarget = false;
+            message.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 50);
+            message.transform.SetParent(gameObject.transform.parent.parent.parent);
+            Invoke("removeMessage", 1.0f);
+        }
+    }
+
+    private void removeDeployMessage()
+    {
+        Destroy(readyToDeployMessage);
+    }
+
+    public void displayDeployMessage()
+    {
+        if (readyToDeployMessage == null)
+        {
+            readyToDeployMessage = new GameObject();
+            readyToDeployMessage.AddComponent<TextMeshProUGUI>();
+            readyToDeployMessage.GetComponent<TextMeshProUGUI>().text = "Ready";
+            readyToDeployMessage.layer = 4;
+            readyToDeployMessage.transform.position = gameObject.transform.position + new Vector3(-60, -10, 0);
+            readyToDeployMessage.GetComponent<TextMeshProUGUI>().fontSize = 24;
+            readyToDeployMessage.GetComponent<TextMeshProUGUI>().raycastTarget = false;
+            readyToDeployMessage.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 50);
+            readyToDeployMessage.transform.SetParent(gameObject.transform.parent.parent.parent);
+            Invoke("removeDeployMessage", 0.5f);
+        }
     }
 }

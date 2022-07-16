@@ -102,7 +102,7 @@ public abstract class AtkTower : TRT
     public abstract void MultEffectFrames(float multiplier);
 
     // Abstract methods to calculate modified TRT stats
-    public abstract int Cost();
+    //public abstract int Cost(); //Moved to TRT class
     public abstract float TBetAtks();
     public abstract float Range();
     public abstract float TBetPlacements();
