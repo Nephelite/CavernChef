@@ -185,7 +185,7 @@ public abstract class Enemy : MonoBehaviour
     public void movementUpdate()
     {
         // Get the speed given the current status
-        float curr_speed = status.currSpeed();
+        float curr_speed = status.currSpeed() * SpeedChanger.speedMultiplier; //speedMultiplier is the global time scale multiplier
 
         // Update dist to food
         distToFood -= curr_speed;

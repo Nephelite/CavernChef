@@ -20,36 +20,11 @@ public class TRTTile : MonoBehaviour
             //GameObject parent = this.transform.parent.gameObject;
             //TRT.transform.SetParent(parent.transform);
             //this.transform.SetParent(TRT.transform);
-            /*
-            if (TRT.GetComponent<EconTRT> != null)
-            {
-                EconTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<FireTRT> != null)
-            {
-                FireTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<WaterTRT> != null)
-            {
-                WaterTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<SnowTRT> != null)
-            {
-                SnowTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<LightTRT> != null)
-            {
-                LightTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<ElectricTRT> != null)
-            {
-                ElectricTRT.firstPlacement = false;
-            }
-            else if (TRT.GetComponent<EarthTRT> != null)
-            {
-                EarthTRT.firstPlacement = false;
-            }
-            */
+            if (ghostTRT != null)
+                Destroy(ghostTRT);
+
+            if (visibleRange != null)
+                Destroy(visibleRange);
 
             TRT.transform.SetParent(this.transform);
             GlobalVariables.isOffensiveTRT = false;
@@ -77,21 +52,13 @@ public class TRTTile : MonoBehaviour
             TRT living = GlobalVariables.selectedTrt.GetComponent<TRT>();
 
             if (upgradeCount < 2 || living.level1 == null)
-            {
                 trt.sprite = living.level0;
-            }
             else if (upgradeCount < 4 || living.level2 == null)
-            {
                 trt.sprite = living.level1;
-            }
             else if (upgradeCount < 6 || living.level3 == null)
-            {
                 trt.sprite = living.level2;
-            }
             else
-            {
                 trt.sprite = living.level3;
-            }
         }
         else if (GlobalVariables.isOffensiveTRT && CanPlaceTRT() && ghostTRT == null && GlobalVariables.selectedTrt.GetComponent<EconTRT>() != null)//Econ TRT
         {

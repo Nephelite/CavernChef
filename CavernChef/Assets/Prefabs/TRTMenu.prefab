@@ -157,6 +157,7 @@ MonoBehaviour:
   level2: {fileID: 0}
   level3: {fileID: 0}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349002850871
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   level2: {fileID: -733549121, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   level3: {fileID: -1439043377, guid: cb36bd90298ef4829abb0415af4ec5d0, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349045903047
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +473,7 @@ MonoBehaviour:
   level2: {fileID: 1792120320, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level3: {fileID: -1090735921, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349064645619
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +631,7 @@ MonoBehaviour:
   level2: {fileID: 229322850, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level3: {fileID: -1409430606, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349281336877
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +876,7 @@ MonoBehaviour:
   level2: {fileID: 0}
   level3: {fileID: 0}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349661454808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1034,7 @@ MonoBehaviour:
   level2: {fileID: 0}
   level3: {fileID: 0}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345349720232292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1192,7 @@ MonoBehaviour:
   level2: {fileID: -1775800630, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   level3: {fileID: 677524714, guid: 06c79ab405a0f43c68f4a71884e19705, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345350584725845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1350,7 @@ MonoBehaviour:
   level2: {fileID: -1634434388, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   level3: {fileID: -1527715863, guid: 016c39aea643e45d3977182809b4da93, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}
 --- !u!1 &8877345350827556834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,3 +1508,4 @@ MonoBehaviour:
   level2: {fileID: 1730555428, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   level3: {fileID: 1091349922, guid: 75328bf859c6f4cc4adc49a2eef1f0bf, type: 3}
   cd: 0
+  costDisplayObject: {fileID: 4194498131212789766, guid: 2290bdb20c900d84580bb76e416e42d2, type: 3}

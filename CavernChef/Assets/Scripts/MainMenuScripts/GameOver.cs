@@ -17,6 +17,7 @@ public class GameOver : MonoBehaviour
         Spawner.waypointList.Clear();
         Spawner.waypointSecondList.Clear();
         GlobalVariables.enemyList.reset();
+        Time.timeScale = 1;
     }
 
     public void goBack(bool isVictory)

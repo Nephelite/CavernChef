@@ -12,6 +12,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private GameObject visibleRange;
     public Sprite level0, level1, level2, level3;
     public float cd;
+    public GameObject costDisplayObject;
 
     void Awake()
     {
@@ -33,6 +34,9 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             gameObject.GetComponent<Image>().sprite = level3;
         }
+        GameObject costDisplay = Instantiate(costDisplayObject, gameObject.transform.position + new Vector3(30, -30, 0), Quaternion.identity) as GameObject;
+        costDisplay.transform.SetParent(gameObject.transform);
+        costDisplay.GetComponent<TextMeshProUGUI>().text = TRT.GetComponent<TRT>().Cost().ToString();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

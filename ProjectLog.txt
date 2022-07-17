@@ -378,3 +378,8 @@ Bug fix: Clicking a TRT button and then clicking another before placing down the
 Added a text indicator for when the TRT placement cooldown is over.
 Prepared for playtesting session.
 - Kevin (3 hrs)
+
+17/7:
+Added a SpeedChanger to the zone stages.
+Added cost number displays for each TRT Select Buttons.
+Fixed a bug involving TRT tiles having both the ghost and placed TRT existing at the same time.

@@ -352,6 +352,7 @@ public class Spawner : MonoBehaviour
             Debug.Log("Stage Clear");
             Spawner.waypointList.Clear();
             Spawner.waypointSecondList.Clear();
+            Time.timeScale = 1;
             GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
             GlobalVariables.enemyList.reset();
