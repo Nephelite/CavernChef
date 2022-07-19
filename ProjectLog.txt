@@ -383,3 +383,17 @@ Prepared for playtesting session.
 Added a SpeedChanger to the zone stages.
 Added cost number displays for each TRT Select Buttons.
 Fixed a bug involving TRT tiles having both the ghost and placed TRT existing at the same time.
+- Kevin (2 hrs)
+
+18/7: 
+Began work on a story page for the main menu that will fill players in on the context of the game.
+Made Almanac table of content buttons more obvious as buttons.
+- Kevin (1 hr)
+
+19/7:
+Added progress bars (3 types)
+ > Radial cooldown bars for TRT buttons
+ > Zone progress bar to inform the player how far along a zone they are.
+ > HP bar for the food
+Nerfed the wave number scaling from every 2 zones to every 3.
+- Kevin (3 hrs)

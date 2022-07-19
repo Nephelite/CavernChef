@@ -4,6 +4,27 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
+    public static void FirstView()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + ".firstView";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, true);
+        stream.Close();
+        Debug.Log("View for the first time");
+    }
+
+    public static bool CheckForFirstView()
+    {
+        string path = Application.persistentDataPath + ".firstView";
+        return File.Exists(path);
+    }
+
+    public static void DelFirstView()
+    {
+        string path = Application.persistentDataPath + ".firstView";
+        File.Delete(path);
+    }
 
     public static void SaveRun(Run currentRun)
     {

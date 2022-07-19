@@ -58,7 +58,7 @@ public class StallTRT : DefensiveTRT
     {
         return (base_hp + hp_abs_delta) * hp_mult;
     }
-    public float TBetPlacements()
+    public override float TBetPlacements()
     {
         return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
     }

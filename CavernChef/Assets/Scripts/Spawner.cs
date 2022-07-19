@@ -58,7 +58,7 @@ public class Spawner : MonoBehaviour
     public List<GameObject> displayWaypoints = new List<GameObject>();
 
     // Time between waves
-    public int tBetWaves = 5;
+    public int tBetWaves = 5, enemiesPerWave, enemiesSpawned; //Latter 2 fields needed for progress bar
     // Last spawn time
     private float tLastSpawn, startTimer = 10f;
     // Number of waves done so far
@@ -216,13 +216,15 @@ public class Spawner : MonoBehaviour
 
         displayWaypoints = waypointSecondList;
 
+        enemiesPerWave = (int)(10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 5f));
+
         // Set up the waves to be done
         for (int i = 0; i <= zoneNumber / 2; i++)
         {
-            waves.Add(new Wave(0, 2.0f / (Mathf.Log((float) (zoneNumber) / 7.5f + 2, 2)), (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 5f))));  
+            waves.Add(new Wave(0, 2.0f / (Mathf.Log((float) (zoneNumber) / 7.5f + 2, 2)), enemiesPerWave));  
             // Debug.Log("Spawn Interval: " + 2.0f / Mathf.Log(zoneNumber / 2 + 2, 2) + " Number of enemies: " + (int) (10 * Mathf.Pow(zoneNumber / 2 + 1, 1f / 5f)));
         }
-        nWaves = zoneNumber / 2 < 1 ? 1 : zoneNumber / 2;
+        nWaves = zoneNumber / 3 < 1 ? 1 : zoneNumber / 3;
         tLastSpawn = Time.time;
         // waveManager = GameObject.Find("WaveManagerHolder").GetComponent<WaveManager>();
 
@@ -260,6 +262,7 @@ public class Spawner : MonoBehaviour
                 tLastSpawn = Time.time;
 
                 GameObject newEnemy;
+                enemiesSpawned++;
 
                 if (choice == 0)
                 {

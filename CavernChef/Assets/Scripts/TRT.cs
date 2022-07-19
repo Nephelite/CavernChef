@@ -10,6 +10,7 @@ public abstract class TRT : MonoBehaviour
 
     public abstract void Reset();
     public abstract int Cost();
+    public abstract float TBetPlacements();
 
     void Awake()
     {

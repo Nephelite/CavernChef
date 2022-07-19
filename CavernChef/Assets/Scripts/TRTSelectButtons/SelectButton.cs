@@ -39,6 +39,35 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         costDisplay.GetComponent<TextMeshProUGUI>().text = TRT.GetComponent<TRT>().Cost().ToString();
     }
 
+    public float GetCooldown()
+    {
+        return TRT.GetComponent<TRT>().TBetPlacements();
+    }
+
+    public float GetCurrentCooldownProgress()
+    {
+        if (TRT.GetComponent<EconTRT>() != null)
+            return EconTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - EconTRT.lastPlacedTime;
+        else if (TRT.GetComponent<FireTRT>() != null)
+            return FireTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - FireTRT.lastPlacedTime;
+        else if (TRT.GetComponent<WaterTRT>() != null)
+            return WaterTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - WaterTRT.lastPlacedTime;
+        else if (TRT.GetComponent<SnowTRT>() != null)
+            return SnowTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - SnowTRT.lastPlacedTime;
+        else if (TRT.GetComponent<LightTRT>() != null)
+            return LightTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - LightTRT.lastPlacedTime;
+        else if (TRT.GetComponent<ElectricTRT>() != null)
+            return ElectricTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - ElectricTRT.lastPlacedTime;
+        else if (TRT.GetComponent<EarthTRT>() != null)
+            return EarthTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - EarthTRT.lastPlacedTime;
+        else if (TRT.GetComponent<BlockageTRT>() != null)
+            return BlockageTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - BlockageTRT.lastPlacedTime;
+        else if (TRT.GetComponent<StallTRT>() != null)
+            return StallTRT.firstPlacement ? TRT.GetComponent<TRT>().TBetPlacements() : Time.time - StallTRT.lastPlacedTime;
+        else
+            return 0;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (TRT.GetComponent<AtkTower>() != null && TRT.GetComponent<AtkTower>().Range() > 0)

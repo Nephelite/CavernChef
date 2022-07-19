@@ -72,7 +72,7 @@ public class EconTRT : TRT //Consider making this inherit from AtkTower
     {
         return (base_tCycle + tCycle_abs_delta) * tCycle_mult;
     }
-    public float TBetPlacements()
+    public override float TBetPlacements()
     {
         return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
     }

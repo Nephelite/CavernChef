@@ -105,7 +105,6 @@ public abstract class AtkTower : TRT
     //public abstract int Cost(); //Moved to TRT class
     public abstract float TBetAtks();
     public abstract float Range();
-    public abstract float TBetPlacements();
 
     // Abstract methods to calculate modified projectile stats
     public abstract float ProjSpeed();

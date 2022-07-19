@@ -45,7 +45,7 @@ public class BlockageTRT : DefensiveTRT
     {
         return (int)((base_cost + cost_abs_delta) * cost_mult);
     }
-    public float TBetPlacements()
+    public override float TBetPlacements()
     {
         return (base_tBetPlacements + tBetPlacements_abs_delta) * tBetPlacements_mult;
     }
