@@ -397,3 +397,9 @@ Added progress bars (3 types)
  > HP bar for the food
 Nerfed the wave number scaling from every 2 zones to every 3.
 - Kevin (3 hrs)
+
+20/7:
+Added a border to the HP bar.
+Added a story page.
+Reworked the UI structure of Food Select scene and Upgrades and Unlocks scene.
+- Kevin (2 hrs)

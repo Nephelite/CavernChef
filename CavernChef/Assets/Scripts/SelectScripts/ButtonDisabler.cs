@@ -6,8 +6,6 @@ using TMPro;
 
 public class ButtonDisabler : MonoBehaviour
 {
-    public static bool buttonClicked = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,20 +36,6 @@ public class ButtonDisabler : MonoBehaviour
         {
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").Find("Unlock " + 2).gameObject.SetActive(true);
             gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").Find("Upgrade " + 3).gameObject.SetActive(false);
-        }
-
-        gameObject.transform.Find("Canvas").Find("Advance").gameObject.SetActive(false);
-        gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(true);
-    }
-
-    void Update()
-    {
-        if (buttonClicked)
-        {
-            buttonClicked = false;
-            gameObject.transform.Find("Canvas").Find("UpgradesAndUnlocks").gameObject.SetActive(false);
-            gameObject.transform.Find("Canvas").Find("Advance").gameObject.SetActive(true);
-            gameObject.transform.Find("Canvas").Find("Skip").gameObject.SetActive(false); 
         }
     }
 }

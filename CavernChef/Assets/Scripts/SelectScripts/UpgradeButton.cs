@@ -19,7 +19,6 @@ public class UpgradeButton : MonoBehaviour
         int upgradeID = upgrade.getUpgradeID(chosenUpgrade);
         RunManager.upgradeCountList[TRTID]++; //increases upgrade counter
         Debug.Log(RunManager.upgradeCountList[upgrade.TRT.GetComponent<TRT>().TRTID]);
-        ButtonDisabler.buttonClicked = true;
 
         float factor = upgrade.upgradeValues[upgradeID];
         switch (chosenUpgrade)

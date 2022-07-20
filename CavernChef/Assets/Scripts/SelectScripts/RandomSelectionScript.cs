@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RandomSelectionScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class RandomSelectionScript : MonoBehaviour
     public static GameObject choiceOne;
     public static GameObject choiceTwo;
     public static GameObject choiceThree;
+    public GameObject buttonOne, buttonTwo, buttonThree;
 
     public static void Initialise(List<GameObject> foodsList)
     {
@@ -41,20 +43,28 @@ public class RandomSelectionScript : MonoBehaviour
                 choiceThree = foodsRemaining[third];
                 foodsRemaining.RemoveAt(third);
 
-                Vector2 pos1 = new Vector2(-8, 0);
-                GameObject one = Instantiate(choiceOne, pos1, Quaternion.identity) as GameObject;
-                one.transform.SetParent(this.transform);
-                one.transform.localScale += new Vector3(4, 4, 4);
+                buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<SpriteRenderer>().sprite;
+                buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<SpriteRenderer>().sprite;
+                buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<SpriteRenderer>().sprite;
 
-                Vector2 pos2 = new Vector2(0, 0);
-                GameObject two = Instantiate(choiceTwo, pos2, Quaternion.identity) as GameObject;
-                two.transform.SetParent(this.transform);
-                two.transform.localScale += new Vector3(4, 4, 4);
+                buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+                buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+                buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
 
-                Vector2 pos3 = new Vector2(8, 0);
-                GameObject three = Instantiate(choiceThree, pos3, Quaternion.identity) as GameObject;
-                three.transform.SetParent(this.transform);
-                three.transform.localScale += new Vector3(4, 4, 4);
+                //Vector2 pos1 = new Vector2(-8, 0);
+                //GameObject one = Instantiate(choiceOne, pos1, Quaternion.identity) as GameObject;
+                //one.transform.SetParent(this.transform);
+                //one.transform.localScale += new Vector3(4, 4, 4);
+
+                //Vector2 pos2 = new Vector2(0, 0);
+                //GameObject two = Instantiate(choiceTwo, pos2, Quaternion.identity) as GameObject;
+                //two.transform.SetParent(this.transform);
+                //two.transform.localScale += new Vector3(4, 4, 4);
+
+                //Vector2 pos3 = new Vector2(8, 0);
+                //GameObject three = Instantiate(choiceThree, pos3, Quaternion.identity) as GameObject;
+                //three.transform.SetParent(this.transform);
+                //three.transform.localScale += new Vector3(4, 4, 4);
 
                 RunManager.seenFoods[choiceOne.GetComponent<FoodProperties>().foodID] = true;
                 RunManager.seenFoods[choiceTwo.GetComponent<FoodProperties>().foodID] = true;
@@ -66,6 +76,16 @@ public class RandomSelectionScript : MonoBehaviour
         }
         else if (choiceOne != null && choiceTwo != null && choiceThree != null)
         {
+
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<Image>().sprite;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<Image>().sprite;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<Image>().sprite;
+
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+
+            /*
             Vector2 pos1 = new Vector2(-8, 0);
             GameObject one = Instantiate(choiceOne, pos1, Quaternion.identity) as GameObject;
             one.transform.SetParent(this.transform);
@@ -80,6 +100,7 @@ public class RandomSelectionScript : MonoBehaviour
             GameObject three = Instantiate(choiceThree, pos3, Quaternion.identity) as GameObject;
             three.transform.SetParent(this.transform);
             three.transform.localScale += new Vector3(4, 4, 4);
+            */
 
             RunManager.seenFoods[choiceOne.GetComponent<FoodProperties>().foodID] = true;
             RunManager.seenFoods[choiceTwo.GetComponent<FoodProperties>().foodID] = true;
@@ -87,6 +108,7 @@ public class RandomSelectionScript : MonoBehaviour
         }
         else
         {
+            /*
             Vector2 pos1 = new Vector2(-8, 0);
             GameObject one = Instantiate(foodsList[RunManager.last3FoodChoicesID[0]], pos1, Quaternion.identity) as GameObject;
             one.transform.SetParent(this.transform);
@@ -101,10 +123,19 @@ public class RandomSelectionScript : MonoBehaviour
             GameObject three = Instantiate(foodsList[RunManager.last3FoodChoicesID[2]], pos3, Quaternion.identity) as GameObject;
             three.transform.SetParent(this.transform);
             three.transform.localScale += new Vector3(4, 4, 4);
+            */
 
             choiceOne = foodsList[RunManager.last3FoodChoicesID[0]];
             choiceTwo = foodsList[RunManager.last3FoodChoicesID[1]];
             choiceThree = foodsList[RunManager.last3FoodChoicesID[2]];
+
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<Image>().sprite;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<Image>().sprite;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<Image>().sprite;
+
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
 
             RunManager.seenFoods[RunManager.last3FoodChoicesID[0]] = true;
             RunManager.seenFoods[RunManager.last3FoodChoicesID[1]] = true;

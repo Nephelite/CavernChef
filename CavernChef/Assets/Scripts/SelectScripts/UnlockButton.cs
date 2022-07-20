@@ -71,7 +71,6 @@ public class UnlockButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         RunManager.accessibleButtonsSaveData[trtIndex] = true;
         UpgradesAndUnlocks.firstUnlock = -1;
         UpgradesAndUnlocks.secondUnlock = -1;
-        ButtonDisabler.buttonClicked = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
