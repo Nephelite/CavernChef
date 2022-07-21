@@ -107,7 +107,7 @@ MonoBehaviour:
   level1: {fileID: -1406446589, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level2: {fileID: 1792120320, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
   level3: {fileID: -1090735921, guid: 32f67722257fd5045a8c0de6c1246b8d, type: 3}
-  Projectile: {fileID: 4804494396465281618, guid: 23779a00b91bc2c4a9e0242320e0d7be, type: 3}
+  Projectile: {fileID: 4223835184712486463, guid: 0d8aa3f9d7aa5446490f6d7d983479a3, type: 3}
   base_cost: 75
   base_tBetAtks: 1
   base_range: 7.5

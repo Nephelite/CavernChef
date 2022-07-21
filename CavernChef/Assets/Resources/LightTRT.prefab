@@ -107,16 +107,14 @@ MonoBehaviour:
   level1: {fileID: 1264947853, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level2: {fileID: 229322850, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
   level3: {fileID: -1409430606, guid: 3387822148d9a4dc696b447b945f11cd, type: 3}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 7061581176720670189, guid: 1f782b59d01214cecabbd2de222d9f16, type: 3}
   base_cost: 300
-  base_tBetAtks: 0.1
+  base_tBetAtks: 0
   base_range: 6
   base_tBetPlacements: 10
-  proj_base_centi_speed: 50
+  proj_base_centi_speed: 0
   proj_base_dmg: 0.3
-  proj_base_AoeRadius: 0.5
+  proj_base_AoeRadius: 0
   proj_base_effectFrames: 0
   proj_arg: 0
-  OrangeLazer: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
-  OrangeLazerBack: {fileID: 1275338568026455790, guid: 1bba36de22948472eaed3926b7e02c52, type: 3}
-  lastTarget: {fileID: 0}
+  lazerReach: 0.1

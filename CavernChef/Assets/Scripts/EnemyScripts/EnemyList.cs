@@ -173,6 +173,24 @@ public class EnemyList
         return ans;
     }
 
+    // List of enemies that are within a given dist of a line segment
+    public List<Enemy> LineCasualties(Vector2 end1, Vector2 end2, float dist) {
+        // Linearly check everything in enemyList[L:R]
+        int L = numDead;
+        int R = numSpawned;
+        List<Enemy> ans = new List<Enemy>();
+
+        for (int i = L; i < R; i++) {
+            Enemy currEnemy = enemyList[i];
+            Vector2 currEnemyPos = currEnemy.transform.position;
+            if (Utility.distToSegment(currEnemyPos, end1, end2) <= dist) {
+                ans.Add(currEnemy);
+            }
+        }
+
+        return ans;
+    }
+
 
     // List of enemies that exist sorted by distance from a target coordinate
     public List<Enemy> ClosestTo(Vector2 center) {
@@ -213,6 +231,8 @@ public class EnemyList
         // Return the ans
         return enemies;
     }
+
+
 
 
 

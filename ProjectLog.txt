@@ -379,6 +379,10 @@ Added a text indicator for when the TRT placement cooldown is over.
 Prepared for playtesting session.
 - Kevin (3 hrs)
 
+16/7:
+Playtesting session
+- Bryce and Kevin (3 hrs)
+
 17/7:
 Added a SpeedChanger to the zone stages.
 Added cost number displays for each TRT Select Buttons.
@@ -412,3 +416,8 @@ New features:
 A simple lighting effect to the stovetop grid.
 A fully functional settings page to adjust music and volume separately, and a toggle for the lighting effect implemented above.
 - Kevin (6 hrs)
+
+18/7 - 21/7:
+Reworked LightTRT to continuously render a line. In the process, a new Utility class was created and a new method in the EnemyList class was added, among maybe some other things.
+While testing, saw that the fireball wasn't being rotated and quickly added in the missing line of code.
+- Bryce (9 hrs)

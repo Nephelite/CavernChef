@@ -145,6 +145,46 @@ public class LightTRT : AtkTower
     }
 
 
+    // The lazer that this instance will use
+    internal GameObject ReworkedLazer;
+    // Script of the lazer
+    internal ReworkedLazer LazerScript;
+
+    // Lazer specific fields
+    public float lazerReach;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Setup the Tower; setting the firingCD doesn't really matter
+        StandardStart();
+
+        // Setup the Lazer
+        ReworkedLazer = Instantiate(Projectile);
+        LazerScript = ReworkedLazer.GetComponent<ReworkedLazer>();
+
+        LazerScript.dmg = ProjDmg();
+        LazerScript.center = towerPos;
+        LazerScript.reach = lazerReach;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Find a target
+        Enemy target = GlobalVariables.enemyList.findTarget(towerPos, Range());
+
+        if (target != null) {   // If a target exists
+            LookAtEnemy(target);
+            LazerScript.TurnOn(target);
+        } else {   // If a target doesn't exist
+            LazerScript.TurnOff();
+        }
+    }
+
+
+/*
     // Set in Unity, contains a reference to a basic bullet
     public GameObject OrangeLazer;
     public GameObject OrangeLazerBack;
@@ -215,4 +255,7 @@ public class LightTRT : AtkTower
         // Correct the orientation
         base.LookAtEnemy(target);
     }
+*/
+
+
 }

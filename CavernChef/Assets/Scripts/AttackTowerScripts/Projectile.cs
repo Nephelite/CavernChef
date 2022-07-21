@@ -31,6 +31,7 @@ public abstract class Projectile : MonoBehaviour
     internal int effectFrames;
 
     // Argument of the trajectory of the projectile (SET IN UNITY to og arg of sprite)
+    // This is in degrees
     internal float arg;
 
     // Target of a projectile (set by the TRT firing this)
