@@ -106,7 +106,7 @@ MonoBehaviour:
   level1: {fileID: 0}
   level2: {fileID: 0}
   level3: {fileID: 0}
-  base_value: 100
+  base_value: 50
   base_cost: 50
   base_tCycle: 10
-  base_tBetPlacements: 2
+  base_tBetPlacements: 3

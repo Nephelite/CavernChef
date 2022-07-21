@@ -23,6 +23,7 @@ public class RandomSelectionScript : MonoBehaviour
 
     void Start()
     {
+        RunManager.testRun = false;
         if (choiceOne == null && choiceTwo == null && choiceThree == null && RunManager.last3FoodChoicesID == null)
         {
             lastChosenFood = null; //Resets previous choice
@@ -77,9 +78,9 @@ public class RandomSelectionScript : MonoBehaviour
         else if (choiceOne != null && choiceTwo != null && choiceThree != null)
         {
 
-            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<Image>().sprite;
-            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<Image>().sprite;
-            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<Image>().sprite;
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<SpriteRenderer>().sprite;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<SpriteRenderer>().sprite;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<SpriteRenderer>().sprite;
 
             buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
             buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
@@ -129,9 +130,9 @@ public class RandomSelectionScript : MonoBehaviour
             choiceTwo = foodsList[RunManager.last3FoodChoicesID[1]];
             choiceThree = foodsList[RunManager.last3FoodChoicesID[2]];
 
-            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<Image>().sprite;
-            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<Image>().sprite;
-            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<Image>().sprite;
+            buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceOne.GetComponent<SpriteRenderer>().sprite;
+            buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceTwo.GetComponent<SpriteRenderer>().sprite;
+            buttonThree.transform.Find("Image").gameObject.GetComponent<Image>().sprite = choiceThree.GetComponent<SpriteRenderer>().sprite;
 
             buttonOne.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;
             buttonTwo.transform.Find("Image").gameObject.GetComponent<Image>().enabled = true;

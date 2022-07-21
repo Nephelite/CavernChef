@@ -20,6 +20,8 @@ public class GlobalVariables : MonoBehaviour
     public List<GameObject> enemySpawns = new List<GameObject>();
     public List<GameObject> foodPoints = new List<GameObject>();
 
+    public static Settings settings;
+
 
     // Custom class 
     public static EnemyList enemyList = new EnemyList();

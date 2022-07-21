@@ -113,7 +113,7 @@ MonoBehaviour:
   base_range: 5
   base_tBetPlacements: 3
   proj_base_centi_speed: 30
-  proj_base_dmg: 8
+  proj_base_dmg: 9
   proj_base_AoeRadius: 0
   proj_base_effectFrames: 240
   proj_arg: 0

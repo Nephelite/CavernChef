@@ -30,6 +30,20 @@ public class RunManager : MonoBehaviour
 
     void Start()
     {
+        AudioManager manager = FindObjectOfType<AudioManager>();
+        manager.UpdateNewMusicVolume();
+        manager.UpdateNewSFXVolume();
+
+        if (GlobalVariables.settings == null)
+        {
+            GlobalVariables.settings = new Settings(1f, 1f, true);
+        }
+
+        if (!GlobalVariables.settings.lightingToggle && FindObjectOfType<Grid>() != null) 
+        {
+            FindObjectOfType<Grid>().gameObject.transform.Find("Light").gameObject.SetActive(false);
+        }
+
         if (testRun)
         {
             for (int i = 0; i < testNum; i++)

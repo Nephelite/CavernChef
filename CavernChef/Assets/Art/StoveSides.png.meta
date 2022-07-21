@@ -119,8 +119,8 @@ TextureImporter:
       name: StoveSides_0
       rect:
         serializedVersion: 2
-        x: 160
-        y: 64
+        x: 0
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -140,8 +140,8 @@ TextureImporter:
       name: StoveSides_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -161,8 +161,8 @@ TextureImporter:
       name: StoveSides_2
       rect:
         serializedVersion: 2
-        x: 224
-        y: 64
+        x: 64
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -182,8 +182,8 @@ TextureImporter:
       name: StoveSides_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 32
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -203,8 +203,8 @@ TextureImporter:
       name: StoveSides_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 32
+        x: 32
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -224,8 +224,8 @@ TextureImporter:
       name: StoveSides_5
       rect:
         serializedVersion: 2
-        x: 224
-        y: 32
+        x: 64
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -245,8 +245,8 @@ TextureImporter:
       name: StoveSides_6
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -266,8 +266,8 @@ TextureImporter:
       name: StoveSides_7
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -287,8 +287,8 @@ TextureImporter:
       name: StoveSides_8
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -304,6 +304,195 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StoveSides_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582d219c5aeebe74c9a3139fd1a10ab3
+      internalID: 934713205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83236ecb03e151b4a80605c4782cc710
+      internalID: 243264989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbd6da4eef3a184a9a14b152445d975
+      internalID: 660091613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7fb0f75a2d0584cbbaee0bdfc239dc
+      internalID: -979739398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6c3da6381da4647bd552ef76ab8df4
+      internalID: -572285321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a3ca899a206e4408a0e6931d8e53cc
+      internalID: 1910349029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6426e4288a000ab4498a1d5952fcb89d
+      internalID: -2063551977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f14a984fb6d0249b748fbb503e8dce
+      internalID: 1795246774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StoveSides_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600f3ee2865bf3b4cabe17845b06be74
+      internalID: -2082856977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -315,13 +504,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      StoveSides_10: 243264989
+      StoveSides_13: -572285321
       StoveSides_2: -1220151917
+      StoveSides_15: -2063551977
       StoveSides_7: -424979545
+      StoveSides_14: 1910349029
+      StoveSides_12: -979739398
       StoveSides_3: -901893012
+      StoveSides_17: -2082856977
       StoveSides_0: 1457751337
+      StoveSides_9: 934713205
       StoveSides_4: 1576015417
       StoveSides_5: 1144611255
+      StoveSides_16: 1795246774
       StoveSides_8: 1353908502
+      StoveSides_11: 660091613
       StoveSides_6: 942319172
       StoveSides_1: 1633716862
   spritePackingTag: 

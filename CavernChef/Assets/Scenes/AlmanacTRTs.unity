@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7. Earth
+  m_text: Earth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 19032632}
   - component: {fileID: 19032631}
   - component: {fileID: 19032630}
-  - component: {fileID: 19032629}
+  - component: {fileID: 19032633}
   m_Layer: 5
   m_Name: SnowTRT
   m_TagString: Untagged
@@ -300,19 +300,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &19032629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19032627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec8a9afdca5d03408e01e09c9a75632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 150
 --- !u!114 &19032630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,13 +344,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectSnow, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 19032627}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -407,6 +394,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19032627}
   m_CullTransparentMesh: 1
+--- !u!114 &19032633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19032627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: f3a632f9e60942f4598ac053d658ada1, type: 3}
+  ID: 3
+  type: 0
+  entryDescription: 'Cost: 125 RP
+
+    Cooldown: 3 seconds
+
+    Damage: 5
+
+    Attack
+    Interval: 3.2 seconds
+
+    Shoots snowballs that deal frost damage to 1 target
+    and slows them for 5 seconds, reducing their movement speed by 50%.'
 --- !u!1 &33538132
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +432,7 @@ GameObject:
   - component: {fileID: 33538137}
   - component: {fileID: 33538136}
   - component: {fileID: 33538135}
-  - component: {fileID: 33538134}
+  - component: {fileID: 33538138}
   m_Layer: 5
   m_Name: WaterTRT
   m_TagString: Untagged
@@ -449,19 +462,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &33538134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33538132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a4f27d975476249bf757360eff6b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 150
 --- !u!114 &33538135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,13 +506,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectWater, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 33538132}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -556,6 +556,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33538132}
   m_CullTransparentMesh: 1
+--- !u!114 &33538138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33538132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: 4465eda85058e4446a96c1e1413dad52, type: 3}
+  ID: 2
+  type: 0
+  entryDescription: 'Cost: 75 RP
+
+    Cooldown: 3 seconds
+
+    Damage: 9
+
+    Attack
+    Interval: 0.75 seconds
+
+    Shoots waterballs that deal water damage to 1 target.'
 --- !u!1 &66850148
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +660,7 @@ GameObject:
   - component: {fileID: 107005865}
   - component: {fileID: 107005864}
   - component: {fileID: 107005863}
-  - component: {fileID: 107005862}
+  - component: {fileID: 107005866}
   m_Layer: 5
   m_Name: EarthTRT
   m_TagString: Untagged
@@ -665,19 +690,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: -300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &107005862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107005860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7205543a5a8e7439db48a7b30c2089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 175
 --- !u!114 &107005863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,13 +734,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectEarth, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 107005860}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -772,6 +784,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107005860}
   m_CullTransparentMesh: 1
+--- !u!114 &107005866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107005860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: b56874e00aca15f49ae0852ec33f9f40, type: 3}
+  ID: 6
+  type: 0
+  entryDescription: 'Cost: 200 RP
+
+    Cooldown: 5 seconds
+
+    Damage: 30
+
+    Attack
+    Interval: 4 seconds
+
+    Shoots a boulder at an enemy, dealing Earth damage. '
 --- !u!1 &111023721
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +821,7 @@ GameObject:
   - component: {fileID: 111023726}
   - component: {fileID: 111023725}
   - component: {fileID: 111023724}
-  - component: {fileID: 111023723}
+  - component: {fileID: 111023727}
   m_Layer: 5
   m_Name: Econ
   m_TagString: Untagged
@@ -814,19 +851,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &111023723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111023721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2b053afac30664d957d2703d68192d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!114 &111023724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,13 +895,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EconSelect, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 111023721}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -921,6 +945,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111023721}
   m_CullTransparentMesh: 1
+--- !u!114 &111023727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111023721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8422623277152842013, guid: 90a610118bebae345baa8e84c5273e35, type: 3}
+  ID: 0
+  type: 0
+  entryDescription: 'Cost: 50 RP
+
+    Cooldown: 3 seconds
+
+    This handy TRT produces
+    50 RP every 10 seconds, allowing you to place more TRTs after.'
 --- !u!1001 &154968333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1175,6 +1220,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176399941}
   m_CullTransparentMesh: 1
+--- !u!224 &201854742 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+  m_PrefabInstance: {fileID: 443474694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &201854743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8848839836369423502, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+  m_PrefabInstance: {fileID: 443474694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e452b1b226a04f429e7eb3e91ec762c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &227779598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2. Fire
+  m_text: Fire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1406,6 +1467,7 @@ RectTransform:
   - {fileID: 477367125}
   - {fileID: 668942018}
   - {fileID: 751399060}
+  - {fileID: 201854742}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1516,6 +1578,103 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2954692831696811848, guid: 8fa5b220b2374bb4ab4e59ab41d5d5e9, type: 3}
   m_PrefabInstance: {fileID: 387071814}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &443474694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 325875948}
+    m_Modifications:
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423600, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Name
+      value: AlmanacEntryDisplay
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
 --- !u!1 &477367124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1920,7 @@ GameObject:
   - component: {fileID: 514151143}
   - component: {fileID: 514151142}
   - component: {fileID: 514151141}
-  - component: {fileID: 514151140}
+  - component: {fileID: 514151144}
   m_Layer: 5
   m_Name: StallTRT(Pudding)
   m_TagString: Untagged
@@ -1791,19 +1950,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &514151140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514151138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8074c5db443e4eb4c9e34e00947c6005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0
 --- !u!114 &514151141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,13 +1994,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectStallPudding, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 514151138}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -1898,6 +2044,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514151138}
   m_CullTransparentMesh: 1
+--- !u!114 &514151144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514151138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 4822710494846236072, guid: 1e0cfb9a16e13b146bd2ebe509a03ee7, type: 3}
+  ID: 8
+  type: 0
+  entryDescription: 'Cost: 50 RP
+
+    Cooldown: 20 seconds
+
+    HP: 100
+
+    Blocks
+    a path, and enemies that come into contact with this TRT will be blocked and
+    forced to work through its HP. They deal damage to this TRT every second of contact.'
 --- !u!1 &544222669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,7 +2126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9. Pudding
+  m_text: Pudding
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2180,7 +2350,7 @@ GameObject:
   - component: {fileID: 627675089}
   - component: {fileID: 627675088}
   - component: {fileID: 627675087}
-  - component: {fileID: 627675086}
+  - component: {fileID: 627675090}
   m_Layer: 5
   m_Name: FireTRT
   m_TagString: Untagged
@@ -2210,19 +2380,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &627675086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627675084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3eea1af47b7dcc4f8feb7b3ceb84144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!114 &627675087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,13 +2424,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectBasicOffense, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 627675084}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -2317,6 +2474,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627675084}
   m_CullTransparentMesh: 1
+--- !u!114 &627675090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627675084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: 6679a2b5041915f49940918b582c522b, type: 3}
+  ID: 1
+  type: 0
+  entryDescription: 'Cost: 75 RP
+
+    Cooldown: 4 seconds
+
+    Damage: 7
+
+    Attack
+    Interval: 1 second
+
+    Shoots fireballs that explode on impact, dealing fire
+    damage to enemies in a small area.'
 --- !u!1 &668942017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2760,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3. Water
+  m_text: Water
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2666,7 +2849,7 @@ GameObject:
   - component: {fileID: 1094860249}
   - component: {fileID: 1094860248}
   - component: {fileID: 1094860247}
-  - component: {fileID: 1094860246}
+  - component: {fileID: 1094860250}
   m_Layer: 5
   m_Name: BlockageTRT
   m_TagString: Untagged
@@ -2696,19 +2879,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1094860246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094860244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f291ece8d4baa8f4ea4897ed78813e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0
 --- !u!114 &1094860247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,13 +2923,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectBlockage, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1094860244}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -2803,6 +2973,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094860244}
   m_CullTransparentMesh: 1
+--- !u!114 &1094860250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094860244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 2972305692998052968, guid: 481e5a5debbf41d4c9c416ea3a2ae69c, type: 3}
+  ID: 7
+  type: 0
+  entryDescription: 'Cost: 50 RP
+
+    Cooldown: 5 seconds
+
+    Completely blocks
+    off a path, forcing enemies to take alternative paths. If no such alternative
+    paths exist, this TRT cannot be placed.'
 --- !u!1 &1111045865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3244,7 @@ GameObject:
   - component: {fileID: 1373520198}
   - component: {fileID: 1373520197}
   - component: {fileID: 1373520196}
-  - component: {fileID: 1373520195}
+  - component: {fileID: 1373520199}
   m_Layer: 5
   m_Name: LightTRT
   m_TagString: Untagged
@@ -3082,19 +3274,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1373520195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373520193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722b644223dae164ead9a6486884764b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 300
 --- !u!114 &1373520196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3139,13 +3318,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectLight, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1373520193}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -3189,6 +3368,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373520193}
   m_CullTransparentMesh: 1
+--- !u!114 &1373520199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373520193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}
+  ID: 4
+  type: 0
+  entryDescription: 'Cost: 300 RP
+
+    Cooldown: 10 seconds
+
+    Damage: 10 per second
+
+    Attack
+    Interval: ???
+
+    Shoots a dazzling beam of light that penetrates enemies, dealing
+    light damage to all enemies in the path.'
 --- !u!1001 &1412370935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3349,7 +3554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6. Electric
+  m_text: Electric
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3484,7 +3689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4. Snow
+  m_text: Snow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3619,7 +3824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8. Plate
+  m_text: Plate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4071,7 +4276,7 @@ GameObject:
   - component: {fileID: 1708666207}
   - component: {fileID: 1708666206}
   - component: {fileID: 1708666205}
-  - component: {fileID: 1708666204}
+  - component: {fileID: 1708666208}
   m_Layer: 5
   m_Name: ElectricTRT
   m_TagString: Untagged
@@ -4101,19 +4306,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1708666204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708666202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 768fc72cde749f24685ba739a4e78cbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 250
 --- !u!114 &1708666205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4158,13 +4350,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectElectric, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 201854743}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1708666202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -4208,6 +4400,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708666202}
   m_CullTransparentMesh: 1
+--- !u!114 &1708666208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708666202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 5134305957202709094, guid: c8079e75d3c56bd41a7b6d523c15ac9a, type: 3}
+  ID: 5
+  type: 0
+  entryDescription: 'Cost: 300 RP
+
+    Cooldown: 15 seconds
+
+    Damage: 4 (No bounces)
+
+    Attack
+    Interval: 1 second
+
+    Shoots lightning at a target, dealing electric damage
+    to 1 target, before jumping to another nearby target with a weaker lightning.
+    3 total targets at base.'
 --- !u!1001 &1711798576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4368,7 +4587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1. Generator
+  m_text: Generator
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4587,7 +4806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5. Light
+  m_text: Light
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

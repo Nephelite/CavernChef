@@ -403,3 +403,12 @@ Added a border to the HP bar.
 Added a story page.
 Reworked the UI structure of Food Select scene and Upgrades and Unlocks scene.
 - Kevin (2 hrs)
+
+21/7:
+New bug found: If the mouse is hovering a TRT as its cooldown ends, the displayed range of the TRT will not disappear, and another new range display will overlap.
+Fixed bugs: The one above, and a bug involving GlobalVariables.selectedTrt not resetting on victory and death.
+
+New features:
+A simple lighting effect to the stovetop grid.
+A fully functional settings page to adjust music and volume separately, and a toggle for the lighting effect implemented above.
+- Kevin (6 hrs)

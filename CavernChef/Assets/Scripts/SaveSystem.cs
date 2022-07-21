@@ -89,4 +89,35 @@ public static class SaveSystem
         }
     }
 
+    public static void SaveCurrentSettings(Settings currentSettings)
+    {
+        if (currentSettings == null)
+            currentSettings = new Settings(1f, 1f, true);
+        Debug.Log("Settings: Music - " + currentSettings.musicVol + " SFX: " + currentSettings.SFXVol);
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/file" + GlobalVariables.SaveFileID + ".set";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, currentSettings);
+        stream.Close();
+        Debug.Log("Saved File");
+    }
+
+    public static Settings LoadSettings()
+    {
+        string path = Application.persistentDataPath + "/file" + GlobalVariables.SaveFileID + ".set";
+        // File.Delete(path);
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            Settings file = formatter.Deserialize(stream) as Settings;
+            stream.Close();
+            return file;
+        }
+        else
+        {
+            Debug.Log("No previous settings found in " + path);
+            return new Settings(1f, 1f, true);
+        }
+    }
 }

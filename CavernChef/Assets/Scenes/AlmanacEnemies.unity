@@ -283,7 +283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '2. Wisp
+  m_text: 'Wisp
 
     (Caves)'
   m_isRightToLeft: 0
@@ -420,9 +420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '5. Wisp
-
-    (Sandy)'
+  m_text: "Queen \nBee"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -930,7 +928,7 @@ RectTransform:
   - {fileID: 1312963555}
   - {fileID: 761112734}
   - {fileID: 2019665417}
-  - {fileID: 613028726}
+  - {fileID: 2127876032}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -951,7 +949,7 @@ GameObject:
   - component: {fileID: 415596531}
   - component: {fileID: 415596530}
   - component: {fileID: 415596529}
-  - component: {fileID: 415596528}
+  - component: {fileID: 415596532}
   m_Layer: 5
   m_Name: FloodedWisp
   m_TagString: Untagged
@@ -981,19 +979,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &415596528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415596526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45a4f27d975476249bf757360eff6b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 150
 --- !u!114 &415596529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,13 +1023,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectWater, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127876033}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 415596526}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -1088,6 +1073,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415596526}
   m_CullTransparentMesh: 1
+--- !u!114 &415596532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415596526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8176188707680438536, guid: f9f852d27ad9962468fafdd35eead0b9, type: 3}
+  ID: 2
+  type: 2
+  entryDescription: 'HP: 30
+
+    Attack: 2
+
+    A regular wisp you can find in moist
+    areas of the cave.'
 --- !u!1 &475213065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1. Wisp
+  m_text: 'Wisp
 
     (Grass Lands)'
   m_isRightToLeft: 0
@@ -1327,141 +1333,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2954692831696811848, guid: 8fa5b220b2374bb4ab4e59ab41d5d5e9, type: 3}
   m_PrefabInstance: {fileID: 523937008}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &613028725
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 613028726}
-  - component: {fileID: 613028728}
-  - component: {fileID: 613028727}
-  m_Layer: 5
-  m_Name: TempNotice
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &613028726
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613028725}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 325875948}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 375, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &613028727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613028725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Note: For now, enemies of type 5 to 9 are not implemented'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &613028728
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613028725}
-  m_CullTransparentMesh: 1
 --- !u!1 &694205217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1345,6 @@ GameObject:
   - component: {fileID: 694205222}
   - component: {fileID: 694205221}
   - component: {fileID: 694205220}
-  - component: {fileID: 694205219}
   m_Layer: 5
   m_Name: FloodedSlime
   m_TagString: Untagged
@@ -1504,19 +1374,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &694205219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694205217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f291ece8d4baa8f4ea4897ed78813e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0
 --- !u!114 &694205220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,7 +1730,7 @@ GameObject:
   - component: {fileID: 802818919}
   - component: {fileID: 802818918}
   - component: {fileID: 802818917}
-  - component: {fileID: 802818916}
+  - component: {fileID: 802818920}
   m_Layer: 5
   m_Name: ForestWisp
   m_TagString: Untagged
@@ -1903,19 +1760,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &802818916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802818914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2b053afac30664d957d2703d68192d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!114 &802818917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,13 +1804,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EconSelect, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127876033}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 802818914}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -2010,6 +1854,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802818914}
   m_CullTransparentMesh: 1
+--- !u!114 &802818920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802818914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8176188707680438536, guid: 88c29d055f3f7bf4eb2aa358ae572428, type: 3}
+  ID: 0
+  type: 2
+  entryDescription: 'HP: 30
+
+    Attack: 2
+
+    A regular wisp you can find in grassy
+    areas of the cave.'
 --- !u!1001 &807965083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2305,7 +2170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7. Skeleton
+  m_text: Skeleton
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2496,7 +2361,6 @@ GameObject:
   - component: {fileID: 932832086}
   - component: {fileID: 932832085}
   - component: {fileID: 932832084}
-  - component: {fileID: 932832083}
   m_Layer: 5
   m_Name: MagmaSlime
   m_TagString: Untagged
@@ -2526,19 +2390,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -300}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &932832083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932832081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8074c5db443e4eb4c9e34e00947c6005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0
 --- !u!114 &932832084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,7 +2542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '9. Slime
+  m_text: 'Slime
 
     (Magma)'
   m_isRightToLeft: 0
@@ -2782,7 +2633,6 @@ GameObject:
   - component: {fileID: 1231485819}
   - component: {fileID: 1231485818}
   - component: {fileID: 1231485817}
-  - component: {fileID: 1231485816}
   m_Layer: 5
   m_Name: Skeleton
   m_TagString: Untagged
@@ -2812,19 +2662,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: -300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1231485816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231485814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc7205543a5a8e7439db48a7b30c2089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 175
 --- !u!114 &1231485817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2932,6 +2769,7 @@ GameObject:
   - component: {fileID: 1312963558}
   - component: {fileID: 1312963557}
   - component: {fileID: 1312963556}
+  - component: {fileID: 1312963560}
   m_Layer: 5
   m_Name: Enemies
   m_TagString: Untagged
@@ -3050,6 +2888,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312963554}
   m_CullTransparentMesh: 1
+--- !u!114 &1312963560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312963554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2884083416a5b2c4e81ecaf62bf04af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1383539200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,7 +2912,7 @@ GameObject:
   - component: {fileID: 1383539205}
   - component: {fileID: 1383539204}
   - component: {fileID: 1383539203}
-  - component: {fileID: 1383539202}
+  - component: {fileID: 1383539206}
   m_Layer: 5
   m_Name: CaveWisp
   m_TagString: Untagged
@@ -3092,19 +2942,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1383539202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383539200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3eea1af47b7dcc4f8feb7b3ceb84144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!114 &1383539203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3149,13 +2986,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectBasicOffense, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127876033}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1383539200}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -3199,6 +3036,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383539200}
   m_CullTransparentMesh: 1
+--- !u!114 &1383539206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383539200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8176188707680438536, guid: a3d99fe00b25a7e47b77d179a1ee51f4, type: 3}
+  ID: 1
+  type: 2
+  entryDescription: 'HP: 30
+
+    Attack: 2
+
+    A regular wisp you can find in drier
+    areas of the cave.'
 --- !u!1 &1402191672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,7 +3115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3. Wisp
+  m_text: 'Wisp
 
     (Flooded Caves)'
   m_isRightToLeft: 0
@@ -3394,7 +3252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '8. Slime
+  m_text: 'Slime
 
     (Flooded Caves)'
   m_isRightToLeft: 0
@@ -3587,7 +3445,6 @@ GameObject:
   - component: {fileID: 1514826086}
   - component: {fileID: 1514826085}
   - component: {fileID: 1514826084}
-  - component: {fileID: 1514826083}
   m_Layer: 5
   m_Name: ForestSlime
   m_TagString: Untagged
@@ -3617,19 +3474,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 0}
   m_SizeDelta: {x: 450, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1514826083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514826081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 768fc72cde749f24685ba739a4e78cbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 250
 --- !u!114 &1514826084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3968,7 +3812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '4. Wisp
+  m_text: 'Wisp
 
     (Magma)'
   m_isRightToLeft: 0
@@ -4181,7 +4025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '6. Slime
+  m_text: 'Slime
 
     (Grass Lands)'
   m_isRightToLeft: 0
@@ -4326,7 +4170,7 @@ GameObject:
   - component: {fileID: 2044016070}
   - component: {fileID: 2044016069}
   - component: {fileID: 2044016068}
-  - component: {fileID: 2044016067}
+  - component: {fileID: 2044016071}
   m_Layer: 5
   m_Name: MagmaWisp
   m_TagString: Untagged
@@ -4356,19 +4200,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2044016067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044016065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec8a9afdca5d03408e01e09c9a75632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 150
 --- !u!114 &2044016068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4413,13 +4244,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectSnow, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127876033}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2044016065}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -4463,6 +4294,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044016065}
   m_CullTransparentMesh: 1
+--- !u!114 &2044016071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044016065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8176188707680438536, guid: 9951f0589f4585f4c814351dd407e719, type: 3}
+  ID: 3
+  type: 2
+  entryDescription: 'HP: 30
+
+    Attack: 2
+
+    A regular wisp you can find in particularly
+    hot areas of the cave.'
 --- !u!1001 &2063574800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4679,9 +4531,9 @@ GameObject:
   - component: {fileID: 2112282472}
   - component: {fileID: 2112282471}
   - component: {fileID: 2112282470}
-  - component: {fileID: 2112282469}
+  - component: {fileID: 2112282473}
   m_Layer: 5
-  m_Name: SandyWisp
+  m_Name: Queen Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4709,19 +4561,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2112282469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112282467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722b644223dae164ead9a6486884764b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 300
 --- !u!114 &2112282470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4766,13 +4605,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SelectLight, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127876033}
+        m_TargetAssemblyTypeName: AlmanacEntryDisplay, Assembly-CSharp
+        m_MethodName: displayEntry
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2112282467}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: select
@@ -4798,7 +4637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0473bd430277eff4fa3a8a3d53b07e42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67d525931adc870429dff52ed44933e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4816,6 +4655,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112282467}
   m_CullTransparentMesh: 1
+--- !u!114 &2112282473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112282467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d2eea5b2f1a9e499eb28b1dab83c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entry: {fileID: 8176188707680438536, guid: 0f788d729c46ac34c8f3b9f702c2f241, type: 3}
+  ID: 4
+  type: 2
+  entryDescription: 'HP: 2000
+
+    Attack: 5
+
+    Look out! This Queen Bee is particularly
+    hungry and will devour anything! The food you make stands no chance by itself.'
 --- !u!1 &2115221779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,3 +4707,116 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &2127876032 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+  m_PrefabInstance: {fileID: 8848839836886680399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127876033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8848839836369423502, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+  m_PrefabInstance: {fileID: 8848839836886680399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e452b1b226a04f429e7eb3e91ec762c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8848839836886680399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 325875948}
+    m_Modifications:
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423503, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848839836369423600, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}
+      propertyPath: m_Name
+      value: AlmanacEntryDisplay
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a870ff64ce478664a9bca7fba9043d75, type: 3}

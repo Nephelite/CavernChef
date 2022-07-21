@@ -357,6 +357,9 @@ public class Spawner : MonoBehaviour
             Spawner.waypointSecondList.Clear();
             Time.timeScale = 1;
             GlobalVariables.lastClearedScene = GlobalVariables.nextSceneToPlay;
+            GlobalVariables.selectedTrt = null;
+            GlobalVariables.isOffensiveTRT = false;
+            GlobalVariables.isDefensiveTRT = false;
             GlobalVariables.nextSceneToPlay = Random.Range(4, 8); //Consider ensuring no 2 consecutive zones are the same
             GlobalVariables.enemyList.reset();
             Debug.Log("Cleared: " + GlobalVariables.lastClearedScene + " Next: " + GlobalVariables.nextSceneToPlay);

@@ -151,3 +151,6 @@ MonoBehaviour:
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
+  musicMixer: {fileID: -8793793535338721095, guid: c294481a39fbc894cb79e35de4011ea9, type: 2}
+  sfxMixer: {fileID: -8744367183279999701, guid: c294481a39fbc894cb79e35de4011ea9, type: 2}
+  masterMixer: {fileID: 24100000, guid: c294481a39fbc894cb79e35de4011ea9, type: 2}

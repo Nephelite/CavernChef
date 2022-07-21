@@ -118,7 +118,7 @@ MonoBehaviour:
   waypointPrefab: {fileID: 0}
   foodPoint: {fileID: 0}
   base_centi_speed: 1
-  base_hp: 1000
+  base_hp: 2000
   base_dmg: 5
   waypoints: []
   nextTileToVisit: {fileID: 0}
@@ -128,3 +128,6 @@ MonoBehaviour:
   foodOffsetFromGridY: 0
   spawnOffsetFromGridX: 0
   spawnOffsetFromGridY: 0
+  stalled: 0
+  stallWaypointPrev: {fileID: 0}
+  stallWaypointNext: {fileID: 0}

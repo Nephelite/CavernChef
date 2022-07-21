@@ -13,6 +13,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     public static Sound nowPlaying;
 
+    public AudioMixerGroup musicMixer, sfxMixer;
+    public AudioMixer masterMixer;
+
     void Awake()
     {
         if (instance == null)
@@ -33,6 +36,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = sfxMixer;
         }
 
         foreach (Sound s in music)
@@ -41,10 +45,12 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            s.source.outputAudioMixerGroup = musicMixer;
         }
 
         if (ExitApplication.gameStarted)
         {
+            GlobalVariables.settings = SaveSystem.LoadSettings();
             PlayMusic("MenuTheme");
             ExitApplication.gameStarted = false;
         }
@@ -52,49 +58,6 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        /*
-        int build = SceneManager.GetActiveScene().buildIndex;
-        if (build < 3) //Menus
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 3) //Food Select
-        {
-            PlayMusic("TestTheme");
-        }
-        else if (build == 4) //Grasslands
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 5) //Caves
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 6) //Flooded Caves
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 7) //Magma
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 8) //Unlock and Upgrades
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build < 14) //Almanac
-        {
-            PlayMusic("MenuTheme");
-        }
-        else if (build == 14) //Game Over
-        {
-            PlayMusic("MenuTheme");
-        }
-        else //Should not reach here
-        {
-            PlayMusic("MenuTheme");
-        }
-        */
         if (!nowPlaying.source.isPlaying)
         {
             PlayMusic(nowPlaying.name);
@@ -133,14 +96,27 @@ public class AudioManager : MonoBehaviour
                     s.source.Stop();
                 }
             }
+            sound.source.volume *= GlobalVariables.settings.musicVol;
             sound.source.Play();
         }
         Debug.Log("Playing " + sound.name);
     }
 
+    public void UpdateNewMusicVolume()
+    {
+        Debug.Log(Mathf.Log10(GlobalVariables.settings.musicVol) * 20);
+        masterMixer.SetFloat("MusicVol", Mathf.Log10 (GlobalVariables.settings.musicVol) * 20);
+    }
+
+    public void UpdateNewSFXVolume()
+    {
+        masterMixer.SetFloat("SFXVol", Mathf.Log10(GlobalVariables.settings.SFXVol) * 20);
+    }
+
     public void Play (string name)
     {
         Sound sound = soundEffects.Find(s => s.name == name);
+        sound.source.volume *= GlobalVariables.settings.SFXVol;
         sound.source.PlayOneShot(sound.clip);
     }
 

@@ -34,7 +34,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             gameObject.GetComponent<Image>().sprite = level3;
         }
-        GameObject costDisplay = Instantiate(costDisplayObject, gameObject.transform.position + new Vector3(30, -30, 0), Quaternion.identity) as GameObject;
+        GameObject costDisplay = Instantiate(costDisplayObject, gameObject.transform.position + new Vector3(35, -35, 0), Quaternion.identity) as GameObject;
         costDisplay.transform.SetParent(gameObject.transform);
         costDisplay.GetComponent<TextMeshProUGUI>().text = TRT.GetComponent<TRT>().Cost().ToString();
     }
@@ -81,7 +81,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             circle.maskable = false;
             visibleRange.transform.SetParent(gameObject.transform);
             visibleRange.transform.position = gameObject.transform.position;
-            circle.rectTransform.sizeDelta = new Vector2(TRT.GetComponent<AtkTower>().Range() * 50, TRT.GetComponent<AtkTower>().Range() * 50);
+            circle.rectTransform.sizeDelta = new Vector2(TRT.GetComponent<AtkTower>().Range() * 48, TRT.GetComponent<AtkTower>().Range() * 48);
             visibleRange.SetActive(true);
         }
     }
@@ -133,5 +133,7 @@ public class SelectButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             readyToDeployMessage.transform.SetParent(gameObject.transform.parent.parent.parent);
             Invoke("removeDeployMessage", 0.5f);
         }
+        if (visibleRange != null)
+            Destroy(visibleRange);
     }
 }
