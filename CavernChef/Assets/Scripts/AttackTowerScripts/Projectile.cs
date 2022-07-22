@@ -39,6 +39,16 @@ public abstract class Projectile : MonoBehaviour
     // Position of the target; so that a reference still exists after the target dies
     internal Vector2 targetPos;
 
+    // For animations, if any
+    public Animator animator;
+    // For telling the projectile to do nothing 
+    internal bool ended;
+
+
+    // For passing as a parameter in Invoke for delayed destroy for animation
+    internal void Unexist() {
+        Destroy(gameObject);
+    }
     
 
     // Angles the projectile towards the target (Does not apply to lazer or lightning)

@@ -16,11 +16,18 @@ public class Fireball : Projectile
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("Fire");
+
+        ended = false;
+        animator.SetBool("Ended", false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ended) {
+            return;
+        }
+
         // Angle projectile properly
         base.AngleTowardsTarget();
         
@@ -52,8 +59,14 @@ public class Fireball : Projectile
             // If the projectile is AoE, do AoE stuff
             */
 
+
+            // Perform animation
+            ended = true;
+            animator.SetBool("Ended", true);
+            Invoke("Unexist", (float) 7 / (float) 12);
+
             // Destroy the bullet itself
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
         else   // Not yet hit
         {

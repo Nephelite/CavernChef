@@ -427,3 +427,8 @@ Added a build factory reset button to completely reset the game to factory setti
 Addded Light TRT sound effects.
 Changed the Light TRT's damage calculations to make it scale properly with time.
 - Kevin (2 hrs)
+
+22/7:
+Found a cute explosion sprite sheet for fireball impacts.
+Incorporated the fireball sprite sheet created long ago and the explosion sprite sheet into the fireball.
+- Bryce (4 hrs)
