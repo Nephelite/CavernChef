@@ -115,30 +115,26 @@ MonoBehaviour:
     - 10
     - 10
     - 10
-    - 10
     - 1
+    - 10
     - 60
     areValuesFlat: 0001000000010001
   - name: Light TRT
     projectile: {fileID: 6303377906480080811, guid: 9a99736e9108f44a8b17d68c24bb919e, type: 3}
     TRT: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}
     upgrades:
-    - projspd
     - atk
-    - aoe
     - cost
     - interval
     - range
     - cd
     upgradeValues:
-    - 10
-    - 20
-    - 10
+    - 1
     - 10
     - 10
     - 1
     - 10
-    areValuesFlat: 00010000000100
+    areValuesFlat: 0100000100
   - name: Electric TRT
     projectile: {fileID: 7904914105245926069, guid: 6971ae332eec148c4a3f188ac4556211, type: 3}
     TRT: {fileID: 5134305957202709094, guid: c8079e75d3c56bd41a7b6d523c15ac9a, type: 3}

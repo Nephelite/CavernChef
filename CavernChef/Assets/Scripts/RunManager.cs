@@ -15,15 +15,15 @@ public class RunManager : MonoBehaviour
     public static int[] last3FoodChoicesID;
     public static int[] upgradeCountList = new int[32];
     // Indices for upgrades - 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-    public static int[] upgradesEcon = new int[7]; // Active: 1: value, 3: cost, 4: interval, 6: cd
-    public static int[] upgradesFire = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
-    public static int[] upgradesWater = new int[7]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
-    public static int[] upgradesSnow = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-    public static int[] upgradesLight = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
-    public static int[] upgradesElectric = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-    public static int[] upgradesEarth = new int[7]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
-    public static int[] upgradesBlockage = new int[7]; // Active: 3: cost, 6: cd;
-    public static int[] upgradesPudding = new int[7]; // Active: 3: cost, 6: cd, 7: special (hp);
+    public static int[] upgradesEcon = new int[8]; // Active: 1: value, 3: cost, 4: interval, 6: cd
+    public static int[] upgradesFire = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
+    public static int[] upgradesWater = new int[8]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
+    public static int[] upgradesSnow = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
+    public static int[] upgradesLight = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
+    public static int[] upgradesElectric = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
+    public static int[] upgradesEarth = new int[8]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
+    public static int[] upgradesBlockage = new int[8]; // Active: 3: cost, 6: cd;
+    public static int[] upgradesPudding = new int[8]; // Active: 3: cost, 6: cd, 7: special (hp);
     public static int[][] upgradesTracker = new int[][] {upgradesEcon, upgradesFire, upgradesWater, upgradesSnow, upgradesLight, upgradesElectric, upgradesEarth, upgradesBlockage, upgradesPudding}; //Merely pointers, doesn't need to be saved per run
 
     private int testNum = 9; //Change if testing of a certain TRT is needed
@@ -109,15 +109,15 @@ public class RunManager : MonoBehaviour
         FindObjectOfType<UpgradesManager>().ResetAll();
         upgradeCountList = new int[32];
         // Indices for upgrades - 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-        upgradesEcon = new int[7]; // Active: 1: value, 3: cost, 4: interval, 6: cd
-        upgradesFire = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
-        upgradesWater = new int[7]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
-        upgradesSnow = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-        upgradesLight = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
-        upgradesElectric = new int[7]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
-        upgradesEarth = new int[7]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
-        upgradesBlockage = new int[7]; // Active: 3: cost, 6: cd;
-        upgradesPudding = new int[7]; // Active: 3: cost, 6: cd, 7: special (hp);
+        upgradesEcon = new int[8]; // Active: 1: value, 3: cost, 4: interval, 6: cd
+        upgradesFire = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
+        upgradesWater = new int[8]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
+        upgradesSnow = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
+        upgradesLight = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd
+        upgradesElectric = new int[8]; // Active: 0: projspd, 1: atk, 2: aoe, 3: cost, 4: interval, 5: range, 6: cd, 7: special
+        upgradesEarth = new int[8]; // Active: 0: projspd, 1: atk, 3: cost, 4: interval, 5: range, 6: cd
+        upgradesBlockage = new int[8]; // Active: 3: cost, 6: cd;
+        upgradesPudding = new int[8]; // Active: 3: cost, 6: cd, 7: special (hp);
 
         Spawner.zoneNumber = 0;
         SceneManager.LoadScene(3);
@@ -382,16 +382,16 @@ public class RunManager : MonoBehaviour
                                         earth.MultDmg(1f + (upManager.upgradesList[6].upgradeValues[1] / 100f));
                                         break;
                                     case 3:
-                                        earth.MultCost(1f - (upManager.upgradesList[6].upgradeValues[3] / 100f));
+                                        earth.MultCost(1f - (upManager.upgradesList[6].upgradeValues[2] / 100f));
                                         break;
                                     case 4:
                                         earth.MultTimeBetAtks(1f - (upManager.upgradesList[6].upgradeValues[3] / 100f));
                                         break;
                                     case 5:
-                                        earth.AddRange(upManager.upgradesList[6].upgradeValues[5]);
+                                        earth.AddRange(upManager.upgradesList[6].upgradeValues[4]);
                                         break;
                                     case 6:
-                                        earth.MultTimeBetPlacements(1f - (upManager.upgradesList[6].upgradeValues[6] / 100f));
+                                        earth.MultTimeBetPlacements(1f - (upManager.upgradesList[6].upgradeValues[5] / 100f));
                                         break;
                                 }
                             }
@@ -409,10 +409,10 @@ public class RunManager : MonoBehaviour
                                 switch (j)
                                 {
                                     case 3:
-                                        block.MultCost(1f - (upManager.upgradesList[7].upgradeValues[3] / 100f));
+                                        block.MultCost(1f - (upManager.upgradesList[7].upgradeValues[0] / 100f));
                                         break;
                                     case 6:
-                                        block.MultTimeBetPlacements(1f - (upManager.upgradesList[7].upgradeValues[6] / 100f));
+                                        block.MultTimeBetPlacements(1f - (upManager.upgradesList[7].upgradeValues[1] / 100f));
                                         break;
                                 }
                             }
@@ -430,13 +430,13 @@ public class RunManager : MonoBehaviour
                                 switch (j)
                                 {
                                     case 3:
-                                        stall.MultCost(1f - (upManager.upgradesList[8].upgradeValues[3] / 100f));
+                                        stall.MultCost(1f - (upManager.upgradesList[8].upgradeValues[0] / 100f));
                                         break;
                                     case 6:
-                                        stall.MultTimeBetPlacements(1 - (upManager.upgradesList[8].upgradeValues[6] / 100f));
+                                        stall.MultTimeBetPlacements(1 - (upManager.upgradesList[8].upgradeValues[1] / 100f));
                                         break;
                                     case 7:
-                                        stall.AddHp((int)upManager.upgradesList[8].upgradeValues[7]);
+                                        stall.AddHp((int)upManager.upgradesList[8].upgradeValues[2]);
                                         break;
                                 }
                             }

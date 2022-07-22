@@ -257,7 +257,7 @@ public class UpgradeButton : MonoBehaviour
         {
             case "projspd":
                 displayText.text = upgrade.areValuesFlat[upgradeID]
-                    ? "Attacks from " + upgrade.name + "s are " + upgrade.upgradeValues[upgradeID] + " units faster" 
+                    ? "Attacks from " + upgrade.name + "s are " + upgrade.upgradeValues[upgradeID] + " unit(s) faster" 
                     : "Attacks from " + upgrade.name + "s are " + upgrade.upgradeValues[upgradeID] + "% faster";
                 gameObject.GetComponent<Button>().image.sprite = bronze;
                 break;
@@ -271,7 +271,9 @@ public class UpgradeButton : MonoBehaviour
                 gameObject.GetComponent<Button>().image.sprite = silver;
                 break;
             case "aoe":
-                displayText.text = upgrade.name + "s have " + upgrade.upgradeValues[upgradeID] + " unit more spread on point of impact";
+                displayText.text = upgrade.areValuesFlat[upgradeID]
+                        ? upgrade.name + "s have " + upgrade.upgradeValues[upgradeID] + " unit(s) more spread on point of impact"
+                        : upgrade.name + "s have " + upgrade.upgradeValues[upgradeID] + "% more spread on point of impact";
                 gameObject.GetComponent<Button>().image.sprite = bronze;
                 break;
             case "cost":
@@ -292,12 +294,12 @@ public class UpgradeButton : MonoBehaviour
             case "range":
                 displayText.text = !upgrade.areValuesFlat[upgradeID]
                     ? upgrade.name + "s can target enemies " + upgrade.upgradeValues[upgradeID] + "% farther"
-                    : upgrade.name + "s can target enemies " + upgrade.upgradeValues[upgradeID] + " units farther";
+                    : upgrade.name + "s can target enemies " + upgrade.upgradeValues[upgradeID] + " unit(s) farther";
                 gameObject.GetComponent<Button>().image.sprite = silver;
                 break;
             case "cd":
                 displayText.text = upgrade.areValuesFlat[upgradeID]
-                    ? upgrade.name + "s' placement cooldowns are reduced by " + upgrade.upgradeValues[upgradeID] + " seconds"
+                    ? upgrade.name + "s' placement cooldowns are reduced by " + upgrade.upgradeValues[upgradeID] + " second(s)"
                     : upgrade.name + "s' placement cooldowns are reduced by " + upgrade.upgradeValues[upgradeID] + "%";
                 gameObject.GetComponent<Button>().image.sprite = silver;
                 break;
