@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightTRT : AtkTower
+public class LightTRT : AtkTower //NOTE: ATK VALUES ARE IN DDMG PER SECOND FOR THIS TRT
 {
     // TRT stats modifiers (modify on upgrade)
     // Absolute mods on base TRT stats
@@ -153,16 +153,22 @@ public class LightTRT : AtkTower
     // Lazer specific fields
     public float lazerReach;
 
+    private Sound sfx;
 
     // Start is called before the first frame update
     void Start()
     {
         // Setup the Tower; setting the firingCD doesn't really matter
         StandardStart();
+        lastPlacedTime = Time.time;
+        firstPlacement = false;
+        SelectLight.checkReady = true;
 
         // Setup the Lazer
         ReworkedLazer = Instantiate(Projectile);
         LazerScript = ReworkedLazer.GetComponent<ReworkedLazer>();
+
+        sfx = FindObjectOfType<AudioManager>().GetSound("Light");
 
         LazerScript.dmg = ProjDmg();
         LazerScript.center = towerPos;
@@ -178,8 +184,12 @@ public class LightTRT : AtkTower
         if (target != null) {   // If a target exists
             LookAtEnemy(target);
             LazerScript.TurnOn(target);
+            if (sfx.source != null && !sfx.source.isPlaying)
+                sfx.source.PlayOneShot(sfx.clip);
         } else {   // If a target doesn't exist
             LazerScript.TurnOff();
+            if (sfx.source != null && sfx.source.isPlaying)
+                sfx.source.Stop();
         }
     }
 

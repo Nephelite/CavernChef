@@ -120,4 +120,47 @@ public static class SaveSystem
             return new Settings(1f, 1f, true);
         }
     }
+
+    public static Settings LoadAnySetting()
+    {
+        string path = " ";
+        int i = 1;
+        while (i < 4 && !File.Exists(path))
+        {
+            path = Application.persistentDataPath + "/file" + i + ".set";
+            i++;
+        }
+
+        if (File.Exists(path))
+        {
+            Debug.Log(path);
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            Settings file = formatter.Deserialize(stream) as Settings;
+            stream.Close();
+            return file;
+        }
+        else
+        {
+            Debug.Log("No previous settings in any file");
+            return new Settings(1f, 1f, true);
+        }
+    }
+
+    public static void ResetAllData()
+    {
+        DelFirstView();
+        for (int i = 0; i < 4; i++)
+        {
+            string pathRun = Application.persistentDataPath + "/file" + i + ".run";
+            string pathAlmanac = Application.persistentDataPath + "/file" + i + ".alm";
+            string pathSettings = Application.persistentDataPath + "/file" + i + ".set";
+            if (File.Exists(pathRun))
+                File.Delete(pathRun);
+            if (File.Exists(pathAlmanac))
+                File.Delete(pathAlmanac);
+            if (File.Exists(pathSettings))
+                File.Delete(pathSettings);
+        }
+    }
 }

@@ -24,8 +24,6 @@ public class ReworkedLazer : Projectile
     internal float reach;         // Half the width of the lazer
     internal bool on;             // Is it on?
 
-    
-
     public bool IsOn() {
         return this.on;
     }
@@ -81,7 +79,8 @@ public class ReworkedLazer : Projectile
             List<Enemy> toHit = GlobalVariables.enemyList.LineCasualties(startPos, endPos, reach);
             for (int i = 0; i < toHit.Count; i++) {
                 Enemy currEnemy = toHit[i];
-                currEnemy.status.lightDmg(dmg);
+                float timeFrac = Time.deltaTime / 1;
+                currEnemy.status.lightDmg(dmg * timeFrac);
             }
         }
         // Else, nothing to do

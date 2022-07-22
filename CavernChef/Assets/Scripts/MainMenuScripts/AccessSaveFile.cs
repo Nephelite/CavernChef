@@ -11,4 +11,9 @@ public class AccessSaveFile : MonoBehaviour
         GlobalVariables.SaveFileID = saveID;
         RunManager.loadFile();
     }
+
+    public void resetAll()
+    {
+        SaveSystem.ResetAllData();
+    }
 }

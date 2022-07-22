@@ -3383,11 +3383,11 @@ MonoBehaviour:
   entry: {fileID: 5134305957202709094, guid: aa07f256c2858234da76f32de47b6e40, type: 3}
   ID: 4
   type: 0
-  entryDescription: 'Cost: 300 RP
+  entryDescription: 'Cost: 150 RP
 
     Cooldown: 10 seconds
 
-    Damage: 10 per second
+    Damage: 7  per second
 
     Attack
     Interval: ???

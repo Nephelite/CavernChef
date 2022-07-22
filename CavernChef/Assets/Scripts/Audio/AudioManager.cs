@@ -56,6 +56,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public Sound Clone(Sound sound)
+    {
+        if (sound != null)
+        {
+            Sound clone = new Sound();
+            clone.name = sound.name;
+            clone.volume = sound.volume;
+            clone.pitch = sound.pitch;
+            clone.clip = Instantiate(sound.clip) as AudioClip;
+            clone.source = gameObject.AddComponent<AudioSource>();
+            clone.source.clip = clone.clip;
+            clone.source.volume = sound.volume;
+            clone.source.pitch = sound.pitch;
+            clone.source.outputAudioMixerGroup = sound.source.outputAudioMixerGroup;
+            return clone;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     void Update()
     {
         if (!nowPlaying.source.isPlaying)
@@ -120,12 +142,23 @@ public class AudioManager : MonoBehaviour
         sound.source.PlayOneShot(sound.clip);
     }
 
-    public void PlayLoop(string name)
+    public Sound PlayLoop(string name)
     {
-        Sound sound = soundEffects.Find(s => s.name == name);
+        Sound sound = Clone(soundEffects.Find(s => s.name == name));
         if (!sound.source.isPlaying)
         {
             sound.source.Play();
         }
+        return sound;
+    }
+
+    public Sound GetSound(string name)
+    {
+        return Clone(soundEffects.Find(s => s.name == name));
+    }
+
+    public void StopSFX(Sound sfx)
+    {
+        sfx.source.Stop();
     }
 }

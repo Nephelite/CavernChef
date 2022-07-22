@@ -66,7 +66,7 @@ MonoBehaviour:
     pitch: 0.5
     source: {fileID: 0}
   - name: Light
-    clip: {fileID: 8300000, guid: 01310503ae980f24e9eca180c03e7b1e, type: 3}
+    clip: {fileID: 8300000, guid: 586f33e10e93b4c4a867acee6ec3d5e4, type: 3}
     volume: 0.1
     pitch: 0.5
     source: {fileID: 0}

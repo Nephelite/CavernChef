@@ -421,3 +421,9 @@ A fully functional settings page to adjust music and volume separately, and a to
 Reworked LightTRT to continuously render a line. In the process, a new Utility class was created and a new method in the EnemyList class was added, among maybe some other things.
 While testing, saw that the fireball wasn't being rotated and quickly added in the missing line of code.
 - Bryce (9 hrs)
+
+22/7:
+Added a build factory reset button to completely reset the game to factory settings.
+Addded Light TRT sound effects.
+Changed the Light TRT's damage calculations to make it scale properly with time.
+- Kevin (2 hrs)
