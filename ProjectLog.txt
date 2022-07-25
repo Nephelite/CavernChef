@@ -432,3 +432,7 @@ Changed the Light TRT's damage calculations to make it scale properly with time.
 Found a cute explosion sprite sheet for fireball impacts.
 Incorporated the fireball sprite sheet created long ago and the explosion sprite sheet into the fireball.
 - Bryce (4 hrs)
+
+23/7 - 24/7:
+Created waterball splash sprite and put into the art folder in unity
+- Bryce (3 hrs)
